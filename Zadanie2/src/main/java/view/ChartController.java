@@ -7,6 +7,11 @@ import javafx.fxml.Initializable;
 import javafx.scene.chart.*;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import signals.Signal;
 
 import java.net.URL;
@@ -23,6 +28,17 @@ public class ChartController implements Initializable {
     Tab histogram;
     @FXML
     TabPane tabPane;
+    @FXML
+    TextField samplingFrequencyText;
+    @FXML
+    Pane samp;
+    @FXML
+    Pane rec;
+    @FXML
+    GridPane aaa;
+    @FXML
+    Tab quantisationTab;
+
 
     private  double binWidth=0;
 
@@ -82,7 +98,7 @@ public class ChartController implements Initializable {
 
         final NumberAxis xAxis = new NumberAxis();
         final NumberAxis yAxis = new NumberAxis();
-        xAxis.setLabel("time");
+        xAxis.setLabel("czas");
         //creating the chart
         final LineChart<Number,Number> lineChart =
                 new LineChart<Number,Number>(xAxis,yAxis);
@@ -134,6 +150,77 @@ public class ChartController implements Initializable {
         histogram.setContent(barChart);
     }
 
+    public void createSamplingChart(){
+
+        final NumberAxis xAxis = new NumberAxis();
+        final NumberAxis yAxis = new NumberAxis();
+        xAxis.setLabel("czas");
+        //creating the chart
+        final LineChart<Number,Number> lineChart =
+                new LineChart<Number,Number>(xAxis,yAxis);
+
+        lineChart.setCreateSymbols(false);
+        lineChart.setLegendVisible(false);
+        //defining a series
+        XYChart.Series series = new XYChart.Series();
+        //populating the series with data
+        for(int i=0;i<signal.getY().size();i++){
+            series.getData().add(new XYChart.Data(signal.getX().get(i), signal.getY().get(i)));
+        }
+
+        lineChart.getData().add(series);
+
+        lineChart.prefWidthProperty().bind(samp.widthProperty());
+        lineChart.prefHeightProperty().bind(samp.heightProperty());
+        samp.getChildren().add(lineChart);
+    }
+    public void createQuantisationChart(){
+        final NumberAxis xAxis = new NumberAxis();
+        final NumberAxis yAxis = new NumberAxis();
+        xAxis.setLabel("czas");
+        //creating the chart
+        final LineChart<Number,Number> lineChart =
+                new LineChart<Number,Number>(xAxis,yAxis);
+
+        lineChart.setCreateSymbols(false);
+        lineChart.setLegendVisible(false);
+        //defining a series
+        XYChart.Series series = new XYChart.Series();
+        //populating the series with data
+        for(int i=0;i<signal.getY().size();i++){
+            series.getData().add(new XYChart.Data(signal.getX().get(i), signal.getY().get(i)));
+        }
+
+        lineChart.getData().add(series);
+
+        quantisationTab.setContent(lineChart);
+    }
+
+public void createReconstructionChart(){
+    final NumberAxis xAxis = new NumberAxis();
+    final NumberAxis yAxis = new NumberAxis();
+    xAxis.setLabel("czas");
+    //creating the chart
+    final LineChart<Number,Number> lineChart =
+            new LineChart<Number,Number>(xAxis,yAxis);
+
+    lineChart.setCreateSymbols(false);
+    lineChart.setLegendVisible(false);
+    //defining a series
+    XYChart.Series series = new XYChart.Series();
+    //populating the series with data
+    for(int i=0;i<signal.getY().size();i++){
+        series.getData().add(new XYChart.Data(signal.getX().get(i), signal.getY().get(i)));
+    }
+
+    lineChart.getData().add(series);
+
+    lineChart.prefWidthProperty().bind(rec.widthProperty());
+    lineChart.prefHeightProperty().bind(rec.heightProperty());
+    rec.getChildren().add(lineChart);
+
+}
+
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
 
@@ -148,7 +235,10 @@ public class ChartController implements Initializable {
             createDotChart(tab);
        }
        createHistogram();
-       
+       createSamplingChart();
+       createQuantisationChart();
+        createReconstructionChart();
+
     }
 
 }

@@ -99,28 +99,13 @@
       <file leaf-file-name="chart.fxml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/chart.fxml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1683">
-              <caret line="99" column="16" lean-forward="false" selection-start-line="99" selection-start-column="16" selection-end-line="99" selection-end-column="16" />
+            <state relative-caret-position="1292">
+              <caret line="79" column="16" lean-forward="false" selection-start-line="79" selection-start-column="16" selection-end-line="79" selection-end-column="16" />
               <folding />
             </state>
           </provider>
           <provider editor-type-id="JavaFX-Scene-Builder">
             <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ChartController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/view/ChartController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="680">
-              <caret line="119" column="8" lean-forward="false" selection-start-line="119" selection-start-column="8" selection-end-line="121" selection-end-column="39" />
-              <folding>
-                <element signature="method#calculateWeights#0;class#ChartController#0" expanded="false" />
-                <element signature="method#findBin#0;class#ChartController#0" expanded="false" />
-                <element signature="method#createDotChart#0;class#ChartController#0" expanded="false" />
-                <element signature="method#createLineChart#0;class#ChartController#0" expanded="false" />
-              </folding>
-            </state>
           </provider>
         </entry>
       </file>
@@ -134,21 +119,26 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="ChartController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/view/ChartController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="237">
+              <caret line="158" column="50" lean-forward="true" selection-start-line="158" selection-start-column="50" selection-end-line="158" selection-end-column="50" />
+              <folding>
+                <element signature="method#calculateWeights#0;class#ChartController#0" expanded="false" />
+                <element signature="method#findBin#0;class#ChartController#0" expanded="false" />
+                <element signature="method#createDotChart#0;class#ChartController#0" expanded="false" />
+                <element signature="method#createLineChart#0;class#ChartController#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="SignalType.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/application/SignalType.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="289">
               <caret line="17" column="3" lean-forward="false" selection-start-line="17" selection-start-column="3" selection-end-line="25" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SignalsCalculator.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/signals/SignalsCalculator.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2992">
-              <caret line="178" column="21" lean-forward="false" selection-start-line="178" selection-start-column="21" selection-end-line="178" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -164,27 +154,17 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SignalQuantizaton.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/signals/SignalQuantizaton.java">
+      <file leaf-file-name="SignalOperations.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/signals/SignalOperations.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="30" lean-forward="false" selection-start-line="2" selection-start-column="30" selection-end-line="2" selection-end-column="30" />
+            <state relative-caret-position="357">
+              <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SignalReconstruction.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/signals/SignalReconstruction.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="33" lean-forward="false" selection-start-line="2" selection-start-column="33" selection-end-line="2" selection-end-column="33" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ReconstructionType.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ReconstructionType.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/application/ReconstructionType.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="272">
@@ -203,8 +183,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="FxmlFile" />
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -259,7 +239,6 @@
         <option value="$PROJECT_DIR$/src/main/java/main/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/application/States.java" />
         <option value="$PROJECT_DIR$/src/main/resources/menu.fxml" />
-        <option value="$PROJECT_DIR$/src/main/java/view/ChartController.java" />
         <option value="$PROJECT_DIR$/src/main/java/signals/Signal.java" />
         <option value="$PROJECT_DIR$/src/main/java/application/Loader.java" />
         <option value="$PROJECT_DIR$/src/main/java/view/Controller.java" />
@@ -268,6 +247,9 @@
         <option value="$PROJECT_DIR$/src/main/java/application/SignalType.java" />
         <option value="$PROJECT_DIR$/src/main/java/application/QuantizationType.java" />
         <option value="$PROJECT_DIR$/src/main/java/application/ReconstructionType.java" />
+        <option value="$PROJECT_DIR$/src/main/java/signals/SignalQuantizaton.java" />
+        <option value="$PROJECT_DIR$/src/main/java/view/ChartController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/signals/SignalOperations.java" />
       </list>
     </option>
   </component>
@@ -909,12 +891,12 @@
       <workItem from="1523630633478" duration="773000" />
       <workItem from="1523631869103" duration="21000" />
       <workItem from="1523631900521" duration="2287000" />
-      <workItem from="1523698479238" duration="1186000" />
+      <workItem from="1523698479238" duration="7762000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="252289000" />
+    <option name="totallyTimeSpent" value="258865000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -980,7 +962,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="59" />
+      <option name="time" value="61" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -989,27 +971,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/view/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding>
-            <element signature="method#readFile#0;class#Controller#0" expanded="false" />
-            <element signature="method#loadSecondSignal#0;class#Controller#0" expanded="false" />
-            <element signature="method#saveFile#0;class#Controller#0" expanded="false" />
-            <element signature="method#fillTextFields#0;class#Controller#0" expanded="false" />
-            <element signature="method#choose#0;class#Controller#0" expanded="false" />
-            <element signature="method#setParameters#0;class#Controller#0" expanded="false" />
-            <element signature="method#handleAddSignalsButton#0;class#Controller#0" expanded="false" />
-            <element signature="method#handleSubtractSignalsButton#0;class#Controller#0" expanded="false" />
-            <element signature="method#handleMultiplySignalsButton#0;class#Controller#0" expanded="false" />
-            <element signature="method#handleDivideSignalsButton#0;class#Controller#0" expanded="false" />
-            <element signature="class#18502:19182" expanded="false" />
-            <element signature="method#initialize#0;class#Controller#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/main/Program.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/signals/Signal.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1201,19 +1162,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/view/ChartController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
-          <caret line="119" column="8" lean-forward="false" selection-start-line="119" selection-start-column="8" selection-end-line="121" selection-end-column="39" />
-          <folding>
-            <element signature="method#calculateWeights#0;class#ChartController#0" expanded="false" />
-            <element signature="method#findBin#0;class#ChartController#0" expanded="false" />
-            <element signature="method#createDotChart#0;class#ChartController#0" expanded="false" />
-            <element signature="method#createLineChart#0;class#ChartController#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/signals/SignalsCalculator.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2992">
@@ -1256,8 +1204,8 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1683">
-          <caret line="99" column="16" lean-forward="false" selection-start-line="99" selection-start-column="16" selection-end-line="99" selection-end-column="16" />
+        <state relative-caret-position="1292">
+          <caret line="79" column="16" lean-forward="false" selection-start-line="79" selection-start-column="16" selection-end-line="79" selection-end-column="16" />
           <folding />
         </state>
       </provider>
@@ -1274,14 +1222,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/signals/SignalQuantizaton.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="30" lean-forward="false" selection-start-line="2" selection-start-column="30" selection-end-line="2" selection-end-column="30" />
           <folding />
         </state>
       </provider>
@@ -1310,6 +1250,35 @@
             <element signature="e#225#226#0" expanded="true" />
             <element signature="e#259#260#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/signals/SignalQuantizaton.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/view/ChartController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="237">
+          <caret line="158" column="50" lean-forward="true" selection-start-line="158" selection-start-column="50" selection-end-line="158" selection-end-column="50" />
+          <folding>
+            <element signature="method#calculateWeights#0;class#ChartController#0" expanded="false" />
+            <element signature="method#findBin#0;class#ChartController#0" expanded="false" />
+            <element signature="method#createDotChart#0;class#ChartController#0" expanded="false" />
+            <element signature="method#createLineChart#0;class#ChartController#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/signals/SignalOperations.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

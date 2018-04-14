@@ -9,6 +9,7 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 
 <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="547.0" prefWidth="828.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ChartController">
@@ -25,65 +26,43 @@
           <Tab fx:id="histogram" text="Histogram" />
             <Tab text="A/C próbkowanie">
                <content>
-                  <GridPane>
+                  <GridPane fx:id="aaa">
                     <columnConstraints>
                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                     </columnConstraints>
                     <rowConstraints>
-                      <RowConstraints maxHeight="416.0" minHeight="10.0" prefHeight="416.0" vgrow="SOMETIMES" />
-                      <RowConstraints maxHeight="251.0" minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+                      <RowConstraints percentHeight="92.0" prefHeight="449.0" vgrow="SOMETIMES" />
+                      <RowConstraints percentHeight="8.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="1">
+                        <HBox alignment="TOP_RIGHT" GridPane.rowIndex="1">
                            <children>
                               <Label text="fs(Hz)" />
-                              <TextField>
+                              <TextField fx:id="samplingFrequencyText">
                                  <HBox.margin>
                                     <Insets left="10.0" right="40.0" />
                                  </HBox.margin>
                               </TextField>
                            </children>
                         </HBox>
+                        <Pane fx:id="samp" />
                      </children>
                   </GridPane>
                </content>
             </Tab>
-            <Tab text="A/C kwantyzacja">
-               <content>
-                  <GridPane>
-                    <columnConstraints>
-                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                    </columnConstraints>
-                    <rowConstraints>
-                      <RowConstraints maxHeight="415.0" minHeight="10.0" prefHeight="415.0" vgrow="SOMETIMES" />
-                      <RowConstraints maxHeight="254.0" minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
-                    </rowConstraints>
-                     <children>
-                        <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="1">
-                           <children>
-                              <ChoiceBox prefWidth="400.0">
-                                 <HBox.margin>
-                                    <Insets right="20.0" />
-                                 </HBox.margin>
-                              </ChoiceBox>
-                           </children>
-                        </HBox>
-                     </children>
-                  </GridPane>
-               </content>
-            </Tab>
+            <Tab fx:id="quantisationTab" text="A/C kwantyzacja" />
             <Tab text="C/A rekonstrukcja">
                <content>
-                  <GridPane>
+                  <GridPane alignment="CENTER">
                     <columnConstraints>
                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                     </columnConstraints>
                     <rowConstraints>
-                      <RowConstraints maxHeight="468.0" minHeight="10.0" prefHeight="423.0" vgrow="SOMETIMES" />
-                      <RowConstraints maxHeight="254.0" minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+                      <RowConstraints percentHeight="92.0" vgrow="SOMETIMES" />
+                      <RowConstraints percentHeight="8.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="1">
+                        <HBox alignment="TOP_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="1">
                            <children>
                               <ChoiceBox prefHeight="25.0" prefWidth="400.0">
                                  <HBox.margin>
@@ -92,6 +71,7 @@
                               </ChoiceBox>
                            </children>
                         </HBox>
+                        <Pane fx:id="rec" prefHeight="200.0" prefWidth="200.0" />
                      </children>
                   </GridPane>
                </content>
