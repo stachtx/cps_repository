@@ -76,7 +76,7 @@
       <file leaf-file-name="Controller.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/view/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1853">
+            <state relative-caret-position="17">
               <caret line="359" column="0" lean-forward="false" selection-start-line="359" selection-start-column="0" selection-end-line="359" selection-end-column="0" />
               <folding>
                 <element signature="method#readFile#0;class#Controller#0" expanded="false" />
@@ -100,7 +100,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/resources/chart.fxml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1292">
-              <caret line="79" column="16" lean-forward="false" selection-start-line="79" selection-start-column="16" selection-end-line="79" selection-end-column="16" />
+              <caret line="118" column="16" lean-forward="false" selection-start-line="118" selection-start-column="16" selection-end-line="118" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -122,13 +122,44 @@
       <file leaf-file-name="ChartController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/view/ChartController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="237">
-              <caret line="158" column="50" lean-forward="true" selection-start-line="158" selection-start-column="50" selection-end-line="158" selection-end-column="50" />
+            <state relative-caret-position="731">
+              <caret line="255" column="7" lean-forward="false" selection-start-line="255" selection-start-column="7" selection-end-line="255" selection-end-column="7" />
               <folding>
                 <element signature="method#calculateWeights#0;class#ChartController#0" expanded="false" />
                 <element signature="method#findBin#0;class#ChartController#0" expanded="false" />
                 <element signature="method#createDotChart#0;class#ChartController#0" expanded="false" />
                 <element signature="method#createLineChart#0;class#ChartController#0" expanded="false" />
+                <element signature="method#createHistogram#0;class#ChartController#0" expanded="false" />
+                <element signature="e#4773#4788#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Signal.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/signals/Signal.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="135" column="0" lean-forward="true" selection-start-line="96" selection-start-column="3" selection-end-line="149" selection-end-column="5" />
+              <folding>
+                <element signature="method#setFrequency#0;class#Signal#0" expanded="false" />
+                <element signature="method#generateSignal#0;class#Signal#0" expanded="false" />
+                <element signature="method#noiseUniDis#0;class#Signal#0" expanded="false" />
+                <element signature="method#noiseGauss#0;class#Signal#0" expanded="false" />
+                <element signature="method#sin#0;class#Signal#0" expanded="false" />
+                <element signature="method#sinOneHalf#0;class#Signal#0" expanded="false" />
+                <element signature="method#sinTwoHalf#0;class#Signal#0" expanded="false" />
+                <element signature="method#rec#0;class#Signal#0" expanded="false" />
+                <element signature="method#recSym#0;class#Signal#0" expanded="false" />
+                <element signature="method#tri#0;class#Signal#0" expanded="false" />
+                <element signature="method#entityChange#0;class#Signal#0" expanded="false" />
+                <element signature="method#entityImpulse#0;class#Signal#0" expanded="false" />
+                <element signature="method#noiseImpulse#0;class#Signal#0" expanded="false" />
+                <element signature="method#average#0;class#Signal#0" expanded="false" />
+                <element signature="method#absoluteMean#0;class#Signal#0" expanded="false" />
+                <element signature="method#averagePower#0;class#Signal#0" expanded="false" />
+                <element signature="method#effectiveValue#0;class#Signal#0" expanded="false" />
+                <element signature="method#variance#0;class#Signal#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -144,22 +175,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="parameters.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/parameters.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="SignalOperations.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/signals/SignalOperations.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="0">
+              <caret line="12" column="43" lean-forward="true" selection-start-line="12" selection-start-column="43" selection-end-line="12" selection-end-column="43" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -891,12 +914,12 @@
       <workItem from="1523630633478" duration="773000" />
       <workItem from="1523631869103" duration="21000" />
       <workItem from="1523631900521" duration="2287000" />
-      <workItem from="1523698479238" duration="7762000" />
+      <workItem from="1523698479238" duration="28263000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="258865000" />
+    <option name="totallyTimeSpent" value="279366000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -920,7 +943,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32899022" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.09018143" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23903508" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23903508" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32899022" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1135,33 +1158,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/signals/Signal.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="19" column="26" lean-forward="false" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="26" />
-          <folding>
-            <element signature="method#setFrequency#0;class#Signal#0" expanded="false" />
-            <element signature="method#generateSignal#0;class#Signal#0" expanded="false" />
-            <element signature="method#noiseUniDis#0;class#Signal#0" expanded="false" />
-            <element signature="method#noiseGauss#0;class#Signal#0" expanded="false" />
-            <element signature="method#sin#0;class#Signal#0" expanded="false" />
-            <element signature="method#sinOneHalf#0;class#Signal#0" expanded="false" />
-            <element signature="method#sinTwoHalf#0;class#Signal#0" expanded="false" />
-            <element signature="method#rec#0;class#Signal#0" expanded="false" />
-            <element signature="method#recSym#0;class#Signal#0" expanded="false" />
-            <element signature="method#tri#0;class#Signal#0" expanded="false" />
-            <element signature="method#entityChange#0;class#Signal#0" expanded="false" />
-            <element signature="method#entityImpulse#0;class#Signal#0" expanded="false" />
-            <element signature="method#noiseImpulse#0;class#Signal#0" expanded="false" />
-            <element signature="method#average#0;class#Signal#0" expanded="false" />
-            <element signature="method#absoluteMean#0;class#Signal#0" expanded="false" />
-            <element signature="method#averagePower#0;class#Signal#0" expanded="false" />
-            <element signature="method#effectiveValue#0;class#Signal#0" expanded="false" />
-            <element signature="method#variance#0;class#Signal#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/signals/SignalsCalculator.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2992">
@@ -1178,34 +1174,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/view/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1853">
-          <caret line="359" column="0" lean-forward="false" selection-start-line="359" selection-start-column="0" selection-end-line="359" selection-end-column="0" />
-          <folding>
-            <element signature="method#readFile#0;class#Controller#0" expanded="false" />
-            <element signature="method#loadSecondSignal#0;class#Controller#0" expanded="false" />
-            <element signature="method#saveFile#0;class#Controller#0" expanded="false" />
-            <element signature="method#fillTextFields#0;class#Controller#0" expanded="false" />
-            <element signature="method#choose#0;class#Controller#0" expanded="false" />
-            <element signature="method#setParameters#0;class#Controller#0" expanded="false" />
-            <element signature="method#handleAddSignalsButton#0;class#Controller#0" expanded="false" />
-            <element signature="method#handleSubtractSignalsButton#0;class#Controller#0" expanded="false" />
-            <element signature="method#handleMultiplySignalsButton#0;class#Controller#0" expanded="false" />
-            <element signature="method#handleDivideSignalsButton#0;class#Controller#0" expanded="false" />
-            <element signature="class#18502:19182" expanded="false" />
-            <element signature="method#initialize#0;class#Controller#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/chart.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1292">
-          <caret line="79" column="16" lean-forward="false" selection-start-line="79" selection-start-column="16" selection-end-line="79" selection-end-column="16" />
+          <caret line="118" column="16" lean-forward="false" selection-start-line="118" selection-start-column="16" selection-end-line="118" selection-end-column="16" />
           <folding />
         </state>
       </provider>
@@ -1261,24 +1236,76 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/signals/Signal.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="135" column="0" lean-forward="true" selection-start-line="96" selection-start-column="3" selection-end-line="149" selection-end-column="5" />
+          <folding>
+            <element signature="method#setFrequency#0;class#Signal#0" expanded="false" />
+            <element signature="method#generateSignal#0;class#Signal#0" expanded="false" />
+            <element signature="method#noiseUniDis#0;class#Signal#0" expanded="false" />
+            <element signature="method#noiseGauss#0;class#Signal#0" expanded="false" />
+            <element signature="method#sin#0;class#Signal#0" expanded="false" />
+            <element signature="method#sinOneHalf#0;class#Signal#0" expanded="false" />
+            <element signature="method#sinTwoHalf#0;class#Signal#0" expanded="false" />
+            <element signature="method#rec#0;class#Signal#0" expanded="false" />
+            <element signature="method#recSym#0;class#Signal#0" expanded="false" />
+            <element signature="method#tri#0;class#Signal#0" expanded="false" />
+            <element signature="method#entityChange#0;class#Signal#0" expanded="false" />
+            <element signature="method#entityImpulse#0;class#Signal#0" expanded="false" />
+            <element signature="method#noiseImpulse#0;class#Signal#0" expanded="false" />
+            <element signature="method#average#0;class#Signal#0" expanded="false" />
+            <element signature="method#absoluteMean#0;class#Signal#0" expanded="false" />
+            <element signature="method#averagePower#0;class#Signal#0" expanded="false" />
+            <element signature="method#effectiveValue#0;class#Signal#0" expanded="false" />
+            <element signature="method#variance#0;class#Signal#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/view/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="359" column="0" lean-forward="false" selection-start-line="359" selection-start-column="0" selection-end-line="359" selection-end-column="0" />
+          <folding>
+            <element signature="method#readFile#0;class#Controller#0" expanded="false" />
+            <element signature="method#loadSecondSignal#0;class#Controller#0" expanded="false" />
+            <element signature="method#saveFile#0;class#Controller#0" expanded="false" />
+            <element signature="method#fillTextFields#0;class#Controller#0" expanded="false" />
+            <element signature="method#choose#0;class#Controller#0" expanded="false" />
+            <element signature="method#setParameters#0;class#Controller#0" expanded="false" />
+            <element signature="method#handleAddSignalsButton#0;class#Controller#0" expanded="false" />
+            <element signature="method#handleSubtractSignalsButton#0;class#Controller#0" expanded="false" />
+            <element signature="method#handleMultiplySignalsButton#0;class#Controller#0" expanded="false" />
+            <element signature="method#handleDivideSignalsButton#0;class#Controller#0" expanded="false" />
+            <element signature="class#18502:19182" expanded="false" />
+            <element signature="method#initialize#0;class#Controller#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/view/ChartController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
-          <caret line="158" column="50" lean-forward="true" selection-start-line="158" selection-start-column="50" selection-end-line="158" selection-end-column="50" />
+        <state relative-caret-position="731">
+          <caret line="255" column="7" lean-forward="false" selection-start-line="255" selection-start-column="7" selection-end-line="255" selection-end-column="7" />
           <folding>
             <element signature="method#calculateWeights#0;class#ChartController#0" expanded="false" />
             <element signature="method#findBin#0;class#ChartController#0" expanded="false" />
             <element signature="method#createDotChart#0;class#ChartController#0" expanded="false" />
             <element signature="method#createLineChart#0;class#ChartController#0" expanded="false" />
+            <element signature="method#createHistogram#0;class#ChartController#0" expanded="false" />
+            <element signature="e#4773#4788#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/signals/SignalOperations.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="0">
+          <caret line="12" column="43" lean-forward="true" selection-start-line="12" selection-start-column="43" selection-end-line="12" selection-end-column="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

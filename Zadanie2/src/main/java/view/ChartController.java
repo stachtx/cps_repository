@@ -13,6 +13,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import signals.Signal;
+import signals.SignalOperations;
 
 import java.net.URL;
 import java.util.*;
@@ -34,6 +35,8 @@ public class ChartController implements Initializable {
     Pane samp;
     @FXML
     Pane rec;
+    @FXML
+    Pane quant;
     @FXML
     GridPane aaa;
     @FXML
@@ -113,9 +116,8 @@ public class ChartController implements Initializable {
         }
 
         lineChart.getData().add(series);
-
+        samp.getChildren().add(lineChart);
         chart.setContent(lineChart);
-                
 
     }
 
@@ -152,6 +154,7 @@ public class ChartController implements Initializable {
 
     public void createSamplingChart(){
 
+        Signal sampledSignal= SignalOperations.sampling(signal, Double.valueOf(samplingFrequencyText.getText()));
         final NumberAxis xAxis = new NumberAxis();
         final NumberAxis yAxis = new NumberAxis();
         xAxis.setLabel("czas");
@@ -163,18 +166,25 @@ public class ChartController implements Initializable {
         lineChart.setLegendVisible(false);
         //defining a series
         XYChart.Series series = new XYChart.Series();
+        XYChart.Series secSeries= new XYChart.Series();
         //populating the series with data
         for(int i=0;i<signal.getY().size();i++){
             series.getData().add(new XYChart.Data(signal.getX().get(i), signal.getY().get(i)));
         }
-
+        for(int i=0;i<sampledSignal.getY().size();i++){
+            secSeries.getData().add(new XYChart.Data(sampledSignal.getX().get(i), sampledSignal.getY().get(i)));
+        }
         lineChart.getData().add(series);
+        lineChart.getData().add(secSeries);
 
         lineChart.prefWidthProperty().bind(samp.widthProperty());
         lineChart.prefHeightProperty().bind(samp.heightProperty());
+        samp.getChildren().clear();
         samp.getChildren().add(lineChart);
     }
+
     public void createQuantisationChart(){
+        Signal quantisedSignal=SignalOperations.quantize(signal,16);
         final NumberAxis xAxis = new NumberAxis();
         final NumberAxis yAxis = new NumberAxis();
         xAxis.setLabel("czas");
@@ -186,14 +196,21 @@ public class ChartController implements Initializable {
         lineChart.setLegendVisible(false);
         //defining a series
         XYChart.Series series = new XYChart.Series();
+        XYChart.Series secSeries= new XYChart.Series();
         //populating the series with data
         for(int i=0;i<signal.getY().size();i++){
             series.getData().add(new XYChart.Data(signal.getX().get(i), signal.getY().get(i)));
         }
-
+        for(int i=0;i<quantisedSignal.getY().size();i++){
+            secSeries.getData().add(new XYChart.Data(quantisedSignal.getX().get(i), quantisedSignal.getY().get(i)));
+        }
         lineChart.getData().add(series);
+        lineChart.getData().add(secSeries);
 
-        quantisationTab.setContent(lineChart);
+        lineChart.prefWidthProperty().bind(quant.widthProperty());
+        lineChart.prefHeightProperty().bind(quant.heightProperty());
+        quant.getChildren().clear();
+        quant.getChildren().add(lineChart);
     }
 
 public void createReconstructionChart(){
@@ -235,10 +252,10 @@ public void createReconstructionChart(){
             createDotChart(tab);
        }
        createHistogram();
-       createSamplingChart();
+
        createQuantisationChart();
         createReconstructionChart();
-
+        samplingFrequencyText.setText(String.valueOf(1.0));
     }
 
 }
