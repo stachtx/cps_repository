@@ -1,7 +1,12 @@
 package signals;
 
 import application.ReconstructionType;
-import application.SignalType;
+import com.google.common.collect.Ordering;
+
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public   class SignalOperations {
 
@@ -18,23 +23,19 @@ public static Signal sampling(Signal signal, double frequency){
 public static Signal quantize(Signal signal,int bits){
 
     Signal quantizedSignal=copy(signal);
-    quantizedSignal.generateSignal();
-    double q=quantizedSignal.getLastTime()/Math.pow(2,bits);
-    double r=quantizedSignal.getInitialTime()+quantizedSignal.getLastTime();
-    double sum=0.0;
-    int amount=0;
-    double avg;
+    List<Double> levels =new ArrayList<Double>();
+    double q=signal.getAmplitude()*2.0/Math.pow(2,bits);
+    for(int i=0; i<Math.pow(2,bits);i++){
+        levels.add(-signal.getAmplitude()+i*q);
+    }
 
-    for(double i=0;i<r;i=i+q){
-        for(int j=0; quantizedSignal.getX().get(j)<i;j++){
-            sum+=quantizedSignal.getY().get(j);
-            amount++;
-        }
-        avg=sum/amount;
-        for(int j=0; quantizedSignal.getX().get(j)<i;j++){
+    for(int i=0;i<signal.getX().size();i++){
+        quantizedSignal.getX().add(signal.getX().get(i));
 
-            quantizedSignal.getY().set(j,avg);
-        }
+            final int ii=i;
+            Collections.sort(levels, Ordering.natural().onResultOf(p-> Math.abs(signal.getY().get(ii)-p)));
+            quantizedSignal.getY().add(levels.get(0));
+
     }
 
 return quantizedSignal;
@@ -43,14 +44,51 @@ return quantizedSignal;
 public static Signal reconstruct(Signal signal, ReconstructionType type){
 
     switch(type){
+        case sinc:
+            return sincReconstruction(signal);
+
+        case zeroExploration:
+            return zeroExploration();
+
+        default:
+            return null;
+    }
 
 
+}
+public static double sinc(double t){
+
+    if(t==0){
+        return 1.0;
+    }
+    else {
+        return Math.sin(t)/t;
+    }
+
+}
+
+private static Signal sincReconstruction(Signal signal){
+    Signal reconstructedSignal= new Signal();
+    double sincSum;
+    for (Double x: signal.getX()){
+        sincSum=0.0;
+        for(Double y: signal.getY()){
 
 
+            sincSum+=y*sinc(x*signal.getFrequency()-signal.getY().indexOf(y));
+        }
+
+        reconstructedSignal.getY().add(sincSum);
 
     }
 
-return new Signal();
+
+    return new Signal();
+}
+
+private static Signal zeroExploration(){
+
+    return new Signal();
 }
 
 public static Signal copy(Signal signal) {

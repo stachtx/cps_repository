@@ -1,10 +1,13 @@
 package view;
 
+import application.ReconstructionType;
 import application.SignalType;
 import application.States;
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.*;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.TextField;
@@ -32,6 +35,8 @@ public class ChartController implements Initializable {
     @FXML
     TextField samplingFrequencyText;
     @FXML
+    TextField quantText;
+    @FXML
     Pane samp;
     @FXML
     Pane rec;
@@ -41,8 +46,10 @@ public class ChartController implements Initializable {
     GridPane aaa;
     @FXML
     Tab quantisationTab;
+    @FXML
+    ChoiceBox menu;
 
-
+    private ReconstructionType type= ReconstructionType.sinc;
     private  double binWidth=0;
 
 
@@ -184,7 +191,7 @@ public class ChartController implements Initializable {
     }
 
     public void createQuantisationChart(){
-        Signal quantisedSignal=SignalOperations.quantize(signal,16);
+        Signal quantisedSignal=SignalOperations.quantize(signal, Integer.parseInt(quantText.getText()));
         final NumberAxis xAxis = new NumberAxis();
         final NumberAxis yAxis = new NumberAxis();
         xAxis.setLabel("czas");
@@ -213,7 +220,8 @@ public class ChartController implements Initializable {
         quant.getChildren().add(lineChart);
     }
 
-public void createReconstructionChart(){
+    public void createReconstructionChart(){
+    Signal reconstructedSignal= SignalOperations.reconstruct(signal, type);
     final NumberAxis xAxis = new NumberAxis();
     final NumberAxis yAxis = new NumberAxis();
     xAxis.setLabel("czas");
@@ -225,15 +233,19 @@ public void createReconstructionChart(){
     lineChart.setLegendVisible(false);
     //defining a series
     XYChart.Series series = new XYChart.Series();
+    XYChart.Series secSeries= new XYChart.Series();
     //populating the series with data
     for(int i=0;i<signal.getY().size();i++){
         series.getData().add(new XYChart.Data(signal.getX().get(i), signal.getY().get(i)));
     }
-
+    for(int i=0;i<reconstructedSignal.getY().size();i++){
+        secSeries.getData().add(new XYChart.Data(reconstructedSignal.getX().get(i), reconstructedSignal.getY().get(i)));
+    }
     lineChart.getData().add(series);
-
+    lineChart.getData().add(secSeries);
     lineChart.prefWidthProperty().bind(rec.widthProperty());
     lineChart.prefHeightProperty().bind(rec.heightProperty());
+    quant.getChildren().clear();
     rec.getChildren().add(lineChart);
 
 }
@@ -253,9 +265,20 @@ public void createReconstructionChart(){
        }
        createHistogram();
 
-       createQuantisationChart();
+
         createReconstructionChart();
-        samplingFrequencyText.setText(String.valueOf(1.0));
+        samplingFrequencyText.setText(String.valueOf(1));
+        quantText.setText(String.valueOf(8));
+
+        menu.setItems( FXCollections.observableArrayList( ReconstructionType.values()));
+        menu.setValue(ReconstructionType.sinc);
+        this.type=(ReconstructionType) menu.getValue();
+        createReconstructionChart();
+        menu.getSelectionModel().selectedItemProperty().addListener((obs,oldValue,newValue)->{
+            this.type=(ReconstructionType) menu.getValue();
+            createReconstructionChart();
+        });
+
     }
 
 }

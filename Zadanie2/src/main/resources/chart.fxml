@@ -75,12 +75,12 @@
                                     <Insets right="10.0" />
                                  </HBox.margin>
                               </Label>
-                              <TextField>
+                              <TextField fx:id="quantText">
                                  <HBox.margin>
                                     <Insets right="20.0" />
                                  </HBox.margin>
                               </TextField>
-                              <Button mnemonicParsing="false" onAction="#createSamplingChart" text="kwantyzacja">
+                              <Button mnemonicParsing="false" onAction="#createQuantisationChart" text="kwantyzacja">
                                  <HBox.margin>
                                     <Insets right="20.0" />
                                  </HBox.margin>
@@ -103,7 +103,7 @@
                      <children>
                         <HBox alignment="TOP_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="1">
                            <children>
-                              <ChoiceBox prefHeight="25.0" prefWidth="400.0">
+                              <ChoiceBox fx:id="menu" prefHeight="25.0" prefWidth="400.0">
                                  <HBox.margin>
                                     <Insets right="20.0" />
                                  </HBox.margin>
