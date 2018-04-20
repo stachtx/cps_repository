@@ -41,14 +41,14 @@ public   class SignalOperations {
         return quantizedSignal;
     }
 
-    public static Signal reconstruct(Signal signal, ReconstructionType type/*, double frequency*/) {
+    public static Signal reconstruct(Signal signal, ReconstructionType type) {
         double frequency=200;
         switch (type) {
             case sinc:
                 return sincReconstruction(signal);
 
             case zeroExploration:
-                return zeroExploration(signal,frequency);
+                return zeroExploration(signal);
 
             default:
                 return null;
@@ -86,10 +86,10 @@ public   class SignalOperations {
         return new Signal();
     }
 
-    private static Signal zeroExploration(Signal signal, double frequency) {
+    private static Signal zeroExploration(Signal signal) {
 
         Signal reconstructedSignal= signal;
-        Signal sampledSignal =sampling(signal,frequency);
+        Signal sampledSignal =sampling(signal,signal.getFrequency());
         List<Double>listOfX= new ArrayList<>();
         List<Double>listOfY= new ArrayList<>();
 
