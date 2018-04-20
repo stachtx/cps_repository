@@ -123,7 +123,6 @@ public class ChartController implements Initializable {
         }
 
         lineChart.getData().add(series);
-        samp.getChildren().add(lineChart);
         chart.setContent(lineChart);
 
     }
@@ -245,7 +244,7 @@ public class ChartController implements Initializable {
     lineChart.getData().add(secSeries);
     lineChart.prefWidthProperty().bind(rec.widthProperty());
     lineChart.prefHeightProperty().bind(rec.heightProperty());
-    quant.getChildren().clear();
+    rec.getChildren().clear();
     rec.getChildren().add(lineChart);
 
 }
@@ -259,6 +258,9 @@ public class ChartController implements Initializable {
 
        else{
            createLineChart();
+           lineChartPane(samp);
+           lineChartPane(rec);
+           lineChartPane(quant);
            Tab tab=new Tab("Sygnał Dyskretny");
             tabPane.getTabs().add(1,tab);
             createDotChart(tab);
@@ -266,7 +268,7 @@ public class ChartController implements Initializable {
        createHistogram();
 
 
-        createReconstructionChart();
+
         samplingFrequencyText.setText(String.valueOf(1));
         quantText.setText(String.valueOf(8));
 
@@ -281,6 +283,28 @@ public class ChartController implements Initializable {
 
     }
 
+    public void lineChartPane(Pane p){
+        final NumberAxis xAxis = new NumberAxis();
+        final NumberAxis yAxis = new NumberAxis();
+        xAxis.setLabel("czas");
+        //creating the chart
+        final LineChart<Number,Number> lineChart =
+                new LineChart<Number,Number>(xAxis,yAxis);
+        lineChart.setCreateSymbols(false);
+        lineChart.setLegendVisible(false);
+
+        //defining a series
+        XYChart.Series series = new XYChart.Series();
+        //populating the series with data
+        for(int i=0;i<signal.getY().size();i++){
+            series.getData().add(new XYChart.Data(signal.getX().get(i), signal.getY().get(i)));
+        }
+
+        lineChart.getData().add(series);
+        lineChart.prefWidthProperty().bind(p.widthProperty());
+        lineChart.prefHeightProperty().bind(p.heightProperty());
+        p.getChildren().add(lineChart);
+    }
 }
 
 

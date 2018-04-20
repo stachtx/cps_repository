@@ -24,7 +24,7 @@ public   class SignalOperations {
 
         Signal quantizedSignal = copy(signal);
         List<Double> levels = new ArrayList<Double>();
-        double q = signal.getAmplitude() * 2.0 / Math.pow(2, bits);
+        double q = signal.getAmplitude() * 2.0 / (Math.pow(2, bits)-1);
         for (int i = 0; i < Math.pow(2, bits); i++) {
             levels.add(-signal.getAmplitude() + i * q);
         }
