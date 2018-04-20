@@ -221,7 +221,7 @@ public class ChartController implements Initializable {
     }
 
     public void createReconstructionChart(){
-    Signal reconstructedSignal= SignalOperations.reconstruct(signal, type);
+    Signal reconstructedSignal= SignalOperations.reconstruct(signal, type/*, Double.valueOf(samplingFrequencyText.getText())*/);
     final NumberAxis xAxis = new NumberAxis();
     final NumberAxis yAxis = new NumberAxis();
     xAxis.setLabel("czas");
