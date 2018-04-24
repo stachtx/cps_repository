@@ -220,7 +220,7 @@ public class ChartController implements Initializable {
     }
 
     public void createReconstructionChart(){
-    Signal reconstructedSignal= SignalOperations.reconstruct(signal, type/*, Double.valueOf(samplingFrequencyText.getText())*/);
+    Signal reconstructedSignal= SignalOperations.reconstruct(signal, type);
     final NumberAxis xAxis = new NumberAxis();
     final NumberAxis yAxis = new NumberAxis();
     xAxis.setLabel("czas");
@@ -237,7 +237,7 @@ public class ChartController implements Initializable {
     for(int i=0;i<signal.getY().size();i++){
         series.getData().add(new XYChart.Data(signal.getX().get(i), signal.getY().get(i)));
     }
-    for(int i=0;i<reconstructedSignal.getY().size();i++){
+   for(int i=0;i<reconstructedSignal.getY().size();i++){
         secSeries.getData().add(new XYChart.Data(reconstructedSignal.getX().get(i), reconstructedSignal.getY().get(i)));
     }
     lineChart.getData().add(series);
@@ -273,9 +273,8 @@ public class ChartController implements Initializable {
         quantText.setText(String.valueOf(8));
 
         menu.setItems( FXCollections.observableArrayList( ReconstructionType.values()));
-        menu.setValue(ReconstructionType.sinc);
-        this.type=(ReconstructionType) menu.getValue();
-        createReconstructionChart();
+       // menu.setValue(ReconstructionType.sinc);
+//        createReconstructionChart();
         menu.getSelectionModel().selectedItemProperty().addListener((obs,oldValue,newValue)->{
             this.type=(ReconstructionType) menu.getValue();
             createReconstructionChart();

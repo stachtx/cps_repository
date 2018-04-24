@@ -19,7 +19,8 @@ public   class SignalOperations {
         return sampledSignal;
     }
 
-    //jeszcze nie działa
+
+
     public static Signal quantize(Signal signal, int bits) {
 
         Signal quantizedSignal = copy(signal);
@@ -42,7 +43,7 @@ public   class SignalOperations {
     }
 
     public static Signal reconstruct(Signal signal, ReconstructionType type) {
-        double frequency=200;
+
         switch (type) {
             case sinc:
                 return sincReconstruction(signal);
@@ -59,34 +60,30 @@ public   class SignalOperations {
 
     public static double sinc(double t) {
 
-        if (t == 0) {
+        if (t == 0.0) {
             return 1.0;
         } else {
-            return Math.sin(t) / t;
+            return Math.sin(t*Math.PI) /(t*Math.PI);
         }
 
     }
 
-    private static Signal sincReconstruction(Signal signal) {
-        Signal reconstructedSignal = new Signal();
+    public static Signal sincReconstruction(Signal signal) {
+        Signal reconstructedSignal = sampling(signal,signal.getFrequency()+10);
+        reconstructedSignal.getY().clear();
         double sincSum;
-        for (Double x : signal.getX()) {
-            sincSum = 0.0;
-            for (Double y : signal.getY()) {
-
-
-                sincSum += y * sinc(x * signal.getFrequency() - signal.getY().indexOf(y));
-            }
-
-            reconstructedSignal.getY().add(sincSum);
-
+        for(Double t: reconstructedSignal.getX()) {
+            sincSum=0.0;
+            for(int i=0;i<signal.getX().size();i++){
+                    sincSum += signal.getY().get(i) * sinc(t -signal.getX().get(i));
+                }
+                reconstructedSignal.getY().add(sincSum/signal.getFrequency());
         }
 
-
-        return new Signal();
+        return reconstructedSignal;
     }
 
-    private static Signal zeroExploration(Signal signal) {
+    public static Signal zeroExploration(Signal signal) {
 
         Signal reconstructedSignal= signal;
         Signal sampledSignal =sampling(signal,signal.getFrequency());
@@ -106,6 +103,7 @@ public   class SignalOperations {
         reconstructedSignal.setY(listOfY);
 
         return reconstructedSignal;
+
     }
 
     public static Signal copy(Signal signal) {

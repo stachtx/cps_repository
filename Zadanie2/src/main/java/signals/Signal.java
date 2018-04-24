@@ -29,6 +29,17 @@ public class Signal {
     private double average=0.0;                                                 //średnia
     private double absoluteMean=0.0;                                            //średnia bezwzględna
     private double  averagePower=0.0;                                           //Moc średnia
+    private double effectiveValue=0.0;                                          //Wartość skuteczna
+    private double variance=0.0;                                                //Wariacja
+
+
+    public List<Double> getX() {
+        return x;
+    }
+
+    public List<Double> getY() {
+        return y;
+    }
 
     public double getAmplitude() {
         return amplitude;
@@ -72,18 +83,6 @@ public class Signal {
 
     public double getProbability() {
         return probability;
-    }
-
-    private double effectiveValue=0.0;                                          //Wartość skuteczna
-    private double variance=0.0;                                                //Wariacja
-
-
-    public List<Double> getX() {
-        return x;
-    }
-
-    public List<Double> getY() {
-        return y;
     }
 
     public void setX(List<Double> x) {
