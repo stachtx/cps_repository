@@ -7,10 +7,7 @@ import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.*;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Tab;
-import javafx.scene.control.TabPane;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
@@ -48,6 +45,14 @@ public class ChartController implements Initializable {
     Tab quantisationTab;
     @FXML
     ChoiceBox menu;
+    @FXML
+    Label mseText;
+    @FXML
+    Label snrText;
+    @FXML
+    Label psnrText;
+    @FXML
+    Label mdText;
 
     private ReconstructionType type= ReconstructionType.sinc;
     private  double binWidth=0;
@@ -244,6 +249,10 @@ public class ChartController implements Initializable {
     lineChart.getData().add(secSeries);
     lineChart.prefWidthProperty().bind(rec.widthProperty());
     lineChart.prefHeightProperty().bind(rec.heightProperty());
+    mseText.setText(String.valueOf(SignalOperations.MSE(signal,reconstructedSignal)));
+    snrText.setText(String.valueOf(SignalOperations.SNR(signal,reconstructedSignal)));
+    psnrText.setText(String.valueOf(SignalOperations.PSNR(signal,reconstructedSignal)));
+    mdText.setText(String.valueOf(SignalOperations.MD(signal,reconstructedSignal)));
     rec.getChildren().clear();
     rec.getChildren().add(lineChart);
 

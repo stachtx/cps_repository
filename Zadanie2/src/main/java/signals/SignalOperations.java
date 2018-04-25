@@ -57,6 +57,16 @@ public   class SignalOperations {
 
 
     }
+    public static double rec(double t){
+        if(Math.abs(t)>0.5){
+            return 0;
+        } else if(Math.abs(t)<0.5){
+            return 1;
+        }
+        else {
+            return 0.5;
+        }
+    }
 
     public static double sinc(double t) {
 
@@ -85,23 +95,13 @@ public   class SignalOperations {
 
     public static Signal zeroExploration(Signal signal) {
 
-        Signal reconstructedSignal= signal;
-        Signal sampledSignal =sampling(signal,signal.getFrequency());
-        List<Double>listOfX= new ArrayList<>();
-        List<Double>listOfY= new ArrayList<>();
-
-        for (int i=0; i<signal.getX().size(); i++) {
-            for(int j=0; j<sampledSignal.getX().size(); j++) {
-                if (signal.getX().get(i)==sampledSignal.getX().get(j))
-                    while(signal.getX().get(i)<sampledSignal.getX().get(j+1)) {
-                        listOfX.add(signal.getX().get(i));
-                        listOfY.add(signal.getY().get(i - 1));
-                    }
+        Signal reconstructedSignal = sampling(signal,signal.getFrequency()*2);
+       for(int i=0;i<signal.getY().size()-1;i++)
+        for(int j =0;j<reconstructedSignal.getY().size();j++){
+            if(reconstructedSignal.getY().get(j)>=signal.getY().get(i) && reconstructedSignal.getY().get(j)<signal.getY().get(i+1) ){
+                reconstructedSignal.getY().set(j,signal.getY().get(i));
             }
         }
-        reconstructedSignal.setX(listOfX);
-        reconstructedSignal.setY(listOfY);
-
         return reconstructedSignal;
 
     }
@@ -125,7 +125,7 @@ public   class SignalOperations {
     }
 
 
-    private static double MSE(Signal signal, Signal reconstructedSignal) {
+    public static double MSE(Signal signal, Signal reconstructedSignal) {
         double meanSquareError = 0.0;
         for (int i=0; i<signal.getX().size(); i++){
             meanSquareError+=Math.pow(signal.getY().get(i)-reconstructedSignal.getY().get(i),2);
@@ -133,7 +133,7 @@ public   class SignalOperations {
         return meanSquareError/signal.getX().size();
     }
 
-    private double SNR(Signal signal, Signal reconstructedSignal) {
+    public static double SNR(Signal signal, Signal reconstructedSignal) {
         double signalNoiseRatio=0.0;
         double sum=0.0;
         double meanSquareError=MSE(signal, reconstructedSignal);
@@ -145,7 +145,7 @@ public   class SignalOperations {
         return signalNoiseRatio;
     }
 
-    private double PSNR(Signal signal, Signal reconstructedSignal) {
+    public static double PSNR(Signal signal, Signal reconstructedSignal) {
         double peakSignalToNoiseRatio=0.0;
         List<Double> listofValues= new ArrayList<>();
         double up=0.0;
@@ -159,7 +159,7 @@ public   class SignalOperations {
         return peakSignalToNoiseRatio;
     }
 
-    private double MD(Signal signal, Signal reconstructedSignal) {
+    public static double MD(Signal signal, Signal reconstructedSignal) {
         double maximumDifference=0.0;
         List<Double> listofValues= new ArrayList<>();
 
@@ -170,7 +170,7 @@ public   class SignalOperations {
         return maximumDifference;
     }
 
-    private double efektywnaLiczbaBitowENOB(Signal signal, Signal reconstructedSignal) {
+    public double efektywnaLiczbaBitowENOB(Signal signal, Signal reconstructedSignal) {
         double effectiveNumberOfBits= 0.0;
         double signalNoiseRatio = SNR(signal, reconstructedSignal);
 
