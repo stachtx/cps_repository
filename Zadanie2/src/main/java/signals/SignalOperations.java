@@ -95,7 +95,7 @@ public   class SignalOperations {
 
     public static Signal zeroExploration(Signal signal) {
 
-        Signal reconstructedSignal = sampling(signal,signal.getFrequency()*2);
+        Signal reconstructedSignal = sampling(signal,signal.getFrequency());
        for(int i=0;i<signal.getY().size()-1;i++)
         for(int j =0;j<reconstructedSignal.getY().size();j++){
             if(reconstructedSignal.getY().get(j)>=signal.getY().get(i) && reconstructedSignal.getY().get(j)<signal.getY().get(i+1) ){

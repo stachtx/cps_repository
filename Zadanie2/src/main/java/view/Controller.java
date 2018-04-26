@@ -5,6 +5,7 @@ import application.SignalType;
 import application.States;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
+import javafx.event.EventType;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -34,6 +35,7 @@ public class Controller implements Initializable {
     private SignalsCalculator calculator;
     private Signal signal;
     private SignalType type;
+    private boolean isSignalWithSignaLFrequencyParameter;
 
     String pathToFile= new String();
     String pathfirstSignal, pathsecondSignal;
@@ -49,7 +51,9 @@ public class Controller implements Initializable {
             new Label("Numer pierwszej próbki (n1):"),
             new Label("Numer ostatniej próbki (n2)"),
             new Label("Skok dla próbki nr (ns):"),
-            new Label("Prawdopodobieństwo (p):"));
+            new Label("Prawdopodobieństwo (p):"),
+            new Label("Częstotliwość sygnału (sf):"));
+
 
     List <TextField> textFieldsList=new ArrayList<>();
 
@@ -133,6 +137,7 @@ public class Controller implements Initializable {
         saver.println(signal.getInitialTime());
         saver.println(signal.getLastTime());
         saver.println(signal.getBasicPeriod());
+        saver.println(signal.getSignalFrequency());
         saver.println(signal.getFillFactor());
         saver.println(signal.getEntityChange());
         saver.println(signal.getFirstSampleNr());
@@ -172,7 +177,8 @@ public class Controller implements Initializable {
                 textFieldsList.get(1).setText(String.valueOf(signal.getInitialTime()));
                 textFieldsList.get(2).setText(String.valueOf(signal.getLastTime()));
                 textFieldsList.get(3).setText(String.valueOf(signal.getBasicPeriod()));
-                textFieldsList.get(4).setText(String.valueOf(signal.getFrequency()));
+                textFieldsList.get(4).setText(String.valueOf(signal.getSignalFrequency()));
+                textFieldsList.get(5).setText(String.valueOf(signal.getFrequency()));
                 break;
 
             case rec:
@@ -182,8 +188,9 @@ public class Controller implements Initializable {
                 textFieldsList.get(1).setText(String.valueOf(signal.getInitialTime()));
                 textFieldsList.get(2).setText(String.valueOf(signal.getLastTime()));
                 textFieldsList.get(3).setText(String.valueOf(signal.getBasicPeriod()));
-                textFieldsList.get(4).setText(String.valueOf(signal.getFrequency()));
-                textFieldsList.get(5).setText(String.valueOf(signal.getFillFactor()));
+                textFieldsList.get(4).setText(String.valueOf(signal.getSignalFrequency()));
+                textFieldsList.get(5).setText(String.valueOf(signal.getFrequency()));
+                textFieldsList.get(6).setText(String.valueOf(signal.getFillFactor()));
                 break;
             case entityChange:
                 textFieldsList.get(0).setText(String.valueOf(signal.getAmplitude()));
@@ -216,6 +223,7 @@ public class Controller implements Initializable {
         textBoxes.setPadding(new Insets(0,10,0,10));
         textBoxes.getChildren().clear();
         textFieldsList.clear();
+        isSignalWithSignaLFrequencyParameter=false;
         switch (type){
 
             case noiseUniDis:
@@ -241,7 +249,9 @@ public class Controller implements Initializable {
                         labelList.get(1),
                         labelList.get(2),
                         labelList.get(3),
+                        labelList.get(11),
                         labelList.get(4)));
+                isSignalWithSignaLFrequencyParameter=true;
                 break;
 
             case rec:
@@ -252,9 +262,10 @@ public class Controller implements Initializable {
                         labelList.get(1),
                         labelList.get(2),
                         labelList.get(3),
+                        labelList.get(11),
                         labelList.get(4),
                         labelList.get(5)));
-
+                isSignalWithSignaLFrequencyParameter=true;
                 break;
             case entityChange:
                 labels.getChildren().addAll(Arrays.asList(
@@ -285,6 +296,37 @@ public class Controller implements Initializable {
             textFieldsList.add(tmp);
             textBoxes.getChildren().add(tmp);
         }
+
+        if(isSignalWithSignaLFrequencyParameter) {
+            textFieldsList.get(3).addEventHandler(EventType.ROOT, event -> {
+                double helper;
+                if (event.getEventType().getName().substring(0, 3).equals("KEY")) {
+                    if(!textFieldsList.get(3).getText().isEmpty()){
+                        textFieldsList.get(4).setDisable(true);
+                        helper=1/Double.parseDouble(textFieldsList.get(3).getText());
+                        textFieldsList.get(4).setText(Double.toString(helper));
+                    }else {
+                        textFieldsList.get(4).setDisable(false);
+                        textFieldsList.get(4).setText("");
+
+                    }
+                }
+            });
+
+            textFieldsList.get(4).addEventHandler(EventType.ROOT, event -> {
+                double helper;
+                if (event.getEventType().getName().substring(0, 3).equals("KEY")) {
+                    if(!textFieldsList.get(4).getText().isEmpty()){
+                        textFieldsList.get(3).setDisable(true);
+                        helper=1/Double.parseDouble(textFieldsList.get(4).getText());
+                        textFieldsList.get(3).setText(Double.toString(helper));
+                    }else {
+                        textFieldsList.get(3).setDisable(false);
+                        textFieldsList.get(3).setText("");
+                    }
+                }
+            });
+        }
     }
 
     public void setParameters(){
@@ -313,7 +355,8 @@ public class Controller implements Initializable {
                 signal.setInitialTime(Double.parseDouble(textFieldsList.get(1).getText()));
                 signal.setLastTime(Double.parseDouble(textFieldsList.get(2).getText()));
                 signal.setBasicPeriod(Double.parseDouble(textFieldsList.get(3).getText()));
-                signal.setFrequency(Double.parseDouble(textFieldsList.get(4).getText()));
+                signal.setSignalFrequency(Double.parseDouble(textFieldsList.get(4).getText()));
+                signal.setFrequency(Double.parseDouble(textFieldsList.get(5).getText()));
                 break;
 
             case rec:
@@ -323,8 +366,9 @@ public class Controller implements Initializable {
                 signal.setInitialTime(Double.parseDouble(textFieldsList.get(1).getText()));
                 signal.setLastTime(Double.parseDouble(textFieldsList.get(2).getText()));
                 signal.setBasicPeriod(Double.parseDouble(textFieldsList.get(3).getText()));
-                signal.setFrequency(Double.parseDouble(textFieldsList.get(4).getText()));
-                signal.setFillFactor(Double.parseDouble(textFieldsList.get(5).getText()));
+                signal.setSignalFrequency(Double.parseDouble(textFieldsList.get(4).getText()));
+                signal.setFrequency(Double.parseDouble(textFieldsList.get(5).getText()));
+                signal.setFillFactor(Double.parseDouble(textFieldsList.get(6).getText()));
                 break;
             case entityChange:
                 signal.setAmplitude(Double.parseDouble(textFieldsList.get(0).getText()));
@@ -348,6 +392,8 @@ public class Controller implements Initializable {
 
         signal.generateSignal();
     }
+
+    //@FXML
 
     @FXML
     public void handleGenerateButton(javafx.event.ActionEvent actionEvent) throws IOException {

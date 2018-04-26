@@ -19,6 +19,7 @@ public class Signal {
     private double initialTime=0.0;                                             //Czas początkowy
     private double lastTime=0.0;                                                //Czas trwania
     private double basicPeriod=0.0;                                             //Okres podstawowy
+    private double signalFrequency=0.0;                                         //Częstotliwość sygnału
     private double fillFactor=0.0;                                              //Współczynnik wypełnienia
     private double entityChange=0.0;                                            //Skok jednostkowy
     private int firstSampleNr=0;                                                //Numer pierwszej próbki
@@ -56,6 +57,8 @@ public class Signal {
     public double getBasicPeriod() {
         return basicPeriod;
     }
+
+    public double getSignalFrequency() { return signalFrequency; }
 
     public double getFillFactor() {
         return fillFactor;
@@ -116,6 +119,8 @@ public class Signal {
     public void setBasicPeriod(double basicPeriod) {
         this.basicPeriod = basicPeriod;
     }
+
+    public void setSignalFrequency(double signalFrequency) { this.signalFrequency = signalFrequency;}
 
     public void setFillFactor(double fillFactor) {
         this.fillFactor = fillFactor;
@@ -425,6 +430,16 @@ public class Signal {
         }
         this.variance= Math.sqrt(suma* (1/(lastTime+1)));
 
+    }
+
+    //Liczenie czestotliwości gdy podamy okres
+    public void countSignalFrequency(double basicPeriod) {
+        this.signalFrequency= 1.0/basicPeriod;
+    }
+
+    //Liczenie okresu gdy podana czestotliwość
+    public void countBasicPeriod(double signalFrequency) {
+        this.basicPeriod= 1.0/signalFrequency;
     }
 
 

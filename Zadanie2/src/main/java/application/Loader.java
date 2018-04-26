@@ -35,15 +35,16 @@ public class Loader {
         signal.setInitialTime(Double.parseDouble(list.get(2)));
         signal.setLastTime(Double.parseDouble(list.get(3)));
         signal.setBasicPeriod(Double.parseDouble(list.get(4)));
-        signal.setFillFactor(Double.parseDouble(list.get(5)));
-        signal.setEntityChange(Double.parseDouble(list.get(6)));
-        signal.setFirstSampleNr(Integer.parseInt(list.get(7)));
-        signal.setLastSampleNr(Integer.parseInt(list.get(8)));
-        signal.setChangeForSample(Integer.parseInt(list.get(9)));
-        signal.setFrequency(Double.parseDouble(list.get(10)));
-        signal.setProbability(Double.parseDouble(list.get(11)));
+        signal.setSignalFrequency(Double.parseDouble(list.get(5)));
+        signal.setFillFactor(Double.parseDouble(list.get(6)));
+        signal.setEntityChange(Double.parseDouble(list.get(7)));
+        signal.setFirstSampleNr(Integer.parseInt(list.get(8)));
+        signal.setLastSampleNr(Integer.parseInt(list.get(9)));
+        signal.setChangeForSample(Integer.parseInt(list.get(10)));
+        signal.setFrequency(Double.parseDouble(list.get(11)));
+        signal.setProbability(Double.parseDouble(list.get(12)));
         //Loading points
-        for (int i=12;i<list.size();i++){
+        for (int i=13;i<list.size();i++){
 
             String [] res = list.get(i).split(" ");
             signal.getX().add(Double.valueOf(res[0]));
