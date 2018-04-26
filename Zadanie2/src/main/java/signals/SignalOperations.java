@@ -167,10 +167,11 @@ public   class SignalOperations {
             listofValues.add(Math.abs(signal.getY().get(i)-reconstructedSignal.getY().get(i)));
         }
 
+        maximumDifference=Collections.max(listofValues);
         return maximumDifference;
     }
 
-    public double efektywnaLiczbaBitowENOB(Signal signal, Signal reconstructedSignal) {
+    public double ENOB(Signal signal, Signal reconstructedSignal) {
         double effectiveNumberOfBits= 0.0;
         double signalNoiseRatio = SNR(signal, reconstructedSignal);
 
