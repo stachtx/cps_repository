@@ -171,7 +171,7 @@ public   class SignalOperations {
         return maximumDifference;
     }
 
-    public double ENOB(Signal signal, Signal reconstructedSignal) {
+    public static double ENOB(Signal signal, Signal reconstructedSignal) {
         double effectiveNumberOfBits= 0.0;
         double signalNoiseRatio = SNR(signal, reconstructedSignal);
 

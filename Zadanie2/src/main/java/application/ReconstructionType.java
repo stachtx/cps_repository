@@ -3,7 +3,7 @@ package application;
 public enum ReconstructionType {
 
 
-    zeroExploration("Eksploracja zerowego rzędu"),
+    zeroExploration("Ekstrapolacja zerowego rzędu"),
     sinc("Rekonstrukcja w oparciu o funkcję sinc");
 
     private String label;

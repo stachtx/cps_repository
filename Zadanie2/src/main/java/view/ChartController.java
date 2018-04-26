@@ -53,6 +53,8 @@ public class ChartController implements Initializable {
     Label psnrText;
     @FXML
     Label mdText;
+    @FXML
+    Label enobText;
 
     private ReconstructionType type= ReconstructionType.sinc;
     private  double binWidth=0;
@@ -253,6 +255,7 @@ public class ChartController implements Initializable {
     snrText.setText(String.valueOf(SignalOperations.SNR(signal,reconstructedSignal)));
     psnrText.setText(String.valueOf(SignalOperations.PSNR(signal,reconstructedSignal)));
     mdText.setText(String.valueOf(SignalOperations.MD(signal,reconstructedSignal)));
+    enobText.setText(String.valueOf(SignalOperations.ENOB(signal,reconstructedSignal)));
     rec.getChildren().clear();
     rec.getChildren().add(lineChart);
 
