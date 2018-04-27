@@ -16,6 +16,13 @@ public class SignalsCalculator {
     }
 
     private Signal calculatedSignal;
+    private Signal reconstructedSignal;
+    private Signal sampledSignal;
+    public double mse;
+    public double snr;
+    public double psnr;
+    public double md;
+    public double enob;
 
     private Signal firstSignal=new Signal();
     private Signal secondSignal=new Signal();
@@ -71,8 +78,21 @@ public class SignalsCalculator {
                 calculatedSignal.getY().add(secondSignal.getY().get(k));
             }
             count2 = 0;
+            calculatedSignal.setLastTime(calculatedSignal.getX().get(k));
         }
-
+        calculatedSignal.setFrequency(firstSignal.getFrequency());
+        calculatedSignal.setSignalFrequency(firstSignal.getSignalFrequency());
+        calculatedSignal.setBasicPeriod(1.0/calculatedSignal.getSignalFrequency());
+        calculatedSignal.setAmplitude(firstSignal.getAmplitude()+secondSignal.getAmplitude());
+        calculatedSignal.setInitialTime(calculatedSignal.getX().get(0));
+        //calculatedSignal.setLastTime(calculatedSignal.getX().get();
+        //sampledSignal=SignalOperations.sampling(calculatedSignal,calculatedSignal.getFrequency());
+        //reconstructedSignal= SignalOperations.zeroExploration(calculatedSignal);
+        //mse=SignalOperations.MSE(calculatedSignal,reconstructedSignal);
+        //snr=SignalOperations.SNR(calculatedSignal,reconstructedSignal);
+        //psnr=SignalOperations.PSNR(calculatedSignal,reconstructedSignal);
+        //md=SignalOperations.MD(calculatedSignal,reconstructedSignal);
+        //enob=SignalOperations.ENOB(calculatedSignal,reconstructedSignal);
     }
 
     public void  subtractSignals(){
@@ -113,6 +133,7 @@ public class SignalsCalculator {
             }
             count2 = 0;
         }
+        calculatedSignal.setFrequency(firstSignal.getFrequency());
     }
 
     public void multiplySignals(){
@@ -151,6 +172,7 @@ public class SignalsCalculator {
             }
             count2 = 0;
         }
+        calculatedSignal.setFrequency(firstSignal.getFrequency());
     }
 
     public void divideSignals(){
@@ -199,6 +221,7 @@ public class SignalsCalculator {
             }
             count2 = 0;
         }
+        calculatedSignal.setFrequency(firstSignal.getFrequency());
 
     }
 
