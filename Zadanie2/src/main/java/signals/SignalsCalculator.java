@@ -80,19 +80,13 @@ public class SignalsCalculator {
             count2 = 0;
             calculatedSignal.setLastTime(calculatedSignal.getX().get(k));
         }
+        //if(firstSignal.getType()==secondSignal.getType())
+        calculatedSignal.setType(firstSignal.getType());
         calculatedSignal.setFrequency(firstSignal.getFrequency());
         calculatedSignal.setSignalFrequency(firstSignal.getSignalFrequency());
         calculatedSignal.setBasicPeriod(1.0/calculatedSignal.getSignalFrequency());
         calculatedSignal.setAmplitude(firstSignal.getAmplitude()+secondSignal.getAmplitude());
         calculatedSignal.setInitialTime(calculatedSignal.getX().get(0));
-        //calculatedSignal.setLastTime(calculatedSignal.getX().get();
-        //sampledSignal=SignalOperations.sampling(calculatedSignal,calculatedSignal.getFrequency());
-        //reconstructedSignal= SignalOperations.zeroExploration(calculatedSignal);
-        //mse=SignalOperations.MSE(calculatedSignal,reconstructedSignal);
-        //snr=SignalOperations.SNR(calculatedSignal,reconstructedSignal);
-        //psnr=SignalOperations.PSNR(calculatedSignal,reconstructedSignal);
-        //md=SignalOperations.MD(calculatedSignal,reconstructedSignal);
-        //enob=SignalOperations.ENOB(calculatedSignal,reconstructedSignal);
     }
 
     public void  subtractSignals(){
