@@ -159,16 +159,6 @@ public   class SignalOperations {
         return effectiveNumberOfBits;
     }
 
-    public static Signal spliceOfSignals (Signal firstSignal, Signal secondSignal){
-        int M=firstSignal.getPoints().size();
-        int N=secondSignal.getPoints().size();
 
-        for(int n=0;n<M+N;n++) {
-            for (int k = 0; k < M; k++) {
-
-            }
-        }
-        return new Signal();
-    }
 
 }

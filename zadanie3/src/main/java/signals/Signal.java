@@ -14,9 +14,6 @@ public class Signal {
 
 
     private List<Point> points=new ArrayList<>();
-    //private List<Double> x=new ArrayList<>();
-  //  private List<Double> y=new ArrayList<>();
-
 
     private SignalType type= SignalType.noiseUniDis;                            //typ sygnału
     private double amplitude=0.0;                                               //Amplituda

@@ -13,11 +13,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="SignalsCalculator.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="SignalsCalculator.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/signals/SignalsCalculator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="498">
-              <caret line="64" column="22" lean-forward="true" selection-start-line="64" selection-start-column="22" selection-end-line="64" selection-end-column="22" />
+            <state relative-caret-position="1054">
+              <caret line="64" column="22" lean-forward="false" selection-start-line="64" selection-start-column="22" selection-end-line="64" selection-end-column="22" />
               <folding>
                 <element signature="method#subtractSignals#0;class#SignalsCalculator#0" expanded="false" />
                 <element signature="method#multiplySignals#0;class#SignalsCalculator#0" expanded="false" />
@@ -30,7 +30,7 @@
       <file leaf-file-name="ChartController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/view/ChartController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="583">
+            <state relative-caret-position="1003">
               <caret line="241" column="43" lean-forward="false" selection-start-line="241" selection-start-column="43" selection-end-line="241" selection-end-column="43" />
               <folding>
                 <element signature="method#calculateWeights#0;class#ChartController#0" expanded="false" />
@@ -51,7 +51,7 @@
       <file leaf-file-name="Loader.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/application/Loader.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="623">
+            <state relative-caret-position="617">
               <caret line="47" column="41" lean-forward="false" selection-start-line="47" selection-start-column="41" selection-end-line="47" selection-end-column="41" />
               <folding />
             </state>
@@ -62,7 +62,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/application/ReconstructionType.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="85">
-              <caret line="5" column="34" lean-forward="false" selection-start-line="5" selection-start-column="34" selection-end-line="5" selection-end-column="34" />
+              <caret line="5" column="4" lean-forward="false" selection-start-line="5" selection-start-column="4" selection-end-line="16" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -78,22 +78,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="States.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/application/States.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="SignalOperations.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/signals/SignalOperations.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="42" lean-forward="false" selection-start-line="3" selection-start-column="42" selection-end-line="3" selection-end-column="42" />
+            <state relative-caret-position="578">
+              <caret line="161" column="0" lean-forward="false" selection-start-line="161" selection-start-column="0" selection-end-line="161" selection-end-column="0" />
               <folding>
+                <element signature="imports" expanded="true" />
                 <element signature="method#sampling#0;class#SignalOperations#0" expanded="false" />
                 <element signature="method#quantize#0;class#SignalOperations#0" expanded="false" />
                 <element signature="method#reconstruct#0;class#SignalOperations#0" expanded="false" />
@@ -106,26 +97,41 @@
                 <element signature="method#PSNR#0;class#SignalOperations#0" expanded="false" />
                 <element signature="method#MD#0;class#SignalOperations#0" expanded="false" />
                 <element signature="method#ENOB#0;class#SignalOperations#0" expanded="false" />
-                <element signature="method#spliceOfSignals#0;class#SignalOperations#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Point.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/signals/Point.java">
+      <file leaf-file-name="Filter.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/signals/Filter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="19" lean-forward="false" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
+            <state relative-caret-position="510">
+              <caret line="30" column="47" lean-forward="true" selection-start-line="30" selection-start-column="47" selection-end-line="30" selection-end-column="47" />
               <folding>
-                <element signature="e#194#195#0" expanded="true" />
-                <element signature="e#218#219#0" expanded="true" />
-                <element signature="e#252#253#0" expanded="true" />
-                <element signature="e#278#279#0" expanded="true" />
-                <element signature="e#306#307#0" expanded="true" />
-                <element signature="e#330#331#0" expanded="true" />
-                <element signature="e#364#365#0" expanded="true" />
-                <element signature="e#390#391#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Correlation.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/signals/Correlation.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FilterType.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/application/FilterType.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="289">
+              <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+              <folding>
+                <element signature="e#363#364#0" expanded="true" />
+                <element signature="e#397#398#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -134,8 +140,8 @@
       <file leaf-file-name="Signal.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/signals/Signal.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2414">
-              <caret line="414" column="26" lean-forward="false" selection-start-line="414" selection-start-column="26" selection-end-line="414" selection-end-column="26" />
+            <state relative-caret-position="204">
+              <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
               <folding>
                 <element signature="method#setFrequency#0;class#Signal#0" expanded="false" />
                 <element signature="method#generateSignal#0;class#Signal#0" expanded="false" />
@@ -160,34 +166,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Controller.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/view/Controller.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="952">
-              <caret line="128" column="46" lean-forward="false" selection-start-line="128" selection-start-column="46" selection-end-line="128" selection-end-column="46" />
-              <folding>
-                <element signature="method#loadFile#0;class#Controller#0" expanded="false" />
-                <element signature="method#saveFile#0;class#Controller#0" expanded="false" />
-                <element signature="method#fillTextFields#0;class#Controller#0" expanded="false" />
-                <element signature="method#choose#0;class#Controller#0" expanded="false" />
-                <element signature="method#setParameters#0;class#Controller#0" expanded="false" />
-                <element signature="method#handleGenerateButton#0;class#Controller#0" expanded="false" />
-                <element signature="method#handleAddSignalsButton#0;class#Controller#0" expanded="false" />
-                <element signature="method#handleSubtractSignalsButton#0;class#Controller#0" expanded="false" />
-                <element signature="method#handleMultiplySignalsButton#0;class#Controller#0" expanded="false" />
-                <element signature="method#handleDivideSignalsButton#0;class#Controller#0" expanded="false" />
-                <element signature="method#apply#0;class#20788:21468" expanded="false" />
-                <element signature="method#initialize#0;class#Controller#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Enum" />
         <option value="Class" />
       </list>
     </option>
@@ -222,12 +206,14 @@
         <option value="$PROJECT_DIR$/src/main/java/application/ReconstructionType.java" />
         <option value="$PROJECT_DIR$/src/main/resources/chart.fxml" />
         <option value="$PROJECT_DIR$/src/main/java/signals/Point.java" />
-        <option value="$PROJECT_DIR$/src/main/java/signals/Signal.java" />
-        <option value="$PROJECT_DIR$/src/main/java/signals/SignalOperations.java" />
         <option value="$PROJECT_DIR$/src/main/java/view/Controller.java" />
         <option value="$PROJECT_DIR$/src/main/java/application/Loader.java" />
         <option value="$PROJECT_DIR$/src/main/java/view/ChartController.java" />
         <option value="$PROJECT_DIR$/src/main/java/signals/SignalsCalculator.java" />
+        <option value="$PROJECT_DIR$/src/main/java/signals/Signal.java" />
+        <option value="$PROJECT_DIR$/src/main/java/signals/SignalOperations.java" />
+        <option value="$PROJECT_DIR$/src/main/java/application/FilterType.java" />
+        <option value="$PROJECT_DIR$/src/main/java/signals/Filter.java" />
       </list>
     </option>
   </component>
@@ -253,7 +239,7 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
+  <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1936" />
@@ -274,7 +260,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -306,6 +292,14 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="zadanie3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="zadanie3" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="signals" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -320,8 +314,8 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="AndroidView" />
     </panes>
   </component>
@@ -806,31 +800,31 @@
       <workItem from="1524723428169" duration="23975000" />
       <workItem from="1524780111323" duration="7990000" />
       <workItem from="1525357030037" duration="66000" />
-      <workItem from="1525357350706" duration="11801000" />
+      <workItem from="1525357350706" duration="16756000" />
+      <workItem from="1525382931344" duration="5960000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="65729000" />
+    <option name="totallyTimeSpent" value="76644000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="1" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900432" sideWeight="0.49573562" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3195652" sideWeight="0.5234541" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14392324" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3195652" sideWeight="0.47867805" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3195652" sideWeight="0.47867805" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900432" sideWeight="0.4978678" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14818764" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14978679" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -844,40 +838,10 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900432" sideWeight="0.49573562" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900432" sideWeight="0.49573562" order="1" side_tool="false" content_ui="tabs" />
     </layout>
-    <layout-to-restore>
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3195652" sideWeight="0.5234541" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14392324" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39935064" sideWeight="0.4936034" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900432" sideWeight="0.49573562" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3195652" sideWeight="0.47867805" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900432" sideWeight="0.4978678" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14818764" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900432" sideWeight="0.49573562" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
-    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -901,62 +865,30 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/view/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5661">
-          <caret line="359" column="0" lean-forward="false" selection-start-line="359" selection-start-column="0" selection-end-line="359" selection-end-column="0" />
-          <folding>
-            <element signature="method#loadFile#0;class#Controller#0" expanded="false" />
-            <element signature="method#saveFile#0;class#Controller#0" expanded="false" />
-            <element signature="method#fillTextFields#0;class#Controller#0" expanded="false" />
-            <element signature="method#choose#0;class#Controller#0" expanded="false" />
-            <element signature="method#setParameters#0;class#Controller#0" expanded="false" />
-            <element signature="method#handleGenerateButton#0;class#Controller#0" expanded="false" />
-            <element signature="method#handleAddSignalsButton#0;class#Controller#0" expanded="false" />
-            <element signature="method#handleSubtractSignalsButton#0;class#Controller#0" expanded="false" />
-            <element signature="method#handleMultiplySignalsButton#0;class#Controller#0" expanded="false" />
-            <element signature="method#handleDivideSignalsButton#0;class#Controller#0" expanded="false" />
-            <element signature="method#apply#0;class#20788:21468" expanded="false" />
-            <element signature="method#initialize#0;class#Controller#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/view/ChartController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1343">
-          <caret line="251" column="13" lean-forward="true" selection-start-line="251" selection-start-column="13" selection-end-line="251" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/signals/SignalOperations.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1224">
-          <caret line="105" column="0" lean-forward="false" selection-start-line="105" selection-start-column="0" selection-end-line="105" selection-end-column="0" />
-          <folding>
-            <element signature="method#sampling#0;class#SignalOperations#0" expanded="false" />
-            <element signature="method#quantize#0;class#SignalOperations#0" expanded="false" />
-            <element signature="method#reconstruct#0;class#SignalOperations#0" expanded="false" />
-            <element signature="method#sinc#0;class#SignalOperations#0" expanded="false" />
-            <element signature="method#sincReconstruction#0;class#SignalOperations#0" expanded="false" />
-            <element signature="method#zeroExploration#0;class#SignalOperations#0" expanded="false" />
-            <element signature="method#copy#0;class#SignalOperations#0" expanded="false" />
-            <element signature="method#MSE#0;class#SignalOperations#0" expanded="false" />
-            <element signature="method#SNR#0;class#SignalOperations#0" expanded="false" />
-            <element signature="method#PSNR#0;class#SignalOperations#0" expanded="false" />
-            <element signature="method#MD#0;class#SignalOperations#0" expanded="false" />
-            <element signature="method#ENOB#0;class#SignalOperations#0" expanded="false" />
-            <element signature="method#spliceOfSignals#0;class#SignalOperations#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/signals/Signal.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="510">
           <caret line="30" column="93" lean-forward="false" selection-start-line="30" selection-start-column="93" selection-end-line="30" selection-end-column="93" />
-          <folding />
+          <folding>
+            <element signature="method#setFrequency#0;class#Signal#0" expanded="false" />
+            <element signature="method#generateSignal#0;class#Signal#0" expanded="false" />
+            <element signature="method#noiseUniDis#0;class#Signal#0" expanded="false" />
+            <element signature="method#noiseGauss#0;class#Signal#0" expanded="false" />
+            <element signature="method#sin#0;class#Signal#0" expanded="false" />
+            <element signature="method#sinOneHalf#0;class#Signal#0" expanded="false" />
+            <element signature="method#sinTwoHalf#0;class#Signal#0" expanded="false" />
+            <element signature="method#rec#0;class#Signal#0" expanded="false" />
+            <element signature="method#recSym#0;class#Signal#0" expanded="false" />
+            <element signature="method#tri#0;class#Signal#0" expanded="false" />
+            <element signature="method#entityChange#0;class#Signal#0" expanded="false" />
+            <element signature="method#entityImpulse#0;class#Signal#0" expanded="false" />
+            <element signature="method#noiseImpulse#0;class#Signal#0" expanded="false" />
+            <element signature="method#average#0;class#Signal#0" expanded="false" />
+            <element signature="method#absoluteMean#0;class#Signal#0" expanded="false" />
+            <element signature="method#averagePower#0;class#Signal#0" expanded="false" />
+            <element signature="method#effectiveValue#0;class#Signal#0" expanded="false" />
+            <element signature="method#variance#0;class#Signal#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -964,7 +896,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding />
+          <folding>
+            <element signature="method#subtractSignals#0;class#SignalsCalculator#0" expanded="false" />
+            <element signature="method#multiplySignals#0;class#SignalsCalculator#0" expanded="false" />
+            <element signature="method#divideSignals#0;class#SignalsCalculator#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -993,7 +929,18 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4692">
           <caret line="276" column="2" lean-forward="false" selection-start-line="276" selection-start-column="2" selection-end-line="276" selection-end-column="2" />
-          <folding />
+          <folding>
+            <element signature="method#calculateWeights#0;class#ChartController#0" expanded="false" />
+            <element signature="method#findBin#0;class#ChartController#0" expanded="false" />
+            <element signature="method#createDotChart#0;class#ChartController#0" expanded="false" />
+            <element signature="method#createLineChart#0;class#ChartController#0" expanded="false" />
+            <element signature="method#createHistogram#0;class#ChartController#0" expanded="false" />
+            <element signature="method#createSamplingChart#0;class#ChartController#0" expanded="false" />
+            <element signature="method#createQuantisationChart#0;class#ChartController#0" expanded="false" />
+            <element signature="method#createReconstructionChart#0;class#ChartController#0" expanded="false" />
+            <element signature="method#initialize#0;class#ChartController#0" expanded="false" />
+            <element signature="method#lineChartPane#0;class#ChartController#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1009,6 +956,7 @@
         <state relative-caret-position="1377">
           <caret line="81" column="46" lean-forward="false" selection-start-line="81" selection-start-column="46" selection-end-line="81" selection-end-column="46" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="method#sampling#0;class#SignalOperations#0" expanded="false" />
             <element signature="method#quantize#0;class#SignalOperations#0" expanded="false" />
             <element signature="method#reconstruct#0;class#SignalOperations#0" expanded="false" />
@@ -1021,7 +969,6 @@
             <element signature="method#PSNR#0;class#SignalOperations#0" expanded="false" />
             <element signature="method#MD#0;class#SignalOperations#0" expanded="false" />
             <element signature="method#ENOB#0;class#SignalOperations#0" expanded="false" />
-            <element signature="method#spliceOfSignals#0;class#SignalOperations#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1037,7 +984,18 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3094">
           <caret line="247" column="0" lean-forward="false" selection-start-line="247" selection-start-column="0" selection-end-line="247" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="method#calculateWeights#0;class#ChartController#0" expanded="false" />
+            <element signature="method#findBin#0;class#ChartController#0" expanded="false" />
+            <element signature="method#createDotChart#0;class#ChartController#0" expanded="false" />
+            <element signature="method#createLineChart#0;class#ChartController#0" expanded="false" />
+            <element signature="method#createHistogram#0;class#ChartController#0" expanded="false" />
+            <element signature="method#createSamplingChart#0;class#ChartController#0" expanded="false" />
+            <element signature="method#createQuantisationChart#0;class#ChartController#0" expanded="false" />
+            <element signature="method#createReconstructionChart#0;class#ChartController#0" expanded="false" />
+            <element signature="method#initialize#0;class#ChartController#0" expanded="false" />
+            <element signature="method#lineChartPane#0;class#ChartController#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1061,6 +1019,7 @@
         <state relative-caret-position="1394">
           <caret line="88" column="0" lean-forward="true" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="method#sampling#0;class#SignalOperations#0" expanded="false" />
             <element signature="method#quantize#0;class#SignalOperations#0" expanded="false" />
             <element signature="method#reconstruct#0;class#SignalOperations#0" expanded="false" />
@@ -1073,7 +1032,6 @@
             <element signature="method#PSNR#0;class#SignalOperations#0" expanded="false" />
             <element signature="method#MD#0;class#SignalOperations#0" expanded="false" />
             <element signature="method#ENOB#0;class#SignalOperations#0" expanded="false" />
-            <element signature="method#spliceOfSignals#0;class#SignalOperations#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1090,6 +1048,7 @@
         <state relative-caret-position="459">
           <caret line="27" column="45" lean-forward="false" selection-start-line="27" selection-start-column="45" selection-end-line="27" selection-end-column="45" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="method#sampling#0;class#SignalOperations#0" expanded="false" />
             <element signature="method#quantize#0;class#SignalOperations#0" expanded="false" />
             <element signature="method#reconstruct#0;class#SignalOperations#0" expanded="false" />
@@ -1102,7 +1061,6 @@
             <element signature="method#PSNR#0;class#SignalOperations#0" expanded="false" />
             <element signature="method#MD#0;class#SignalOperations#0" expanded="false" />
             <element signature="method#ENOB#0;class#SignalOperations#0" expanded="false" />
-            <element signature="method#spliceOfSignals#0;class#SignalOperations#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1126,7 +1084,18 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4216">
           <caret line="248" column="0" lean-forward="true" selection-start-line="248" selection-start-column="0" selection-end-line="248" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="method#calculateWeights#0;class#ChartController#0" expanded="false" />
+            <element signature="method#findBin#0;class#ChartController#0" expanded="false" />
+            <element signature="method#createDotChart#0;class#ChartController#0" expanded="false" />
+            <element signature="method#createLineChart#0;class#ChartController#0" expanded="false" />
+            <element signature="method#createHistogram#0;class#ChartController#0" expanded="false" />
+            <element signature="method#createSamplingChart#0;class#ChartController#0" expanded="false" />
+            <element signature="method#createQuantisationChart#0;class#ChartController#0" expanded="false" />
+            <element signature="method#createReconstructionChart#0;class#ChartController#0" expanded="false" />
+            <element signature="method#initialize#0;class#ChartController#0" expanded="false" />
+            <element signature="method#lineChartPane#0;class#ChartController#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1142,6 +1111,7 @@
         <state relative-caret-position="51">
           <caret line="3" column="32" lean-forward="false" selection-start-line="3" selection-start-column="32" selection-end-line="3" selection-end-column="32" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="method#sampling#0;class#SignalOperations#0" expanded="false" />
             <element signature="method#quantize#0;class#SignalOperations#0" expanded="false" />
             <element signature="method#reconstruct#0;class#SignalOperations#0" expanded="false" />
@@ -1154,7 +1124,6 @@
             <element signature="method#PSNR#0;class#SignalOperations#0" expanded="false" />
             <element signature="method#MD#0;class#SignalOperations#0" expanded="false" />
             <element signature="method#ENOB#0;class#SignalOperations#0" expanded="false" />
-            <element signature="method#spliceOfSignals#0;class#SignalOperations#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1203,6 +1172,7 @@
         <state relative-caret-position="51">
           <caret line="3" column="32" lean-forward="false" selection-start-line="3" selection-start-column="32" selection-end-line="3" selection-end-column="32" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="method#sampling#0;class#SignalOperations#0" expanded="false" />
             <element signature="method#quantize#0;class#SignalOperations#0" expanded="false" />
             <element signature="method#reconstruct#0;class#SignalOperations#0" expanded="false" />
@@ -1215,7 +1185,6 @@
             <element signature="method#PSNR#0;class#SignalOperations#0" expanded="false" />
             <element signature="method#MD#0;class#SignalOperations#0" expanded="false" />
             <element signature="method#ENOB#0;class#SignalOperations#0" expanded="false" />
-            <element signature="method#spliceOfSignals#0;class#SignalOperations#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1247,27 +1216,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../../../MainController.java" />
     <entry file="file://$PROJECT_DIR$/src/main/resources/chart.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="441">
           <caret line="167" column="57" lean-forward="false" selection-start-line="167" selection-start-column="49" selection-end-line="167" selection-end-column="57" />
         </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
       </provider>
     </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_121/src.zip!/java/lang/String.java" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_121/javafx-src.zip!/com/sun/glass/ui/win/WinApplication.java" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_121/javafx-src.zip!/com/sun/javafx/tk/quantum/GlassViewEventHandler.java" />
     <entry file="file://$PROJECT_DIR$/src/main/resources/menu.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="809">
           <caret line="125" column="45" lean-forward="false" selection-start-line="125" selection-start-column="42" selection-end-line="125" selection-end-column="45" />
-          <folding />
         </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/signals/Point.java">
@@ -1275,63 +1243,14 @@
         <state relative-caret-position="153">
           <caret line="9" column="19" lean-forward="false" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
           <folding>
-            <element signature="e#194#195#0" expanded="true" />
-            <element signature="e#218#219#0" expanded="true" />
-            <element signature="e#252#253#0" expanded="true" />
-            <element signature="e#278#279#0" expanded="true" />
-            <element signature="e#306#307#0" expanded="true" />
-            <element signature="e#330#331#0" expanded="true" />
-            <element signature="e#364#365#0" expanded="true" />
-            <element signature="e#390#391#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/signals/Signal.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2414">
-          <caret line="414" column="26" lean-forward="false" selection-start-line="414" selection-start-column="26" selection-end-line="414" selection-end-column="26" />
-          <folding>
-            <element signature="method#setFrequency#0;class#Signal#0" expanded="false" />
-            <element signature="method#generateSignal#0;class#Signal#0" expanded="false" />
-            <element signature="method#noiseUniDis#0;class#Signal#0" expanded="false" />
-            <element signature="method#noiseGauss#0;class#Signal#0" expanded="false" />
-            <element signature="method#sin#0;class#Signal#0" expanded="false" />
-            <element signature="method#sinOneHalf#0;class#Signal#0" expanded="false" />
-            <element signature="method#sinTwoHalf#0;class#Signal#0" expanded="false" />
-            <element signature="method#rec#0;class#Signal#0" expanded="false" />
-            <element signature="method#recSym#0;class#Signal#0" expanded="false" />
-            <element signature="method#tri#0;class#Signal#0" expanded="false" />
-            <element signature="method#entityChange#0;class#Signal#0" expanded="false" />
-            <element signature="method#entityImpulse#0;class#Signal#0" expanded="false" />
-            <element signature="method#noiseImpulse#0;class#Signal#0" expanded="false" />
-            <element signature="method#average#0;class#Signal#0" expanded="false" />
-            <element signature="method#absoluteMean#0;class#Signal#0" expanded="false" />
-            <element signature="method#averagePower#0;class#Signal#0" expanded="false" />
-            <element signature="method#effectiveValue#0;class#Signal#0" expanded="false" />
-            <element signature="method#variance#0;class#Signal#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/signals/SignalOperations.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="42" lean-forward="false" selection-start-line="3" selection-start-column="42" selection-end-line="3" selection-end-column="42" />
-          <folding>
-            <element signature="method#sampling#0;class#SignalOperations#0" expanded="false" />
-            <element signature="method#quantize#0;class#SignalOperations#0" expanded="false" />
-            <element signature="method#reconstruct#0;class#SignalOperations#0" expanded="false" />
-            <element signature="method#sinc#0;class#SignalOperations#0" expanded="false" />
-            <element signature="method#sincReconstruction#0;class#SignalOperations#0" expanded="false" />
-            <element signature="method#zeroExploration#0;class#SignalOperations#0" expanded="false" />
-            <element signature="method#copy#0;class#SignalOperations#0" expanded="false" />
-            <element signature="method#MSE#0;class#SignalOperations#0" expanded="false" />
-            <element signature="method#SNR#0;class#SignalOperations#0" expanded="false" />
-            <element signature="method#PSNR#0;class#SignalOperations#0" expanded="false" />
-            <element signature="method#MD#0;class#SignalOperations#0" expanded="false" />
-            <element signature="method#ENOB#0;class#SignalOperations#0" expanded="false" />
-            <element signature="method#spliceOfSignals#0;class#SignalOperations#0" expanded="false" />
+            <element signature="e#194#195#0" expanded="false" />
+            <element signature="e#218#219#0" expanded="false" />
+            <element signature="e#252#253#0" expanded="false" />
+            <element signature="e#278#279#0" expanded="false" />
+            <element signature="e#306#307#0" expanded="false" />
+            <element signature="e#330#331#0" expanded="false" />
+            <element signature="e#364#365#0" expanded="false" />
+            <element signature="e#390#391#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1357,22 +1276,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/application/ReconstructionType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="34" lean-forward="false" selection-start-line="5" selection-start-column="34" selection-end-line="5" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/application/SignalType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="4" lean-forward="false" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/application/States.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -1381,17 +1284,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/application/Loader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="623">
-          <caret line="47" column="41" lean-forward="false" selection-start-line="47" selection-start-column="41" selection-end-line="47" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/view/ChartController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="583">
+        <state relative-caret-position="1003">
           <caret line="241" column="43" lean-forward="false" selection-start-line="241" selection-start-column="43" selection-end-line="241" selection-end-column="43" />
           <folding>
             <element signature="method#calculateWeights#0;class#ChartController#0" expanded="false" />
@@ -1410,12 +1305,114 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/signals/SignalsCalculator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="498">
-          <caret line="64" column="22" lean-forward="true" selection-start-line="64" selection-start-column="22" selection-end-line="64" selection-end-column="22" />
+        <state relative-caret-position="1054">
+          <caret line="64" column="22" lean-forward="false" selection-start-line="64" selection-start-column="22" selection-end-line="64" selection-end-column="22" />
           <folding>
             <element signature="method#subtractSignals#0;class#SignalsCalculator#0" expanded="false" />
             <element signature="method#multiplySignals#0;class#SignalsCalculator#0" expanded="false" />
             <element signature="method#divideSignals#0;class#SignalsCalculator#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/signals/Signal.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding>
+            <element signature="method#setFrequency#0;class#Signal#0" expanded="false" />
+            <element signature="method#generateSignal#0;class#Signal#0" expanded="false" />
+            <element signature="method#noiseUniDis#0;class#Signal#0" expanded="false" />
+            <element signature="method#noiseGauss#0;class#Signal#0" expanded="false" />
+            <element signature="method#sin#0;class#Signal#0" expanded="false" />
+            <element signature="method#sinOneHalf#0;class#Signal#0" expanded="false" />
+            <element signature="method#sinTwoHalf#0;class#Signal#0" expanded="false" />
+            <element signature="method#rec#0;class#Signal#0" expanded="false" />
+            <element signature="method#recSym#0;class#Signal#0" expanded="false" />
+            <element signature="method#tri#0;class#Signal#0" expanded="false" />
+            <element signature="method#entityChange#0;class#Signal#0" expanded="false" />
+            <element signature="method#entityImpulse#0;class#Signal#0" expanded="false" />
+            <element signature="method#noiseImpulse#0;class#Signal#0" expanded="false" />
+            <element signature="method#average#0;class#Signal#0" expanded="false" />
+            <element signature="method#absoluteMean#0;class#Signal#0" expanded="false" />
+            <element signature="method#averagePower#0;class#Signal#0" expanded="false" />
+            <element signature="method#effectiveValue#0;class#Signal#0" expanded="false" />
+            <element signature="method#variance#0;class#Signal#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/signals/SignalOperations.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="578">
+          <caret line="161" column="0" lean-forward="false" selection-start-line="161" selection-start-column="0" selection-end-line="161" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#sampling#0;class#SignalOperations#0" expanded="false" />
+            <element signature="method#quantize#0;class#SignalOperations#0" expanded="false" />
+            <element signature="method#reconstruct#0;class#SignalOperations#0" expanded="false" />
+            <element signature="method#sinc#0;class#SignalOperations#0" expanded="false" />
+            <element signature="method#sincReconstruction#0;class#SignalOperations#0" expanded="false" />
+            <element signature="method#zeroExploration#0;class#SignalOperations#0" expanded="false" />
+            <element signature="method#copy#0;class#SignalOperations#0" expanded="false" />
+            <element signature="method#MSE#0;class#SignalOperations#0" expanded="false" />
+            <element signature="method#SNR#0;class#SignalOperations#0" expanded="false" />
+            <element signature="method#PSNR#0;class#SignalOperations#0" expanded="false" />
+            <element signature="method#MD#0;class#SignalOperations#0" expanded="false" />
+            <element signature="method#ENOB#0;class#SignalOperations#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/application/Loader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="617">
+          <caret line="47" column="41" lean-forward="false" selection-start-line="47" selection-start-column="41" selection-end-line="47" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/application/SignalType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="4" lean-forward="false" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/application/ReconstructionType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="4" lean-forward="false" selection-start-line="5" selection-start-column="4" selection-end-line="16" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/application/FilterType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding>
+            <element signature="e#363#364#0" expanded="true" />
+            <element signature="e#397#398#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/signals/Correlation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/signals/Filter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="30" column="47" lean-forward="true" selection-start-line="30" selection-start-column="47" selection-end-line="30" selection-end-column="47" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
