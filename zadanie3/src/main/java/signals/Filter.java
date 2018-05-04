@@ -8,10 +8,10 @@ import java.util.List;
 public class Filter {
 
 
-    public static Signal spliceOfSignals (List<Double> answer, Signal input){
+    public static Signal spliceOfSignals (List<Double> answer, List <Double> input){
         Signal splicedSignal = new Signal();
         int M=answer.size();
-        int N=input.getPoints().size();
+        int N=input.size();
         double sum;
         for(int n=0;n<M+N;n++) {
             sum=0.0;
@@ -19,13 +19,14 @@ public class Filter {
                 if(n-k<0){
                     sum+=0;
                 } else{
-                    sum+= answer.get(k)*input.getPoints().get(n-k).getY();
+                    sum+= answer.get(k)*input.get(n-k);
                 }
             }
             splicedSignal.getPoints().add(new Point((double) n, sum));
         }
         return splicedSignal;
     }
+
     public static Double  hannignFunction (int n,int M){
 
         return 0.5*0.5*Math.cos(2*Math.PI*n/M);
@@ -72,7 +73,10 @@ public class Filter {
     public static Signal filtrateSignal (FilterType type,Signal signal, int M, Double K){
 
         List <Double> tmp = new ArrayList<>();
-
+        List <Double> listY = new ArrayList<>();
+        for(Point i : signal.getPoints()){
+            listY.add(i.getY());
+        }
         switch(type){
 
              case bottomRec:
@@ -93,6 +97,6 @@ public class Filter {
 
          }
 
-        return spliceOfSignals(tmp,signal);
+        return spliceOfSignals(tmp,listY);
     }
 }
