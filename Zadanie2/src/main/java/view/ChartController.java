@@ -6,12 +6,14 @@ import application.States;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.chart.*;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 import signals.Signal;
 import signals.SignalOperations;
 
@@ -167,11 +169,59 @@ public class ChartController implements Initializable {
 
     public void createSamplingChart(){
 
+        //przerabiam na jfreecharta bo tu mi niechce rysować 2 różnych na jednym wykresie
+
         Signal sampledSignal= SignalOperations.sampling(signal, Double.valueOf(samplingFrequencyText.getText()));
         final NumberAxis xAxis = new NumberAxis();
         final NumberAxis yAxis = new NumberAxis();
         xAxis.setLabel("czas");
-        //creating the chart
+        ///*
+        //creating the dot chart
+        final ScatterChart<Number,Number> dotChart = new
+                ScatterChart<Number,Number>(xAxis,yAxis);
+        final LineChart<Number,Number> lineChart =
+                new LineChart<Number,Number>(xAxis,yAxis);
+
+        lineChart.setCreateSymbols(false);
+        lineChart.setLegendVisible(false);
+        dotChart.setLegendVisible(false);
+        //defining a series
+        XYChart.Series series = new XYChart.Series();
+        XYChart.Series secSeries= new XYChart.Series();
+        //populating the series with data
+        for(int i=0;i<signal.getY().size();i++){
+            series.getData().add(new XYChart.Data(signal.getX().get(i), signal.getY().get(i)));
+        }
+        for(int i=0;i<sampledSignal.getY().size();i++){
+            secSeries.getData().add(new XYChart.Data(sampledSignal.getX().get(i), sampledSignal.getY().get(i)));
+        }
+        lineChart.getData().add(series);
+        dotChart.getData().add(secSeries);
+
+
+        lineChart.prefWidthProperty().bind(samp.widthProperty());
+        lineChart.prefHeightProperty().bind(samp.heightProperty());
+        dotChart.prefWidthProperty().bind(samp.widthProperty());
+        dotChart.prefHeightProperty().bind(samp.heightProperty());
+        Pane pane = new Pane();
+        pane.getChildren().add(dotChart);
+        //pane.getChildren().add(lineChart);
+        //samp.getChildren().add(dotChart);
+
+        //Scene scene = new Scene(samp);
+        Scene scene = new Scene(pane,800,600);
+        Stage stage= new Stage();
+        stage.setScene(scene);
+        stage.show();
+
+        //samp.getChildren().clear();
+        //samp.getChildren().add(dotChart);
+        //samp.getChildren().clear();
+        //samp.getChildren().add(lineChart);
+
+        //*/
+        /*
+        //creating the line chart
         final LineChart<Number,Number> lineChart =
                 new LineChart<Number,Number>(xAxis,yAxis);
 
@@ -194,6 +244,7 @@ public class ChartController implements Initializable {
         lineChart.prefHeightProperty().bind(samp.heightProperty());
         samp.getChildren().clear();
         samp.getChildren().add(lineChart);
+        */
     }
 
     public void createQuantisationChart(){
