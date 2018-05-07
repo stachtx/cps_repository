@@ -4,8 +4,7 @@ public enum ReconstructionType {
 
 
     zeroExploration("Ekstrapolacja zerowego rzędu"),
-    sinc("Rekonstrukcja w oparciu o funkcję sinc"),
-    aliasing("Zjawisko aliasingu");
+    sinc("Rekonstrukcja w oparciu o funkcję sinc");
 
     private String label;
 

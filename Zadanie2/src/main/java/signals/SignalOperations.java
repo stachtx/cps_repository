@@ -12,40 +12,7 @@ import java.util.function.DoubleToIntFunction;
 public   class SignalOperations {
 
     public static Signal sampling(Signal signal, double samplingFrequency /*ile próbek zostanie pobrane w danej sekundzie z sygnału*/) {
-        /*
-        Signal sampledSignal = copy(signal);
-        sampledSignal.setFrequency(frequency);
-        sampledSignal.generateSignal();
-        return sampledSignal;
-        */
 
-        /*
-        Signal sampledSignal= new Signal();
-        int whichNextSample;
-        int indexOfSampledSignal=0;
-
-        if(signal.getSignalFrequency()>=frequency){
-            whichNextSample= (int)(signal.getSignalFrequency()/frequency);
-        }else
-            whichNextSample = 1;
-        System.out.println(whichNextSample);
-        int newSignalSize=0;
-        System.out.println(signal.getX().size());
-        while(newSignalSize<=(signal.getX().size()/whichNextSample)) {
-            sampledSignal.getX().add(signal.getX().get(newSignalSize*whichNextSample));
-            sampledSignal.getY().add(signal.getY().get(newSignalSize*whichNextSample));
-
-            newSignalSize++;
-        }*/
-        /*for(int i=0; i < signal.getX().size(); i++){
-            if(i % whichNextSample == 0){
-                sampledSignal.getX().add(signal.getX().get(i));
-                sampledSignal.getY().add(signal.getY().get(i));
-            }else {
-                sampledSignal.getX().add(signal.getX().get(i));
-                sampledSignal.getY().add(0.0);
-            }
-        }*/
         Signal sampledSignal= new Signal();
 
         int whichNextSample=0;
@@ -66,7 +33,7 @@ public   class SignalOperations {
         System.out.println(sampledSignal.getX().size());
 
         return sampledSignal;
-        // */
+
     }
 
 
@@ -100,8 +67,6 @@ public   class SignalOperations {
 
             case zeroExploration:
                 return zeroExploration(signal);
-            case aliasing:
-                return aliasing(signal);
 
             default:
                 return null;
@@ -130,55 +95,49 @@ public   class SignalOperations {
 
     }
 
-    public static Signal sincReconstruction(Signal signal) {
-        //wciąż nie działa dla bardzo małego przedziału
+    public static Signal sincReconstruction(Signal signal/*dorobić parametr czestotliwość odzyskiwania*/) {
 
-        Signal sampledSignal = sampling(signal,signal.getFrequency()+10);
-        Signal reconstructedSignal = sampling(signal,signal.getFrequency()+10);
-        reconstructedSignal.getY().clear();
+        double step=1/signal.getFrequency();
+        double sampF=50;
+        Signal sampledSignal = sampling(signal,sampF);
+        Signal reconstructedSignal = new Signal();
         double sincSum;
-        for(Double t: reconstructedSignal.getX()) {
+        for(Double i=sampledSignal.getX().get(0); i<=sampledSignal.getX().get(sampledSignal.getX().size()-1); i+=step) {
             sincSum=0.0;
-            for(int i=0;i<sampledSignal.getX().size();i++){
-                sincSum += sampledSignal.getY().get(i) * sinc(t -sampledSignal.getX().get(i));
+            for(int j=0; j<sampledSignal.getX().size(); j++){
+                sincSum += sampledSignal.getY().get(j) * sinc(i/ (1/sampF) - j);
             }
-            reconstructedSignal.getY().add(sincSum/sampledSignal.getFrequency());
+            reconstructedSignal.getX().add(i);
+            reconstructedSignal.getY().add(sincSum);
         }
 
         return reconstructedSignal;
     }
 
-    public static Signal zeroExploration(Signal signal) {
-        Signal sampledSignal = sampling(signal, signal.getFrequency());
-        //Signal reconstructedSignal= new Signal();
-        //for(int i=0;i<signal.getY().size()-1;i++)
-        Signal reconstructedSignal = sampling(signal,signal.getFrequency()*2);
-       for(int i=0;i<signal.getY().size()-1;i++)
-        for(int j =0;j<reconstructedSignal.getY().size();j++){
-            if(reconstructedSignal.getY().get(j)>=signal.getY().get(i) && reconstructedSignal.getY().get(j)<signal.getY().get(i+1) ){
-                reconstructedSignal.getY().set(j,signal.getY().get(i));
+    public static Signal zeroExploration(Signal signal/*dorobić parametr czestotliwość odzyskiwania*/) {
+        double step=1/signal.getFrequency();
+        double sampF=50;
+        int nextIndex=1;
+        double lastValue;
+        Signal sampledSignal = sampling(signal,sampF);
+        Signal reconstructedSignal = new Signal();
+        lastValue=sampledSignal.getY().get(0);
+
+        for(Double i=sampledSignal.getX().get(0); i<=sampledSignal.getX().get(sampledSignal.getX().size()-1); i+=step) {
+            if(nextIndex<sampledSignal.getX().size() && sampledSignal.getX().get(nextIndex)<=i){
+                lastValue=sampledSignal.getY().get(nextIndex);
+                nextIndex++;
             }
+            reconstructedSignal.getX().add(i);
+            reconstructedSignal.getY().add(lastValue);
         }
 
+
+        System.out.println("To co wazne");
+        System.out.println(step);
+        System.out.println(reconstructedSignal.getX().size());
         return reconstructedSignal;
 
-    }
-
-    public static Signal aliasing(Signal signal) {
-        Signal sampledSignal = sampling(signal,0.25*signal.getFrequency());
-        Signal reconstructedSignal= sincReconstruction(sampledSignal);
-        int ilePunktow=0;
-        int ilePunktow2=0;
-        for(int i=0; i<sampledSignal.getX().size();i++) {
-            System.out.println(sampledSignal.getX().get(i) + " " + sampledSignal.getY().get(i));
-            ilePunktow++;
-        }
-        for(int i=0; i<signal.getX().size();i++) {
-            System.out.println(signal.getX().get(i) + " " + signal.getY().get(i));
-            ilePunktow2++;
-        }
-        System.out.println(ilePunktow+"; "+ilePunktow2);
-        return sampledSignal;
     }
 
     public static Signal copy(Signal signal) {
