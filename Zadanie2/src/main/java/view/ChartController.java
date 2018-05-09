@@ -212,41 +212,11 @@ public class ChartController implements Initializable {
         samp.getChildren().add(scatterChart);
 
         scatterChart.setOpacity(0.5);
-
-        //elder version
-        /*
-        Signal sampledSignal= SignalOperations.sampling(signal, Double.valueOf(samplingFrequencyText.getText()));
-        final NumberAxis xAxis = new NumberAxis();
-        final NumberAxis yAxis = new NumberAxis();
-        xAxis.setLabel("czas");
-        //creating the chart
-        final ScatterChart<Number,Number> lineChart =
-                new ScatterChart<Number, Number>(xAxis,yAxis);
-
-        //lineChart.setCreateSymbols(false);
-        lineChart.setLegendVisible(false);
-        //defining a series
-        XYChart.Series series = new XYChart.Series();
-        XYChart.Series secSeries= new XYChart.Series();
-        //populating the series with data
-        for(int i=0;i<signal.getY().size();i++){
-            series.getData().add(new XYChart.Data(signal.getX().get(i), signal.getY().get(i)));
-        }
-        for(int i=0;i<sampledSignal.getY().size();i++){
-            secSeries.getData().add(new XYChart.Data(sampledSignal.getX().get(i), sampledSignal.getY().get(i)));
-        }
-        lineChart.getData().add(series);
-        lineChart.getData().add(secSeries);
-
-        lineChart.prefWidthProperty().bind(samp.widthProperty());
-        lineChart.prefHeightProperty().bind(samp.heightProperty());
-        samp.getChildren().clear();
-        samp.getChildren().add(lineChart);*/
     }
 
     public void createQuantisationChart(){
         Signal quantisedSignal= new Signal();
-        //tutaj zamiast przekazywania liczby bitów trzeba zrobić przekazywanie liczby poziomów
+
         if(!quantText.getText().isEmpty() && quantLevelsText.getText().isEmpty()) {
             quantisedSignal = SignalOperations.quantizeBits(signal, Integer.parseInt(quantText.getText()));
         }else if(quantText.getText().isEmpty() && !quantLevelsText.getText().isEmpty()){
@@ -289,37 +259,6 @@ public class ChartController implements Initializable {
         quant.getChildren().add(scatterChart);
 
         scatterChart.setOpacity(0.5);
-
-
-
-        //elder version
-        /*final NumberAxis xAxis = new NumberAxis();
-        final NumberAxis yAxis = new NumberAxis();
-        xAxis.setLabel("czas");
-        //creating the chart
-        final LineChart<Number,Number> lineChart =
-                new LineChart<Number,Number>(xAxis,yAxis);
-
-        lineChart.setCreateSymbols(false);
-        lineChart.setLegendVisible(false);
-        //defining a series
-        XYChart.Series series = new XYChart.Series();
-        XYChart.Series secSeries= new XYChart.Series();
-        //populating the series with data
-        for(int i=0;i<signal.getY().size();i++){
-            series.getData().add(new XYChart.Data(signal.getX().get(i), signal.getY().get(i)));
-        }
-        for(int i=0;i<quantisedSignal.getY().size();i++){
-            secSeries.getData().add(new XYChart.Data(quantisedSignal.getX().get(i), quantisedSignal.getY().get(i)));
-        }
-        lineChart.getData().add(series);
-        lineChart.getData().add(secSeries);
-
-        lineChart.prefWidthProperty().bind(quant.widthProperty());
-        lineChart.prefHeightProperty().bind(quant.heightProperty());
-        quant.getChildren().clear();
-        quant.getChildren().add(lineChart);
-        */
     }
 
     public void createReconstructionChart(){

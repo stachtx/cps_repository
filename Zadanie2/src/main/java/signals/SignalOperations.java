@@ -28,25 +28,23 @@ public   class SignalOperations {
 
         Signal sampledSignal= new Signal();
 
-        int whichNextSample=0;
-        int newSignalSize=(int)((signal.getLastTime()-signal.getInitialTime())*samplingFrequency);
-        if(signal.getFrequency()>=samplingFrequency){
-            whichNextSample= round(signal.getFrequency()/samplingFrequency);
-        }else
-            whichNextSample = 1;
-        for(int i=0; i <=newSignalSize; i++){
-            if(i*whichNextSample<=signal.getX().size()){
-                sampledSignal.getX().add(signal.getX().get(i*whichNextSample));
-                sampledSignal.getY().add(signal.getY().get(i*whichNextSample));
+        double start = signal.getInitialTime();
+        int i = 0;
+        double step = 1.0 / samplingFrequency;
+
+        while (start < signal.getLastTime())
+        {
+            if (signal.getX().get(i) >= start)
+            {
+                sampledSignal.getX().add(start);
+                sampledSignal.getY().add(signal.getY().get(i));
+                start += step;
             }
+
+            i++;
         }
-        for(int i=0;i<=newSignalSize;i++){
-            System.out.println(sampledSignal.getX().get(i) + ", " + sampledSignal.getY().get(i));
-        }
-        System.out.println(sampledSignal.getX().size());
 
         return sampledSignal;
-
     }
 
 
@@ -167,10 +165,6 @@ public   class SignalOperations {
             reconstructedSignal.getY().add(lastValue);
         }
 
-
-        System.out.println("To co wazne");
-        System.out.println(step);
-        System.out.println(reconstructedSignal.getX().size());
         return reconstructedSignal;
 
     }
