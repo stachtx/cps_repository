@@ -11,6 +11,19 @@ import java.util.function.DoubleToIntFunction;
 
 public   class SignalOperations {
 
+    private static int round(double d){
+        double dAbs = Math.abs(d);
+        int i = (int) dAbs;
+        double result = dAbs - (double) i;
+        if(result<0.5){
+            return d<0 ? -i : i;
+        }else{
+            return d<0 ? -(i+1) : i+1;
+        }
+    }
+
+
+
     public static Signal sampling(Signal signal, double samplingFrequency /*ile próbek zostanie pobrane w danej sekundzie z sygnału*/) {
 
         Signal sampledSignal= new Signal();
@@ -18,7 +31,7 @@ public   class SignalOperations {
         int whichNextSample=0;
         int newSignalSize=(int)((signal.getLastTime()-signal.getInitialTime())*samplingFrequency);
         if(signal.getFrequency()>=samplingFrequency){
-            whichNextSample= (int)(signal.getFrequency()/samplingFrequency);
+            whichNextSample= round(signal.getFrequency()/samplingFrequency);
         }else
             whichNextSample = 1;
         for(int i=0; i <=newSignalSize; i++){
@@ -38,13 +51,35 @@ public   class SignalOperations {
 
 
 
-    public static Signal quantize(Signal signal, int bits) {
+    //przerobić funkcję żeby przekazywana była liczba poziomów, bo z liczby bitów można wyliczyć też liczbę poziomów
+    public static Signal quantizeBits(Signal signal, int bits) {
 
         Signal quantizedSignal = copy(signal);
         List<Double> levels = new ArrayList<Double>();
         double q = signal.getAmplitude() * 2.0 / (Math.pow(2, bits)-1);
         for (int i = 0; i < Math.pow(2, bits); i++) {
             levels.add(-signal.getAmplitude() + i * q);
+        }
+
+        for (int i = 0; i < signal.getX().size(); i++) {
+            quantizedSignal.getX().add(signal.getX().get(i));
+
+            final int ii = i;
+            Collections.sort(levels, Ordering.natural().onResultOf(p -> Math.abs(signal.getY().get(ii) - p)));
+            quantizedSignal.getY().add(levels.get(0));
+
+        }
+
+        return quantizedSignal;
+    }
+    public static Signal quantizeLevels(Signal signal, int numberOfLevels) {
+
+        double step= signal.getAmplitude()*2.0 / (numberOfLevels-1);
+        Signal quantizedSignal = copy(signal);
+        List<Double> levels = new ArrayList<Double>();
+
+        for (int i = 0; i < numberOfLevels; i++) {
+            levels.add(-signal.getAmplitude() + i * step);
         }
 
         for (int i = 0; i < signal.getX().size(); i++) {

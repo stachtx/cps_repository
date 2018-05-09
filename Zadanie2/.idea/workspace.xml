@@ -29,11 +29,11 @@
       <file leaf-file-name="ChartController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/view/ChartController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1147">
-              <caret line="286" column="23" lean-forward="false" selection-start-line="286" selection-start-column="23" selection-end-line="286" selection-end-column="23" />
+            <state relative-caret-position="1144">
+              <caret line="252" column="113" lean-forward="false" selection-start-line="252" selection-start-column="113" selection-end-line="252" selection-end-column="113" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <marker date="1525862460158" expanded="false" signature="9737:9752" ph="&lt;~&gt;" />
+                <marker date="1525892259926" expanded="false" signature="10221:10236" ph="&lt;~&gt;" />
               </folding>
             </state>
           </provider>
@@ -42,10 +42,12 @@
       <file leaf-file-name="SignalOperations.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/signals/SignalOperations.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="154">
-              <caret line="40" column="57" lean-forward="false" selection-start-line="40" selection-start-column="53" selection-end-line="40" selection-end-column="57" />
+            <state relative-caret-position="-352">
+              <caret line="31" column="65" lean-forward="true" selection-start-line="31" selection-start-column="65" selection-end-line="31" selection-end-column="65" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#1842#1850#0" expanded="true" />
+                <element signature="e#2650#2658#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -61,11 +63,21 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="Controller.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/view/Controller.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="5896">
+              <caret line="295" column="20" lean-forward="false" selection-start-line="295" selection-start-column="20" selection-end-line="295" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="Signal.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/signals/Signal.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="7942">
-              <caret line="429" column="9" lean-forward="false" selection-start-line="429" selection-start-column="9" selection-end-line="429" selection-end-column="9" />
+            <state relative-caret-position="6336">
+              <caret line="356" column="29" lean-forward="false" selection-start-line="356" selection-start-column="16" selection-end-line="356" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -120,6 +132,9 @@
       <find>samplingFrequencyText</find>
       <find>heightProperty</find>
       <find>height</find>
+      <find>quantText</find>
+      <find>createQuantisationChart</find>
+      <find>kwan</find>
     </findStrings>
   </component>
   <component name="GradleLocalSettings">
@@ -138,8 +153,8 @@
         <option value="$PROJECT_DIR$/src/main/java/application/ReconstructionType.java" />
         <option value="$PROJECT_DIR$/src/main/resources/chart.fxml" />
         <option value="$PROJECT_DIR$/src/main/resources/css/chart.css" />
-        <option value="$PROJECT_DIR$/src/main/java/signals/SignalOperations.java" />
         <option value="$PROJECT_DIR$/src/main/java/view/ChartController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/signals/SignalOperations.java" />
       </list>
     </option>
   </component>
@@ -188,8 +203,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -348,6 +361,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="AndroidView" />
     </panes>
@@ -848,12 +863,13 @@
       <workItem from="1525625200299" duration="40604000" />
       <workItem from="1525790784955" duration="15777000" />
       <workItem from="1525820413139" duration="4916000" />
-      <workItem from="1525861202089" duration="2572000" />
+      <workItem from="1525861202089" duration="5358000" />
+      <workItem from="1525890139780" duration="3152000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="117797000" />
+    <option name="totallyTimeSpent" value="123735000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -865,7 +881,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -883,7 +899,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900432" sideWeight="0.4978678" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14925373" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15085287" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1098,7 +1114,6 @@
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/Desktop/MainController.java" />
-    <entry file="file://$USER_HOME$/Desktop/Operacje.java" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_121/src.zip!/java/lang/Thread.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="218">
@@ -1161,28 +1176,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/signals/Signal.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7942">
-          <caret line="429" column="9" lean-forward="false" selection-start-line="429" selection-start-column="9" selection-end-line="429" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/view/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1078">
-          <caret line="442" column="31" lean-forward="false" selection-start-line="442" selection-start-column="31" selection-end-line="442" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/application/States.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="176">
           <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1211,14 +1210,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/view/ChartController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/signals/Signal.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1147">
-          <caret line="286" column="23" lean-forward="false" selection-start-line="286" selection-start-column="23" selection-end-line="286" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1525862460158" expanded="false" signature="9737:9752" ph="&lt;~&gt;" />
-          </folding>
+        <state relative-caret-position="6336">
+          <caret line="356" column="29" lean-forward="false" selection-start-line="356" selection-start-column="16" selection-end-line="356" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/view/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5896">
+          <caret line="295" column="20" lean-forward="false" selection-start-line="295" selection-start-column="20" selection-end-line="295" selection-end-column="20" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1230,12 +1234,35 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/signals/SignalOperations.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/view/ChartController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="40" column="57" lean-forward="false" selection-start-line="40" selection-start-column="53" selection-end-line="40" selection-end-column="57" />
+        <state relative-caret-position="1144">
+          <caret line="252" column="113" lean-forward="false" selection-start-line="252" selection-start-column="113" selection-end-line="252" selection-end-column="113" />
           <folding>
             <element signature="imports" expanded="true" />
+            <marker date="1525892259926" expanded="false" signature="10221:10236" ph="&lt;~&gt;" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/Operacje.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="185" column="18" lean-forward="false" selection-start-line="185" selection-start-column="18" selection-end-line="185" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#10910#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/signals/SignalOperations.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-352">
+          <caret line="31" column="65" lean-forward="true" selection-start-line="31" selection-start-column="65" selection-end-line="31" selection-end-column="65" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1842#1850#0" expanded="true" />
+            <element signature="e#2650#2658#0" expanded="true" />
           </folding>
         </state>
       </provider>

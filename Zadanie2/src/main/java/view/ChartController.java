@@ -39,6 +39,8 @@ public class ChartController implements Initializable {
     @FXML
     TextField quantText;
     @FXML
+    TextField quantLevelsText;
+    @FXML
     Pane samp;
     @FXML
     Pane rec;
@@ -243,7 +245,13 @@ public class ChartController implements Initializable {
     }
 
     public void createQuantisationChart(){
-        Signal quantisedSignal=SignalOperations.quantize(signal, Integer.parseInt(quantText.getText()));
+        Signal quantisedSignal= new Signal();
+        //tutaj zamiast przekazywania liczby bitów trzeba zrobić przekazywanie liczby poziomów
+        if(!quantText.getText().isEmpty() && quantLevelsText.getText().isEmpty()) {
+            quantisedSignal = SignalOperations.quantizeBits(signal, Integer.parseInt(quantText.getText()));
+        }else if(quantText.getText().isEmpty() && !quantLevelsText.getText().isEmpty()){
+            quantisedSignal = SignalOperations.quantizeLevels(signal, Integer.parseInt(quantLevelsText.getText()));
+        }
         final NumberAxis xAxis = new NumberAxis();
         final NumberAxis yAxis = new NumberAxis();
 

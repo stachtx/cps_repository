@@ -70,9 +70,15 @@
                         <Pane fx:id="quant" />
                         <HBox alignment="TOP_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="1">
                            <children>
+                              <Label text="ilość przedziałów" />
+                              <TextField fx:id="quantLevelsText">
+                                 <HBox.margin>
+                                    <Insets left="10.0" />
+                                 </HBox.margin>
+                              </TextField>
                               <Label text="ilość bitów">
                                  <HBox.margin>
-                                    <Insets right="10.0" />
+                                    <Insets left="50.0" right="10.0" />
                                  </HBox.margin>
                               </Label>
                               <TextField fx:id="quantText">
