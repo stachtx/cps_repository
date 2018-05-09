@@ -59,14 +59,14 @@ public   class SignalOperations {
         return quantizedSignal;
     }
 
-    public static Signal reconstruct(Signal signal, ReconstructionType type) {
+    public static Signal reconstruct(Signal signal, ReconstructionType type, double reconstructionFrequency) {
 
         switch (type) {
             case sinc:
-                return sincReconstruction(signal);
+                return sincReconstruction(signal, reconstructionFrequency);
 
             case zeroExploration:
-                return zeroExploration(signal);
+                return zeroExploration(signal, reconstructionFrequency);
 
             default:
                 return null;
@@ -95,17 +95,17 @@ public   class SignalOperations {
 
     }
 
-    public static Signal sincReconstruction(Signal signal/*dorobić parametr czestotliwość odzyskiwania*/) {
+    public static Signal sincReconstruction(Signal signal, double reconstructionFrequency) {
 
         double step=1/signal.getFrequency();
-        double sampF=50;
-        Signal sampledSignal = sampling(signal,sampF);
+        //double sampF=50;
+        Signal sampledSignal = sampling(signal,reconstructionFrequency);
         Signal reconstructedSignal = new Signal();
         double sincSum;
         for(Double i=sampledSignal.getX().get(0); i<=sampledSignal.getX().get(sampledSignal.getX().size()-1); i+=step) {
             sincSum=0.0;
             for(int j=0; j<sampledSignal.getX().size(); j++){
-                sincSum += sampledSignal.getY().get(j) * sinc(i/ (1/sampF) - j);
+                sincSum += sampledSignal.getY().get(j) * sinc(i/ (1/reconstructionFrequency) - j);
             }
             reconstructedSignal.getX().add(i);
             reconstructedSignal.getY().add(sincSum);
@@ -114,12 +114,12 @@ public   class SignalOperations {
         return reconstructedSignal;
     }
 
-    public static Signal zeroExploration(Signal signal/*dorobić parametr czestotliwość odzyskiwania*/) {
+    public static Signal zeroExploration(Signal signal, double reconstructionFrequency) {
         double step=1/signal.getFrequency();
-        double sampF=50;
+        //double sampF=50;
         int nextIndex=1;
         double lastValue;
-        Signal sampledSignal = sampling(signal,sampF);
+        Signal sampledSignal = sampling(signal,reconstructionFrequency);
         Signal reconstructedSignal = new Signal();
         lastValue=sampledSignal.getY().get(0);
 
@@ -165,6 +165,7 @@ public   class SignalOperations {
             meanSquareError+=Math.pow(signal.getY().get(i)-reconstructedSignal.getY().get(i),2);
         }
         return meanSquareError/signal.getX().size();
+        //return meanSquareError;
     }
 
     public static double SNR(Signal signal, Signal reconstructedSignal) {
