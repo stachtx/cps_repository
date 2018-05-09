@@ -171,53 +171,6 @@ public class ChartController implements Initializable {
     }
 
     public void createSamplingChart(){
-/*
-        NumberAxis xAxis = new NumberAxis();
-        NumberAxis yAxis = new NumberAxis();
-
-        final ScatterChart<Number, Number> sc = new ScatterChart<>(xAxis, yAxis);
-        final LineChart<Number, Number> lc = new LineChart<>(xAxis, yAxis);
-
-        XYChart.Series series1 = new XYChart.Series();
-        series1.setName("Equities");
-        series1.getData().add(new XYChart.Data(4.2, 193.2));
-        series1.getData().add(new XYChart.Data(2.8, 33.6));
-
-        XYChart.Series series2 = new XYChart.Series();
-        series2.setName("Mutual funds");
-        series2.getData().add(new XYChart.Data(5.2, 229.2));
-        series2.getData().add(new XYChart.Data(2.4, 37.6));
-
-        sc.getData().addAll(series1);
-        lc.getData().addAll(series2);
-
-        Pane pane = new Pane();
-        pane.getChildren().add(sc);
-        pane.getChildren().add(lc);
-
-        lc.setOpacity(0.5);
-
-        Scene scene = new Scene(pane, 800, 600);
-        stage.setScene(scene);
-        stage.show();*/
-
-
-
-
-/*
-
-
-        Pane pane = new Pane();
-        pane.getChildren().add(sc);
-        pane.getChildren().add(lc);
-
-        lc.setOpacity(0.5);
-
-        Scene scene = new Scene(pane, 800, 600);
-        stage.setScene(scene);
-        stage.show();*/
-
-
 
         Signal sampledSignal= SignalOperations.sampling(signal, Double.valueOf(samplingFrequencyText.getText()));
         final NumberAxis xAxis = new NumberAxis();
@@ -258,12 +211,81 @@ public class ChartController implements Initializable {
 
         scatterChart.setOpacity(0.5);
 
+        //elder version
+        /*
+        Signal sampledSignal= SignalOperations.sampling(signal, Double.valueOf(samplingFrequencyText.getText()));
+        final NumberAxis xAxis = new NumberAxis();
+        final NumberAxis yAxis = new NumberAxis();
+        xAxis.setLabel("czas");
+        //creating the chart
+        final ScatterChart<Number,Number> lineChart =
+                new ScatterChart<Number, Number>(xAxis,yAxis);
 
+        //lineChart.setCreateSymbols(false);
+        lineChart.setLegendVisible(false);
+        //defining a series
+        XYChart.Series series = new XYChart.Series();
+        XYChart.Series secSeries= new XYChart.Series();
+        //populating the series with data
+        for(int i=0;i<signal.getY().size();i++){
+            series.getData().add(new XYChart.Data(signal.getX().get(i), signal.getY().get(i)));
+        }
+        for(int i=0;i<sampledSignal.getY().size();i++){
+            secSeries.getData().add(new XYChart.Data(sampledSignal.getX().get(i), sampledSignal.getY().get(i)));
+        }
+        lineChart.getData().add(series);
+        lineChart.getData().add(secSeries);
+
+        lineChart.prefWidthProperty().bind(samp.widthProperty());
+        lineChart.prefHeightProperty().bind(samp.heightProperty());
+        samp.getChildren().clear();
+        samp.getChildren().add(lineChart);*/
     }
 
     public void createQuantisationChart(){
         Signal quantisedSignal=SignalOperations.quantize(signal, Integer.parseInt(quantText.getText()));
         final NumberAxis xAxis = new NumberAxis();
+        final NumberAxis yAxis = new NumberAxis();
+
+        xAxis.setLabel("czas");
+
+        final ScatterChart<Number, Number> scatterChart = new ScatterChart<>(xAxis, yAxis);
+        final LineChart<Number,Number> lineChart = new LineChart<>(xAxis,yAxis);
+
+        XYChart.Series secSeries= new XYChart.Series();
+        secSeries.setName("signal");
+        for(int i=0;i<quantisedSignal.getY().size();i++){
+            secSeries.getData().add(new XYChart.Data(quantisedSignal.getX().get(i), quantisedSignal.getY().get(i)));
+        }
+
+        XYChart.Series series = new XYChart.Series();
+        series.setName("samples");
+        for(int i=0;i<signal.getY().size();i++){
+            series.getData().add(new XYChart.Data(signal.getX().get(i), signal.getY().get(i)));
+        }
+
+        lineChart.setCreateSymbols(false);
+        lineChart.setLegendVisible(false);
+        scatterChart.setLegendVisible(false);
+        //scatterChart.setShape();
+
+        lineChart.getData().addAll(series);
+        scatterChart.getData().addAll(secSeries);
+
+        lineChart.prefWidthProperty().bind(quant.widthProperty());
+        lineChart.prefHeightProperty().bind(quant.heightProperty());
+        scatterChart.prefWidthProperty().bind(quant.widthProperty());
+        scatterChart.prefHeightProperty().bind(quant.heightProperty());
+        //samp.getChildren().clear();
+        quant.getChildren().add(lineChart);
+        quant.getChildren().add(scatterChart);
+
+        scatterChart.setOpacity(0.5);
+
+
+
+        //elder version
+        /*final NumberAxis xAxis = new NumberAxis();
         final NumberAxis yAxis = new NumberAxis();
         xAxis.setLabel("czas");
         //creating the chart
@@ -289,6 +311,7 @@ public class ChartController implements Initializable {
         lineChart.prefHeightProperty().bind(quant.heightProperty());
         quant.getChildren().clear();
         quant.getChildren().add(lineChart);
+        */
     }
 
     public void createReconstructionChart(){
