@@ -79,7 +79,7 @@ public   class SignalOperations {
 
         double maximum = Collections.max(signal.getY());
         double minimum = Collections.min(signal.getY());
-        double step= (Math.abs(maximum)) / (numberOfLevels-1);
+        double step= (Math.abs(maximum-minimum)) / (numberOfLevels-1);
         Signal quantizedSignal = copy(signal);
         List<Double> levels = new ArrayList<Double>();
 
