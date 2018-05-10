@@ -11,16 +11,7 @@ import java.util.function.DoubleToIntFunction;
 
 public   class SignalOperations {
 
-    private static int round(double d){
-        double dAbs = Math.abs(d);
-        int i = (int) dAbs;
-        double result = dAbs - (double) i;
-        if(result<0.5){
-            return d<0 ? -i : i;
-        }else{
-            return d<0 ? -(i+1) : i+1;
-        }
-    }
+
 
 
 
@@ -28,25 +19,35 @@ public   class SignalOperations {
 
         Signal sampledSignal= new Signal();
 
-        double start = signal.getInitialTime();
-        int i = 0;
-        double step = 1.0 / samplingFrequency;
 
+
+        int i = 0;
+        int stepNominator= 0;
+        Double start = signal.getInitialTime();
+        //double startTmp = (stepNominator / samplingFrequency) + signal.getInitialTime();
         while (start < signal.getLastTime())
         {
+            double startTmp = (stepNominator / samplingFrequency) + signal.getInitialTime();
+            start = startTmp;
             if (signal.getX().get(i) >= start)
             {
                 sampledSignal.getX().add(start);
                 sampledSignal.getY().add(signal.getY().get(i));
-                start += step;
+                stepNominator++;
+                    System.out.println(i + " - " + signal.getX().get(i) + " - " + start);
             }
-
+            //System.out.println(signal.getX().get(i) + " - " + sampledSignal.getX().get(i));
             i++;
         }
 
         return sampledSignal;
     }
 
+    private static double round(double d, int decimalPlaces) {
+        double rounded = (int)d*Math.pow(10,decimalPlaces);
+        rounded = rounded / Math.pow(10,decimalPlaces);
+        return rounded;
+    }
 
 
     //przerobić funkcję żeby przekazywana była liczba poziomów, bo z liczby bitów można wyliczyć też liczbę poziomów
@@ -54,9 +55,13 @@ public   class SignalOperations {
 
         Signal quantizedSignal = copy(signal);
         List<Double> levels = new ArrayList<Double>();
-        double q = signal.getAmplitude() * 2.0 / (Math.pow(2, bits)-1);
+        double maximum = Collections.max(signal.getY());
+        double minimum = Collections.min(signal.getY());
+
+        double q = (Math.abs(maximum-minimum)) / (Math.pow(2, bits)-1);
+        //double q = (signal.getAmplitude()*2.0) / (Math.pow(2, bits)-1);
         for (int i = 0; i < Math.pow(2, bits); i++) {
-            levels.add(-signal.getAmplitude() + i * q);
+            levels.add(minimum + i * q);
         }
 
         for (int i = 0; i < signal.getX().size(); i++) {
@@ -72,12 +77,14 @@ public   class SignalOperations {
     }
     public static Signal quantizeLevels(Signal signal, int numberOfLevels) {
 
-        double step= signal.getAmplitude()*2.0 / (numberOfLevels-1);
+        double maximum = Collections.max(signal.getY());
+        double minimum = Collections.min(signal.getY());
+        double step= (Math.abs(maximum)) / (numberOfLevels-1);
         Signal quantizedSignal = copy(signal);
         List<Double> levels = new ArrayList<Double>();
 
         for (int i = 0; i < numberOfLevels; i++) {
-            levels.add(-signal.getAmplitude() + i * step);
+            levels.add(minimum + i * step);
         }
 
         for (int i = 0; i < signal.getX().size(); i++) {
@@ -190,7 +197,7 @@ public   class SignalOperations {
 
     public static double MSE(Signal signal, Signal reconstructedSignal) {
         double meanSquareError = 0.0;
-        for (int i=0; i<signal.getX().size(); i++){
+        for (int i=0; i<reconstructedSignal.getX().size(); i++){
             meanSquareError+=Math.pow(signal.getY().get(i)-reconstructedSignal.getY().get(i),2);
         }
         return meanSquareError/signal.getX().size();
@@ -201,7 +208,7 @@ public   class SignalOperations {
         double signalNoiseRatio=0.0;
         double sum=0.0;
         double meanSquareError=MSE(signal, reconstructedSignal);
-        for(int i=0; i<signal.getX().size(); i++) {
+        for(int i=0; i<reconstructedSignal.getX().size(); i++) {
             sum += Math.pow(signal.getY().get(i),2);
         }
         signalNoiseRatio=10* Math.log10(sum/meanSquareError);
@@ -215,7 +222,7 @@ public   class SignalOperations {
         double up=0.0;
         double meanSquareError=MSE(signal, reconstructedSignal);
 
-        for (int i=0; i<signal.getX().size(); i++){
+        for (int i=0; i<reconstructedSignal.getX().size(); i++){
             listofValues.add(signal.getY().get(i));
         }
         up=Collections.max(listofValues);
@@ -227,7 +234,7 @@ public   class SignalOperations {
         double maximumDifference=0.0;
         List<Double> listofValues= new ArrayList<>();
 
-        for (int i=0; i<signal.getX().size(); i++){
+        for (int i=0; i<reconstructedSignal.getX().size(); i++){
             listofValues.add(Math.abs(signal.getY().get(i)-reconstructedSignal.getY().get(i)));
         }
 

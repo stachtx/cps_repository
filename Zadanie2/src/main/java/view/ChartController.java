@@ -207,7 +207,7 @@ public class ChartController implements Initializable {
         lineChart.prefHeightProperty().bind(samp.heightProperty());
         scatterChart.prefWidthProperty().bind(samp.widthProperty());
         scatterChart.prefHeightProperty().bind(samp.heightProperty());
-        //samp.getChildren().clear();
+        samp.getChildren().clear();
         samp.getChildren().add(lineChart);
         samp.getChildren().add(scatterChart);
 
@@ -254,7 +254,7 @@ public class ChartController implements Initializable {
         lineChart.prefHeightProperty().bind(quant.heightProperty());
         scatterChart.prefWidthProperty().bind(quant.widthProperty());
         scatterChart.prefHeightProperty().bind(quant.heightProperty());
-        //samp.getChildren().clear();
+        quant.getChildren().clear();
         quant.getChildren().add(lineChart);
         quant.getChildren().add(scatterChart);
 
