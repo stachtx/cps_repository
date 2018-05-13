@@ -19,9 +19,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import signals.Point;
-import signals.Signal;
-import signals.SignalsCalculator;
+import signals.*;
 
 
 import java.io.*;
@@ -66,7 +64,7 @@ public class Controller implements Initializable {
     VBox textBoxes;
     @FXML
     Button generateButton;
-    @FXML TextField PathToLoadFile, loadedFirstFilePath, loadedSecondFilePath, avg, avg2, avgPow, effVal, variance;
+    @FXML TextField PathToLoadFile, loadedFirstFilePath, loadedFirstFilePathSensor, loadedSecondFilePath,loadedSecondFilePathSensor, avg, avg2, avgPow, effVal, variance;
 
     public String loadFile(TextField tf, boolean ifLoaded) throws IOException {
 
@@ -125,6 +123,15 @@ public class Controller implements Initializable {
     public void loadSecondSignal(ActionEvent actionEvent) throws IOException {
         pathsecondSignal =loadFile(loadedSecondFilePath,false);
     }
+
+    public void loadFirstSignalSensor(ActionEvent actionEvent) throws IOException {
+        pathfirstSignal =loadFile(loadedFirstFilePathSensor,false);
+    }
+
+    public void loadSecondSignalSensor(ActionEvent actionEvent) throws IOException {
+        pathsecondSignal =loadFile(loadedSecondFilePathSensor,false);
+    }
+
 
     public void saveFile() throws IOException {
 
@@ -516,6 +523,17 @@ public class Controller implements Initializable {
             return t;
         }
     };
+
+    public void sensorController() throws IOException {
+
+        Sensor sensor=new Sensor();
+        Target target = new Target(3); // Obsługa do TextField
+        sensor.setSoundingSignal(signalLoader.load(pathfirstSignal),signalLoader.load(pathsecondSignal));
+        sensor.setReflectedSignal(target);
+
+    }
+
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

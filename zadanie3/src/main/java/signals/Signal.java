@@ -166,6 +166,21 @@ public class Signal {
         return variance;
     }
 
+    public List<Double> getAllX(){
+        List <Double> list = new ArrayList<>();
+        for(Point i : points){
+            list.add(i.getX());
+        }
+        return list;
+    }
+
+    public List<Double> getAllY(){
+        List <Double> list = new ArrayList<>();
+        for(Point i : points){
+            list.add(i.getY());
+        }
+        return list;
+    }
 
     //Generuje odpowiedni sygnał
     public void generateSignal(){

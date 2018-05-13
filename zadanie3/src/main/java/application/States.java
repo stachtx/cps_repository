@@ -16,16 +16,46 @@ public class States {
     private ResourceBundle bundle;
 
     private Signal signal;
+
+
+
+    private Signal soundingSignal;
+    private Signal reflectedsignal;
+    private Signal corelatedSignal;
     public static States getInstance() {
         return instance;
     }
+
     public Signal getSignal() {
         return signal;
     }
+
     public void setSignal(final Signal signal) {
         this.signal=signal;
     }
-    
 
-    
+    public Signal getSoundingSignal() {
+        return soundingSignal;
+    }
+
+    public void setSoundingSignal(Signal soundingSignal) {
+        this.soundingSignal = soundingSignal;
+    }
+
+    public Signal getReflectedsignal() {
+        return reflectedsignal;
+    }
+
+    public void setReflectedsignal(Signal reflectedsignal) {
+        this.reflectedsignal = reflectedsignal;
+    }
+
+    public Signal getCorelatedSignal() {
+        return corelatedSignal;
+    }
+
+    public void setCorelatedSignal(Signal corelatedSignal) {
+        this.corelatedSignal = corelatedSignal;
+    }
+
 }
