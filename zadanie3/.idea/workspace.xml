@@ -31,7 +31,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Filter.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Filter.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/signals/Filter.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="153">
@@ -146,13 +146,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Target.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/signals/Target.java">
+      <file leaf-file-name="SignalOperations.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/signals/SignalOperations.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="16" column="43" lean-forward="false" selection-start-line="16" selection-start-column="43" selection-end-line="16" selection-end-column="43" />
+            <state relative-caret-position="510">
+              <caret line="161" column="0" lean-forward="false" selection-start-line="161" selection-start-column="0" selection-end-line="161" selection-end-column="0" />
               <folding>
-                <element signature="method#setParameters#0;class#Target#0" expanded="false" />
+                <element signature="method#sampling#0;class#SignalOperations#0" expanded="false" />
+                <element signature="method#quantize#0;class#SignalOperations#0" expanded="false" />
+                <element signature="method#reconstruct#0;class#SignalOperations#0" expanded="false" />
+                <element signature="method#sinc#0;class#SignalOperations#0" expanded="false" />
+                <element signature="method#sincReconstruction#0;class#SignalOperations#0" expanded="false" />
+                <element signature="method#zeroExploration#0;class#SignalOperations#0" expanded="false" />
+                <element signature="method#copy#0;class#SignalOperations#0" expanded="false" />
+                <element signature="method#MSE#0;class#SignalOperations#0" expanded="false" />
+                <element signature="method#SNR#0;class#SignalOperations#0" expanded="false" />
+                <element signature="method#PSNR#0;class#SignalOperations#0" expanded="false" />
+                <element signature="method#MD#0;class#SignalOperations#0" expanded="false" />
+                <element signature="method#ENOB#0;class#SignalOperations#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -250,7 +261,7 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
+  <component name="ProjectFrameBounds">
     <option name="x" value="-7" />
     <option name="width" value="1934" />
     <option name="height" value="1047" />
@@ -843,15 +854,15 @@
       <workItem from="1527007930790" duration="9914000" />
       <workItem from="1527021604519" duration="5865000" />
       <workItem from="1527239068174" duration="167000" />
-      <workItem from="1527328367189" duration="10247000" />
+      <workItem from="1527328367189" duration="10374000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="144153000" />
+    <option name="totallyTimeSpent" value="144280000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="0" width="1934" height="1047" extended-state="1" />
+    <frame x="-7" y="0" width="1934" height="1047" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1129,27 +1140,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/signals/Environment.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/signals/SignalOperations.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="161" column="0" lean-forward="false" selection-start-line="161" selection-start-column="0" selection-end-line="161" selection-end-column="0" />
-          <folding>
-            <element signature="method#sampling#0;class#SignalOperations#0" expanded="false" />
-            <element signature="method#quantize#0;class#SignalOperations#0" expanded="false" />
-            <element signature="method#reconstruct#0;class#SignalOperations#0" expanded="false" />
-            <element signature="method#sinc#0;class#SignalOperations#0" expanded="false" />
-            <element signature="method#sincReconstruction#0;class#SignalOperations#0" expanded="false" />
-            <element signature="method#zeroExploration#0;class#SignalOperations#0" expanded="false" />
-            <element signature="method#copy#0;class#SignalOperations#0" expanded="false" />
-            <element signature="method#MSE#0;class#SignalOperations#0" expanded="false" />
-            <element signature="method#SNR#0;class#SignalOperations#0" expanded="false" />
-            <element signature="method#PSNR#0;class#SignalOperations#0" expanded="false" />
-            <element signature="method#MD#0;class#SignalOperations#0" expanded="false" />
-            <element signature="method#ENOB#0;class#SignalOperations#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/sensor.fxml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
@@ -1255,14 +1245,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/signals/Point.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="19" lean-forward="false" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/signals/Target.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -1308,14 +1290,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/signals/Signal.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1071">
-          <caret line="182" column="5" lean-forward="false" selection-start-line="182" selection-start-column="5" selection-end-line="182" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/application/States.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3">
@@ -1330,6 +1304,36 @@
             <element signature="e#986#987#0" expanded="true" />
             <element signature="e#1034#1035#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/view/FilterController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="25" column="8" lean-forward="false" selection-start-line="25" selection-start-column="8" selection-end-line="43" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#757#772#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/signals/Filter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="28" column="22" lean-forward="false" selection-start-line="28" selection-start-column="22" selection-end-line="28" selection-end-column="22" />
+          <folding>
+            <element signature="method#spliceOfSignals#0;class#Filter#0" expanded="false" />
+            <element signature="method#hannignWindow#0;class#Filter#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/signals/Point.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="19" lean-forward="false" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1368,24 +1372,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/view/FilterController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/signals/Signal.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="25" column="8" lean-forward="false" selection-start-line="25" selection-start-column="8" selection-end-line="43" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#757#772#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="1071">
+          <caret line="182" column="5" lean-forward="false" selection-start-line="182" selection-start-column="5" selection-end-line="182" selection-end-column="5" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/signals/Filter.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/signals/SignalOperations.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="28" column="22" lean-forward="false" selection-start-line="28" selection-start-column="22" selection-end-line="28" selection-end-column="22" />
+        <state relative-caret-position="510">
+          <caret line="161" column="0" lean-forward="false" selection-start-line="161" selection-start-column="0" selection-end-line="161" selection-end-column="0" />
           <folding>
-            <element signature="method#spliceOfSignals#0;class#Filter#0" expanded="false" />
-            <element signature="method#hannignWindow#0;class#Filter#0" expanded="false" />
+            <element signature="method#sampling#0;class#SignalOperations#0" expanded="false" />
+            <element signature="method#quantize#0;class#SignalOperations#0" expanded="false" />
+            <element signature="method#reconstruct#0;class#SignalOperations#0" expanded="false" />
+            <element signature="method#sinc#0;class#SignalOperations#0" expanded="false" />
+            <element signature="method#sincReconstruction#0;class#SignalOperations#0" expanded="false" />
+            <element signature="method#zeroExploration#0;class#SignalOperations#0" expanded="false" />
+            <element signature="method#copy#0;class#SignalOperations#0" expanded="false" />
+            <element signature="method#MSE#0;class#SignalOperations#0" expanded="false" />
+            <element signature="method#SNR#0;class#SignalOperations#0" expanded="false" />
+            <element signature="method#PSNR#0;class#SignalOperations#0" expanded="false" />
+            <element signature="method#MD#0;class#SignalOperations#0" expanded="false" />
+            <element signature="method#ENOB#0;class#SignalOperations#0" expanded="false" />
           </folding>
         </state>
       </provider>
