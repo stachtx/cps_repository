@@ -1,12 +1,23 @@
 package signals;
 
-public class Target implements Runnable{
+public class Target {
 
 
     private double objectPosition=0;                //Położenie obiektu. Położenie pocżatkowe = 0
 
-    private double objectSpeed;                     // Prędkość śledzonego obiektu [M/s]
+    private double targetSpeed;                     // Prędkość śledzonego obiektu [M/s]
 
+    private double time=0.0;
+
+
+    public double getTime() {
+        return time;
+    }
+
+    public void setParameters(double time) {
+        this.time = time;
+        this.objectPosition+=time*targetSpeed;
+    }
 
     public double getObjectPosition() {
         return objectPosition;
@@ -16,32 +27,18 @@ public class Target implements Runnable{
         this.objectPosition = objectPosition;
     }
 
-    public double getObjectSpeed() {
-        return objectSpeed;
+    public double getTargetSpeed() {
+        return targetSpeed;
     }
 
-    public void setObjectSpeed(double objectSpeed) {
-        this.objectSpeed = objectSpeed;
+    public void setTargetSpeed(double targetSpeed) {
+        this.targetSpeed = targetSpeed;
     }
 
     public Target(double objectSpeed) {
-        this.objectSpeed = objectSpeed;
+        this.targetSpeed = objectSpeed;
     }
 
-    @Override
-    public void run() {
 
-        double t=0.0;
-        while(true) {
 
-            try {
-                //usypiamy wątek na 100 milisekund
-                Thread.sleep((long) (1000));
-                this.objectPosition+=objectSpeed*t;
-                t++;
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
-    }
 }

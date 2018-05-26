@@ -1,3 +1,4 @@
+
 package signals;
 
 import application.SensorType;
@@ -8,31 +9,83 @@ import java.util.List;
 
 public class Sensor {
 
-    private int bufferLength;                        // Wielkość buffora
+    private int    bufferLength;                        // Wielkość buffora
     private double samplingFrequency=0.0;           // Częstotliwość próbkowania sygnałów
     private double raportPeriod;                    // Okres raportowania
     private double sondagePeriod;                   // Okres sygnału sondującego
     private double signalSpeed;                     // Prędkość rozchodzenia sygnału
 
-
-
     private Signal soundingSignal;                  // Sygnał sondujący
     private Signal reflectedSignal;                 // Sygnał odbity
     private Signal corelatedSignal;                 // Sygnał po przeprowadzonej korelacji
-    private Target target;                          //Oddalający się obiekt
+    private SensorType type;                        // typ sensoa
+    private Target target;
+    private double distance;
 
 
-    public  Signal spliceCorrelationOfSignals(List<Double> first, List <Double> second){
-        List <Double> listY = new ArrayList<>();
+
+    public void setBufferLength(int bufferLength) {
+        this.bufferLength = bufferLength;
+    }
+
+    public void setSamplingFrequency(double samplingFrequency) {
+        this.samplingFrequency = samplingFrequency;
+    }
+
+    public void setRaportPeriod(double raportPeriod) {
+        this.raportPeriod = raportPeriod;
+    }
+
+    public void setSondagePeriod(double sondagePeriod) {
+        this.sondagePeriod = sondagePeriod;
+    }
+
+    public void setSignalSpeed(double signalSpeed) {
+        this.signalSpeed = signalSpeed;
+    }
+
+    public Signal getSoundingSignal() {
+        return soundingSignal;
+    }
+
+    public Signal getReflectedSignal() {
+        return reflectedSignal;
+    }
+
+    public Signal getCorelatedSignal() {
+        return corelatedSignal;
+    }
+
+    public SensorType getType() {
+        return type;
+    }
+
+    public void setType(SensorType type) {
+        this.type = type;
+    }
+
+    public Target getTarget() {
+        return target;
+    }
+
+    public void setTarget(Target target) {
+        this.target = target;
+    }
+/*
+    public  Signal spliceCorrelationOfSignals(List<Double> first, Signal second){
+*/
+/*      List <Double> listY = new ArrayList<>();
         for(Double i : second){
             listY.add(i);
         }
         Collections.reverse(listY);
-        return Filter.spliceOfSignals(first,second);
+        return Filter.spliceOfSignals(first,second);*//*
+ return null;
     }
 
-    public Signal directCorrelationOfSignals (List<Double> first, List<Double> input){
-
+    public Signal directCorrelationOfSignals (Signal first, Signal second){
+*/
+/*
         Signal corelatedSignal = new Signal();
         int M=first.size();
         int N=input.size();
@@ -49,10 +102,11 @@ public class Sensor {
             corelatedSignal.getPoints().add(new Point((double) n, sum));
         }
         return corelatedSignal;
-
+*//*
+ return null;
     }
 
-    public  Signal choose(SensorType type, List <Double> first,List <Double>  second){
+    public  Signal choose(SensorType type, Signal first, Signal second){
 
         switch (type){
 
@@ -74,7 +128,7 @@ public class Sensor {
         soundingSignal=sc.getCalculatedSignal();
     }
 
-    public void  setReflectedSignal(Target target){
+    public void  setReflectedSignal(){
         reflectedSignal= SignalOperations.copy(soundingSignal);
         Double delay = target.getObjectPosition()/signalSpeed;
         for(Point i : reflectedSignal.getPoints()){
@@ -83,17 +137,10 @@ public class Sensor {
         }
     }
 
-    public Double distanceSensor(SensorType type, Target target){
+    public Double distanceSensor(){
 
-        target.run();
-        List <Double> soundingSignalBuffer = new ArrayList<>();
-        List <Double> reflectedSignalBuffer = new ArrayList<>();
 
-        for (int i=0;i<bufferLength; i++){
-            soundingSignalBuffer.add(soundingSignal.getPoints().get(i).getX());
-            reflectedSignalBuffer.add(reflectedSignal.getPoints().get(i).getX());
-        }
-        this.choose(type,soundingSignalBuffer,reflectedSignalBuffer);
+        this.choose(type,soundingSignal,reflectedSignal);
 
         Double maxValue = Collections.max(corelatedSignal.getAllY());
 
@@ -103,6 +150,6 @@ public class Sensor {
 
         return shift *signalSpeed;
     }
+*/
+    }
 
-
-}

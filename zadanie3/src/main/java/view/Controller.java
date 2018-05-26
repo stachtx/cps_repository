@@ -1,8 +1,6 @@
 package view;
 
-import application.Loader;
-import application.SignalType;
-import application.States;
+import application.*;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.event.EventType;
@@ -34,7 +32,9 @@ public class Controller implements Initializable {
     private SignalsCalculator calculator;
     private Signal signal;
     private SignalType type;
+    private FilterType filterType;
     private boolean isSignalWithSignaLFrequencyParameter;
+    private Sensor sensor=new Sensor();
 
     String pathToFile= new String();
     String pathfirstSignal, pathsecondSignal;
@@ -57,14 +57,15 @@ public class Controller implements Initializable {
     List <TextField> textFieldsList=new ArrayList<>();
 
     @FXML
-    ChoiceBox menu;
+    ChoiceBox menu,sensorType, filterTypeBox;
     @FXML
     VBox labels;
     @FXML
     VBox textBoxes;
     @FXML
     Button generateButton;
-    @FXML TextField PathToLoadFile, loadedFirstFilePath, loadedFirstFilePathSensor, loadedSecondFilePath,loadedSecondFilePathSensor, avg, avg2, avgPow, effVal, variance;
+    @FXML TextField PathToLoadFile, loadedFirstFilePath, loadedFilePathFilter, loadedSecondFilePath, avg, avg2, avgPow, effVal, variance,targetSpeed,
+            signalSpeed,sondagePeriod,samplingFrequency,raportPeriod,bufferLength,cutFrequency, numberOfFactor;
 
     public String loadFile(TextField tf, boolean ifLoaded) throws IOException {
 
@@ -124,14 +125,9 @@ public class Controller implements Initializable {
         pathsecondSignal =loadFile(loadedSecondFilePath,false);
     }
 
-    public void loadFirstSignalSensor(ActionEvent actionEvent) throws IOException {
-        pathfirstSignal =loadFile(loadedFirstFilePathSensor,false);
+    public void loadSignalFilter(ActionEvent actionEvent) throws IOException {
+        pathfirstSignal =loadFile(loadedFilePathFilter,false);
     }
-
-    public void loadSecondSignalSensor(ActionEvent actionEvent) throws IOException {
-        pathsecondSignal =loadFile(loadedSecondFilePathSensor,false);
-    }
-
 
     public void saveFile() throws IOException {
 
@@ -526,14 +522,42 @@ public class Controller implements Initializable {
 
     public void sensorController() throws IOException {
 
-        Sensor sensor=new Sensor();
-        Target target = new Target(3); // Obsługa do TextField
+        Stage stage = new Stage();
+        Parent root = null;
+        FXMLLoader loader=new FXMLLoader();
+       /* Sensor sensor=new Sensor();
+        sensor.setTarget(new Target(Double.valueOf(targetSpeed.getText())));
+        sensor.setType(SensorType.directCorrelation);//
         sensor.setSoundingSignal(signalLoader.load(pathfirstSignal),signalLoader.load(pathsecondSignal));
-        sensor.setReflectedSignal(target);
+        sensor.setBufferLength(Integer.parseInt(bufferLength.getText()));
+        sensor.setRaportPeriod(Double.parseDouble(raportPeriod.getText()));
+        sensor.setSignalSpeed(Double.parseDouble(signalSpeed.getText()));
+        sensor.setSamplingFrequency(Double.parseDouble(samplingFrequency.getText()));
+       sensor.setSondagePeriod(Double.parseDouble(sondagePeriod.getText()));
+        States.getInstance().setSensor(sensor);*/
+        root = FXMLLoader.load(getClass().getClassLoader().getResource("sensor.fxml"));
+        Scene scene = new Scene(root);
+        stage.setTitle("Signal charts");
+        stage.setScene(scene);
+        stage.show();
 
     }
 
+    public void filterController() throws IOException {
 
+        Stage stage = new Stage();
+        Parent root = null;
+        FXMLLoader loader=new FXMLLoader();
+        signal=signalLoader.load(pathfirstSignal);
+        double K=signal.getFrequency()/Double.parseDouble(cutFrequency.getText());
+        States.getInstance().setSignal(signal);
+        States.getInstance().setSecondSignal(Filter.filtrateSignal(filterType,signal, Integer.parseInt(numberOfFactor.getText()),K));
+        root = FXMLLoader.load(getClass().getClassLoader().getResource("filter.fxml"));
+        Scene scene = new Scene(root);
+        stage.setTitle("Signal chart");
+        stage.setScene(scene);
+        stage.show();
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -545,6 +569,20 @@ public class Controller implements Initializable {
         menu.getSelectionModel().selectedItemProperty().addListener((obs,oldValue,newValue)->{
             this.type=(SignalType) menu.getValue();
             choose();
+        });
+
+        sensorType.setItems( FXCollections.observableArrayList( SensorType.values()));
+        sensorType.setValue(SensorType.directCorrelation);
+        this.sensor.setType((SensorType) sensorType.getValue());
+        menu.getSelectionModel().selectedItemProperty().addListener((obs,oldValue,newValue)->{
+            this.sensor.setType((SensorType) sensorType.getValue());
+        });
+
+        filterTypeBox.setItems( FXCollections.observableArrayList( FilterType.values()));
+        filterTypeBox.setValue(FilterType.bottomHanning);
+        this.filterType=(FilterType) filterTypeBox.getValue();
+        menu.getSelectionModel().selectedItemProperty().addListener((obs,oldValue,newValue)->{
+            this.filterType=(FilterType) filterTypeBox.getValue();
         });
 
     }

@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<TabPane prefHeight="520.0" prefWidth="849.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.Controller">
+<TabPane prefHeight="558.0" prefWidth="871.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.Controller">
    <tabs>
       <Tab closable="false" text="Generowanie sygnału">
          <content>
@@ -269,7 +269,7 @@
       </Tab>
       <Tab text="Czujnik odległości">
          <content>
-            <GridPane>
+            <GridPane prefHeight="574.0" prefWidth="900.0">
               <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="333.0" minWidth="10.0" prefWidth="69.0" />
                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="430.0" minWidth="10.0" prefWidth="339.0" />
@@ -282,22 +282,23 @@
                   <RowConstraints maxHeight="400.0" minHeight="10.0" prefHeight="48.0" vgrow="SOMETIMES" />
                 <RowConstraints maxHeight="392.0" minHeight="10.0" prefHeight="48.0" vgrow="SOMETIMES" />
                   <RowConstraints maxHeight="392.0" minHeight="1.0" prefHeight="9.0" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="392.0" minHeight="10.0" prefHeight="42.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="392.0" minHeight="10.0" prefHeight="34.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="392.0" minHeight="10.0" prefHeight="54.0" vgrow="SOMETIMES" />
                   <RowConstraints maxHeight="392.0" minHeight="10.0" prefHeight="48.0" vgrow="SOMETIMES" />
                   <RowConstraints maxHeight="392.0" minHeight="10.0" prefHeight="48.0" vgrow="SOMETIMES" />
                   <RowConstraints maxHeight="392.0" minHeight="10.0" prefHeight="48.0" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="392.0" minHeight="10.0" prefHeight="48.0" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="251.0" minHeight="10.0" prefHeight="19.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="251.0" minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="251.0" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="251.0" minHeight="10.0" prefHeight="14.0" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="251.0" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="251.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                   <RowConstraints maxHeight="251.0" minHeight="10.0" prefHeight="21.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="251.0" minHeight="0.0" prefHeight="31.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="251.0" minHeight="10.0" prefHeight="28.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="251.0" minHeight="0.0" prefHeight="9.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="251.0" minHeight="8.0" prefHeight="25.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="251.0" minHeight="0.0" prefHeight="10.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
                      <children>
-                        <TextField prefHeight="25.0" prefWidth="431.0" />
+                        <TextField fx:id="signalSpeed" prefHeight="25.0" prefWidth="431.0" />
                      </children>
                   </HBox>
                   <Label text="Prędkość śledzonego obiektu" GridPane.columnIndex="1" GridPane.rowIndex="2" />
@@ -313,23 +314,67 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <TextField GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                  <TextField fx:id="targetSpeed" GridPane.columnIndex="2" GridPane.rowIndex="2" />
                   <Label text="Częstotliwość próbkowania sygnału" GridPane.columnIndex="1" GridPane.rowIndex="7" />
                   <Label text="Długość bufora" GridPane.columnIndex="1" GridPane.rowIndex="8" />
                   <Label text="Okres raportowania" GridPane.columnIndex="1" GridPane.rowIndex="9" />
                   <TextField GridPane.columnIndex="2" GridPane.rowIndex="6" />
-                  <TextField GridPane.columnIndex="2" GridPane.rowIndex="7" />
-                  <TextField GridPane.columnIndex="2" GridPane.rowIndex="8" />
-                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="14">
+                  <TextField fx:id="samplingFrequency" GridPane.columnIndex="2" GridPane.rowIndex="7" />
+                  <TextField fx:id="bufferLength" GridPane.columnIndex="2" GridPane.rowIndex="8" />
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="15">
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="218.0" text="Włącz czujnik" />
+                        <Button mnemonicParsing="false" onAction="#sensorController" prefHeight="25.0" prefWidth="218.0" text="Włącz czujnik" />
                      </children>
                   </HBox>
-                  <TextField GridPane.columnIndex="2" GridPane.rowIndex="9" />
-                  <Button fx:id="loadFirstFileToSensor" mnemonicParsing="false" onAction="#loadFirstSignalSensor" prefHeight="25.0" prefWidth="146.0" text="Wczytaj pierwszy sygnał" GridPane.columnIndex="1" GridPane.rowIndex="11" />
-                  <Button fx:id="loadSecondFileToSensor" mnemonicParsing="false" onAction="#loadSecondSignalSensor" prefHeight="25.0" prefWidth="146.0" text="Wczytaj drugi sygnał" GridPane.columnIndex="1" GridPane.rowIndex="12" />
-                  <TextField fx:id="loadedFirstFilePathSensor" GridPane.columnIndex="2" GridPane.rowIndex="11" />
-                  <TextField fx:id="loadedSecondFilePathSensor" GridPane.columnIndex="2" GridPane.rowIndex="12" />
+                  <TextField fx:id="raportPeriod" GridPane.columnIndex="2" GridPane.rowIndex="9" />
+                  <Label text="Typ sensora" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+                  <ChoiceBox fx:id="sensorType" prefHeight="25.0" prefWidth="430.0" GridPane.columnIndex="2" GridPane.rowIndex="10" />
+               </children>
+            </GridPane>
+         </content>
+      </Tab>
+      <Tab text="Filtr">
+         <content>
+            <GridPane prefHeight="574.0" prefWidth="900.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="333.0" minWidth="10.0" prefWidth="69.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="430.0" minWidth="10.0" prefWidth="339.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="397.0" minWidth="10.0" prefWidth="397.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="446.0" minWidth="10.0" prefWidth="66.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="392.0" minHeight="7.0" prefHeight="7.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="392.0" minHeight="10.0" prefHeight="42.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="400.0" minHeight="10.0" prefHeight="48.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="392.0" minHeight="10.0" prefHeight="48.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="251.0" minHeight="10.0" prefHeight="48.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="251.0" minHeight="0.0" prefHeight="9.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="251.0" minHeight="8.0" prefHeight="25.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="251.0" minHeight="0.0" prefHeight="10.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                     <children>
+                        <TextField fx:id="cutFrequency" prefHeight="25.0" prefWidth="431.0" />
+                     </children>
+                  </HBox>
+                  <Label text="Liczba współczynników" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Label text="Częstotliwość obcięcia" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <Label text="Parametry filtru" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="numberOfFactor" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="6">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#filterController" prefHeight="25.0" prefWidth="218.0" text="Filtruj" />
+                     </children>
+                  </HBox>
+                  <Label text="Rodzaj filtru" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <ChoiceBox fx:id="filterTypeBox" prefHeight="25.0" prefWidth="430.0" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                  <Button fx:id="loadFileToFilter" mnemonicParsing="false" onAction="#loadSignalFilter" prefHeight="25.0" prefWidth="146.0" text="Wczytaj sygnał" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                  <TextField fx:id="loadedFilePathFilter" GridPane.columnIndex="2" GridPane.rowIndex="5" />
                </children>
             </GridPane>
          </content>

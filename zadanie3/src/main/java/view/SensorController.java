@@ -10,21 +10,19 @@ import javafx.scene.layout.Pane;
 import signals.Point;
 import signals.Sensor;
 import signals.Signal;
+import signals.Target;
 
+import java.awt.*;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.concurrent.TimeUnit;
 
 public class SensorController implements Initializable {
 
 
+    Sensor sensor;
 
-
-    Signal soundingSignal;
-
-    Signal reflectedSignal;
-
-    Signal corelatedSignal;
-
+    boolean isWorking=false;
 
     @FXML
     Pane soundingChart;
@@ -35,6 +33,8 @@ public class SensorController implements Initializable {
     @FXML
     Pane corelatedChart;
 
+    @FXML
+    Button sensorButton;
 
     public void createLineChart(Pane pane , Signal signal){
 
@@ -60,20 +60,51 @@ public class SensorController implements Initializable {
 
     }
 
+    public void handleSensor() throws InterruptedException {
+
+        if(isWorking){
+            isWorking=false;
+            sensorButton.setLabel("stop");
+        } else {
+            isWorking=true;
+            sensorButton.setLabel("start");
+        }
+        int t=0;
+       Sensor sensor=States.getInstance().getSensor();
+        while (isWorking){
+
+            sensor.getTarget().setParameters(t);
+
+
+
+
+
+
+            TimeUnit.SECONDS.sleep(1);
+            t++;
+
+        }
+
+    }
+
 
 
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+/*
+        boolean isRunning=true;
+        sensor=States.getInstance().getSensor();
+        sensor.getTarget().run();
+        createLineChart(soundingChart, sensor.getSoundingSignal());
+      //  while(isRunning) {
+            sensor.setReflectedSignal();
+            sensor.distanceSensor();
 
-        soundingSignal= States.getInstance().getSoundingSignal();
-        reflectedSignal=States.getInstance().getReflectedsignal();
-        corelatedSignal=States.getInstance().getCorelatedSignal();
 
-
-        createLineChart(soundingChart,soundingSignal);
-        createLineChart(reflectedChart,reflectedSignal);
-        createLineChart(corelatedChart,corelatedSignal);
+            createLineChart(reflectedChart, sensor.getReflectedSignal());
+            createLineChart(corelatedChart, sensor.getCorelatedSignal());
+       // }*/
     }
 }

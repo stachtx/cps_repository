@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="563.0" prefWidth="828.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ChartController">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="563.0" prefWidth="828.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.SensorController">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
   </columnConstraints>
@@ -26,13 +29,37 @@
                     <rowConstraints>
                       <RowConstraints maxHeight="166.0" minHeight="10.0" prefHeight="130.0" vgrow="SOMETIMES" />
                       <RowConstraints maxHeight="233.0" minHeight="10.0" prefHeight="141.0" vgrow="SOMETIMES" />
-                      <RowConstraints maxHeight="220.0" minHeight="10.0" prefHeight="157.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="220.0" minHeight="10.0" prefHeight="132.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="220.0" minHeight="10.0" prefHeight="196.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="220.0" minHeight="10.0" prefHeight="81.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
                         <Pane fx:id="soundingChart" prefHeight="200.0" prefWidth="200.0" />
-                        <Pane fx:id="reflectedChart" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1" />
-                        <Pane fx:id="correlatedChart" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2" />
+                        <Pane fx:id="correlatedChart" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
+                           <children>
+                              <Pane fx:id="reflectedChart" layoutX="-334.0" layoutY="-63.0" prefHeight="184.0" prefWidth="828.0" />
+                           </children></Pane>
+                        <GridPane GridPane.rowIndex="3">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="407.0" minWidth="10.0" prefWidth="307.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="531.0" minWidth="10.0" prefWidth="521.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                              <RowConstraints maxHeight="99.0" minHeight="10.0" prefHeight="22.0" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="99.0" minHeight="10.0" prefHeight="46.0" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="57.0" minHeight="10.0" prefHeight="18.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <children>
+                                    <Button fx:id="sensorButton" mnemonicParsing="false" onAction="#handleSensor" prefHeight="25.0" prefWidth="195.0" text="start">
+                                       <HBox.margin>
+                                          <Insets right="20.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </GridPane>
                      </children>
                   </GridPane>
                </content></Tab>

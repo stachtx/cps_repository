@@ -5,6 +5,7 @@
  */
 package application;
 
+import signals.Sensor;
 import signals.Signal;
 
 import java.util.ResourceBundle;
@@ -16,12 +17,10 @@ public class States {
     private ResourceBundle bundle;
 
     private Signal signal;
+    private Signal secondSignal;
+    private Sensor sensor;
 
 
-
-    private Signal soundingSignal;
-    private Signal reflectedsignal;
-    private Signal corelatedSignal;
     public static States getInstance() {
         return instance;
     }
@@ -34,28 +33,20 @@ public class States {
         this.signal=signal;
     }
 
-    public Signal getSoundingSignal() {
-        return soundingSignal;
+    public Sensor getSensor() {
+        return sensor;
     }
 
-    public void setSoundingSignal(Signal soundingSignal) {
-        this.soundingSignal = soundingSignal;
+    public void setSensor(Sensor sensor) {
+        this.sensor = sensor;
     }
 
-    public Signal getReflectedsignal() {
-        return reflectedsignal;
+    public Signal getSecondSignal() {
+        return secondSignal;
     }
 
-    public void setReflectedsignal(Signal reflectedsignal) {
-        this.reflectedsignal = reflectedsignal;
-    }
-
-    public Signal getCorelatedSignal() {
-        return corelatedSignal;
-    }
-
-    public void setCorelatedSignal(Signal corelatedSignal) {
-        this.corelatedSignal = corelatedSignal;
+    public void setSecondSignal(Signal secondSignal) {
+        this.secondSignal = secondSignal;
     }
 
 }
