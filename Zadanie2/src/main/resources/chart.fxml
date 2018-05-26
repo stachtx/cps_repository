@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="563.0" prefWidth="828.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ChartController">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="620.0" prefWidth="828.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ChartController">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
   </columnConstraints>
@@ -70,9 +70,15 @@
                         <Pane fx:id="quant" />
                         <HBox alignment="TOP_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="1">
                            <children>
+                              <Label text="ilość przedziałów" />
+                              <TextField fx:id="quantLevelsText">
+                                 <HBox.margin>
+                                    <Insets left="10.0" />
+                                 </HBox.margin>
+                              </TextField>
                               <Label text="ilość bitów">
                                  <HBox.margin>
-                                    <Insets right="10.0" />
+                                    <Insets left="50.0" right="10.0" />
                                  </HBox.margin>
                               </Label>
                               <TextField fx:id="quantText">
@@ -102,16 +108,22 @@
                         <RowConstraints minHeight="10.0" percentHeight="11.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <HBox alignment="TOP_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="1">
+                        <HBox prefHeight="53.0" prefWidth="828.0" GridPane.rowIndex="1">
                            <children>
-                              <Label prefHeight="42.0" prefWidth="91.0" text="Typ rekonstrukcji">
+                              <Label prefHeight="30.0" prefWidth="166.0" text="częstotliwość rekonstrukcji (rf):">
                                  <HBox.margin>
-                                    <Insets right="10.0" />
+                                    <Insets left="10.0" />
                                  </HBox.margin>
                               </Label>
-                              <ChoiceBox fx:id="menu" prefHeight="25.0" prefWidth="400.0">
+                              <TextField fx:id="reconstructionFrequencyText" prefHeight="30.0" prefWidth="114.0" />
+                              <Label prefHeight="30.0" prefWidth="98.0" text="Typ rekonstrukcji:">
                                  <HBox.margin>
-                                    <Insets right="20.0" />
+                                    <Insets left="40.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <ChoiceBox fx:id="menu" prefHeight="30.0" prefWidth="400.0">
+                                 <HBox.margin>
+                                    <Insets right="10.0" />
                                  </HBox.margin>
                               </ChoiceBox>
                            </children>

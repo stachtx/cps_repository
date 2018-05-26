@@ -11,40 +11,80 @@ import java.util.function.DoubleToIntFunction;
 
 public   class SignalOperations {
 
+
+
+
+
     public static Signal sampling(Signal signal, double samplingFrequency /*ile próbek zostanie pobrane w danej sekundzie z sygnału*/) {
 
         Signal sampledSignal= new Signal();
 
-        int whichNextSample=0;
-        int newSignalSize=(int)((signal.getLastTime()-signal.getInitialTime())*samplingFrequency);
-        if(signal.getFrequency()>=samplingFrequency){
-            whichNextSample= (int)(signal.getFrequency()/samplingFrequency);
-        }else
-            whichNextSample = 1;
-        for(int i=0; i <=newSignalSize; i++){
-            if(i*whichNextSample<=signal.getX().size()){
-                sampledSignal.getX().add(signal.getX().get(i*whichNextSample));
-                sampledSignal.getY().add(signal.getY().get(i*whichNextSample));
+
+
+        int i = 0;
+        int stepNominator= 0;
+        Double start = signal.getInitialTime();
+        //double startTmp = (stepNominator / samplingFrequency) + signal.getInitialTime();
+        while (start < signal.getLastTime())
+        {
+            double startTmp = (stepNominator / samplingFrequency) + signal.getInitialTime();
+            start = startTmp;
+            if (signal.getX().get(i) >= start)
+            {
+                sampledSignal.getX().add(start);
+                sampledSignal.getY().add(signal.getY().get(i));
+                stepNominator++;
+                    System.out.println(i + " - " + signal.getX().get(i) + " - " + start);
             }
+            //System.out.println(signal.getX().get(i) + " - " + sampledSignal.getX().get(i));
+            i++;
         }
-        for(int i=0;i<=newSignalSize;i++){
-            System.out.println(sampledSignal.getX().get(i) + ", " + sampledSignal.getY().get(i));
-        }
-        System.out.println(sampledSignal.getX().size());
 
         return sampledSignal;
+    }
 
+    private static double round(double d, int decimalPlaces) {
+        double rounded = (int)d*Math.pow(10,decimalPlaces);
+        rounded = rounded / Math.pow(10,decimalPlaces);
+        return rounded;
     }
 
 
-
-    public static Signal quantize(Signal signal, int bits) {
+    //przerobić funkcję żeby przekazywana była liczba poziomów, bo z liczby bitów można wyliczyć też liczbę poziomów
+    public static Signal quantizeBits(Signal signal, int bits) {
 
         Signal quantizedSignal = copy(signal);
         List<Double> levels = new ArrayList<Double>();
-        double q = signal.getAmplitude() * 2.0 / (Math.pow(2, bits)-1);
+        double maximum = Collections.max(signal.getY());
+        double minimum = Collections.min(signal.getY());
+
+        double q = (Math.abs(maximum-minimum)) / (Math.pow(2, bits)-1);
+        //double q = (signal.getAmplitude()*2.0) / (Math.pow(2, bits)-1);
         for (int i = 0; i < Math.pow(2, bits); i++) {
-            levels.add(-signal.getAmplitude() + i * q);
+            levels.add(minimum + i * q);
+        }
+
+        for (int i = 0; i < signal.getX().size(); i++) {
+            quantizedSignal.getX().add(signal.getX().get(i));
+
+            final int ii = i;
+            Collections.sort(levels, Ordering.natural().onResultOf(p -> Math.abs(signal.getY().get(ii) - p)));
+            quantizedSignal.getY().add(levels.get(0));
+
+        }
+
+        return quantizedSignal;
+    }
+    public static Signal quantizeLevels(Signal signal, int numberOfLevels) {
+
+        double maximum = Collections.max(signal.getY());
+        double minimum = Collections.min(signal.getY());
+        double step= (Math.abs(maximum-minimum)) / (numberOfLevels-1);
+        Signal quantizedSignal = copy(signal);
+        List<Double> levels = new ArrayList<Double>();
+
+        for (int i = 0; i < numberOfLevels; i++) {
+            levels.add(minimum + i * step);
         }
 
         for (int i = 0; i < signal.getX().size(); i++) {
@@ -59,14 +99,14 @@ public   class SignalOperations {
         return quantizedSignal;
     }
 
-    public static Signal reconstruct(Signal signal, ReconstructionType type) {
+    public static Signal reconstruct(Signal signal, ReconstructionType type, double reconstructionFrequency) {
 
         switch (type) {
             case sinc:
-                return sincReconstruction(signal);
+                return sincReconstruction(signal, reconstructionFrequency);
 
             case zeroExploration:
-                return zeroExploration(signal);
+                return zeroExploration(signal, reconstructionFrequency);
 
             default:
                 return null;
@@ -95,17 +135,17 @@ public   class SignalOperations {
 
     }
 
-    public static Signal sincReconstruction(Signal signal/*dorobić parametr czestotliwość odzyskiwania*/) {
+    public static Signal sincReconstruction(Signal signal, double reconstructionFrequency) {
 
         double step=1/signal.getFrequency();
-        double sampF=50;
-        Signal sampledSignal = sampling(signal,sampF);
+        //double sampF=50;
+        Signal sampledSignal = sampling(signal,reconstructionFrequency);
         Signal reconstructedSignal = new Signal();
         double sincSum;
         for(Double i=sampledSignal.getX().get(0); i<=sampledSignal.getX().get(sampledSignal.getX().size()-1); i+=step) {
             sincSum=0.0;
             for(int j=0; j<sampledSignal.getX().size(); j++){
-                sincSum += sampledSignal.getY().get(j) * sinc(i/ (1/sampF) - j);
+                sincSum += sampledSignal.getY().get(j) * sinc(i/ (1/reconstructionFrequency) - j);
             }
             reconstructedSignal.getX().add(i);
             reconstructedSignal.getY().add(sincSum);
@@ -114,12 +154,12 @@ public   class SignalOperations {
         return reconstructedSignal;
     }
 
-    public static Signal zeroExploration(Signal signal/*dorobić parametr czestotliwość odzyskiwania*/) {
+    public static Signal zeroExploration(Signal signal, double reconstructionFrequency) {
         double step=1/signal.getFrequency();
-        double sampF=50;
+        //double sampF=50;
         int nextIndex=1;
         double lastValue;
-        Signal sampledSignal = sampling(signal,sampF);
+        Signal sampledSignal = sampling(signal,reconstructionFrequency);
         Signal reconstructedSignal = new Signal();
         lastValue=sampledSignal.getY().get(0);
 
@@ -132,10 +172,6 @@ public   class SignalOperations {
             reconstructedSignal.getY().add(lastValue);
         }
 
-
-        System.out.println("To co wazne");
-        System.out.println(step);
-        System.out.println(reconstructedSignal.getX().size());
         return reconstructedSignal;
 
     }
@@ -161,17 +197,18 @@ public   class SignalOperations {
 
     public static double MSE(Signal signal, Signal reconstructedSignal) {
         double meanSquareError = 0.0;
-        for (int i=0; i<signal.getX().size(); i++){
+        for (int i=0; i<reconstructedSignal.getX().size(); i++){
             meanSquareError+=Math.pow(signal.getY().get(i)-reconstructedSignal.getY().get(i),2);
         }
         return meanSquareError/signal.getX().size();
+        //return meanSquareError;
     }
 
     public static double SNR(Signal signal, Signal reconstructedSignal) {
         double signalNoiseRatio=0.0;
         double sum=0.0;
         double meanSquareError=MSE(signal, reconstructedSignal);
-        for(int i=0; i<signal.getX().size(); i++) {
+        for(int i=0; i<reconstructedSignal.getX().size(); i++) {
             sum += Math.pow(signal.getY().get(i),2);
         }
         signalNoiseRatio=10* Math.log10(sum/meanSquareError);
@@ -185,7 +222,7 @@ public   class SignalOperations {
         double up=0.0;
         double meanSquareError=MSE(signal, reconstructedSignal);
 
-        for (int i=0; i<signal.getX().size(); i++){
+        for (int i=0; i<reconstructedSignal.getX().size(); i++){
             listofValues.add(signal.getY().get(i));
         }
         up=Collections.max(listofValues);
@@ -197,7 +234,7 @@ public   class SignalOperations {
         double maximumDifference=0.0;
         List<Double> listofValues= new ArrayList<>();
 
-        for (int i=0; i<signal.getX().size(); i++){
+        for (int i=0; i<reconstructedSignal.getX().size(); i++){
             listofValues.add(Math.abs(signal.getY().get(i)-reconstructedSignal.getY().get(i)));
         }
 

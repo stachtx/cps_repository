@@ -3,6 +3,7 @@ package view;
 import application.ReconstructionType;
 import application.SignalType;
 import application.States;
+import com.sun.javafx.geom.Shape;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -34,7 +35,11 @@ public class ChartController implements Initializable {
     @FXML
     TextField samplingFrequencyText;
     @FXML
+    TextField reconstructionFrequencyText;
+    @FXML
     TextField quantText;
+    @FXML
+    TextField quantLevelsText;
     @FXML
     Pane samp;
     @FXML
@@ -169,116 +174,95 @@ public class ChartController implements Initializable {
 
     public void createSamplingChart(){
 
-        //przerabiam na jfreecharta bo tu mi niechce rysować 2 różnych na jednym wykresie
-
         Signal sampledSignal= SignalOperations.sampling(signal, Double.valueOf(samplingFrequencyText.getText()));
         final NumberAxis xAxis = new NumberAxis();
         final NumberAxis yAxis = new NumberAxis();
+
         xAxis.setLabel("czas");
-        ///*
-        //creating the dot chart
-        final ScatterChart<Number,Number> dotChart = new
-                ScatterChart<Number,Number>(xAxis,yAxis);
-        final LineChart<Number,Number> lineChart =
-                new LineChart<Number,Number>(xAxis,yAxis);
 
-        lineChart.setCreateSymbols(false);
-        lineChart.setLegendVisible(false);
-        dotChart.setLegendVisible(false);
-        //defining a series
-        XYChart.Series series = new XYChart.Series();
+        final ScatterChart<Number, Number> scatterChart = new ScatterChart<>(xAxis, yAxis);
+        final LineChart<Number,Number> lineChart = new LineChart<>(xAxis,yAxis);
+
         XYChart.Series secSeries= new XYChart.Series();
-        //populating the series with data
-        for(int i=0;i<signal.getY().size();i++){
-            series.getData().add(new XYChart.Data(signal.getX().get(i), signal.getY().get(i)));
-        }
+        secSeries.setName("signal");
         for(int i=0;i<sampledSignal.getY().size();i++){
             secSeries.getData().add(new XYChart.Data(sampledSignal.getX().get(i), sampledSignal.getY().get(i)));
         }
-        lineChart.getData().add(series);
-        dotChart.getData().add(secSeries);
 
-
-        lineChart.prefWidthProperty().bind(samp.widthProperty());
-        lineChart.prefHeightProperty().bind(samp.heightProperty());
-        dotChart.prefWidthProperty().bind(samp.widthProperty());
-        dotChart.prefHeightProperty().bind(samp.heightProperty());
-        Pane pane = new Pane();
-        pane.getChildren().add(dotChart);
-        //pane.getChildren().add(lineChart);
-        //samp.getChildren().add(dotChart);
-
-        //Scene scene = new Scene(samp);
-        Scene scene = new Scene(pane,800,600);
-        Stage stage= new Stage();
-        stage.setScene(scene);
-        stage.show();
-
-        //samp.getChildren().clear();
-        //samp.getChildren().add(dotChart);
-        //samp.getChildren().clear();
-        //samp.getChildren().add(lineChart);
-
-        //*/
-        /*
-        //creating the line chart
-        final LineChart<Number,Number> lineChart =
-                new LineChart<Number,Number>(xAxis,yAxis);
-
-        lineChart.setCreateSymbols(false);
-        lineChart.setLegendVisible(false);
-        //defining a series
         XYChart.Series series = new XYChart.Series();
-        XYChart.Series secSeries= new XYChart.Series();
-        //populating the series with data
+        series.setName("samples");
         for(int i=0;i<signal.getY().size();i++){
             series.getData().add(new XYChart.Data(signal.getX().get(i), signal.getY().get(i)));
         }
-        for(int i=0;i<sampledSignal.getY().size();i++){
-            secSeries.getData().add(new XYChart.Data(sampledSignal.getX().get(i), sampledSignal.getY().get(i)));
-        }
-        lineChart.getData().add(series);
-        lineChart.getData().add(secSeries);
+
+        lineChart.setCreateSymbols(false);
+        lineChart.setLegendVisible(false);
+        scatterChart.setLegendVisible(false);
+        //scatterChart.setShape();
+
+        lineChart.getData().addAll(series);
+        scatterChart.getData().addAll(secSeries);
 
         lineChart.prefWidthProperty().bind(samp.widthProperty());
         lineChart.prefHeightProperty().bind(samp.heightProperty());
+        scatterChart.prefWidthProperty().bind(samp.widthProperty());
+        scatterChart.prefHeightProperty().bind(samp.heightProperty());
         samp.getChildren().clear();
         samp.getChildren().add(lineChart);
-        */
+        samp.getChildren().add(scatterChart);
+
+        scatterChart.setOpacity(0.5);
     }
 
     public void createQuantisationChart(){
-        Signal quantisedSignal=SignalOperations.quantize(signal, Integer.parseInt(quantText.getText()));
+        Signal quantisedSignal= new Signal();
+
+        if(!quantText.getText().isEmpty() && quantLevelsText.getText().isEmpty()) {
+            quantisedSignal = SignalOperations.quantizeBits(signal, Integer.parseInt(quantText.getText()));
+        }else if(quantText.getText().isEmpty() && !quantLevelsText.getText().isEmpty()){
+            quantisedSignal = SignalOperations.quantizeLevels(signal, Integer.parseInt(quantLevelsText.getText()));
+        }
         final NumberAxis xAxis = new NumberAxis();
         final NumberAxis yAxis = new NumberAxis();
-        xAxis.setLabel("czas");
-        //creating the chart
-        final LineChart<Number,Number> lineChart =
-                new LineChart<Number,Number>(xAxis,yAxis);
 
-        lineChart.setCreateSymbols(false);
-        lineChart.setLegendVisible(false);
-        //defining a series
-        XYChart.Series series = new XYChart.Series();
+        xAxis.setLabel("czas");
+
+        final ScatterChart<Number, Number> scatterChart = new ScatterChart<>(xAxis, yAxis);
+        final LineChart<Number,Number> lineChart = new LineChart<>(xAxis,yAxis);
+
         XYChart.Series secSeries= new XYChart.Series();
-        //populating the series with data
-        for(int i=0;i<signal.getY().size();i++){
-            series.getData().add(new XYChart.Data(signal.getX().get(i), signal.getY().get(i)));
-        }
+        secSeries.setName("signal");
         for(int i=0;i<quantisedSignal.getY().size();i++){
             secSeries.getData().add(new XYChart.Data(quantisedSignal.getX().get(i), quantisedSignal.getY().get(i)));
         }
-        lineChart.getData().add(series);
-        lineChart.getData().add(secSeries);
+
+        XYChart.Series series = new XYChart.Series();
+        series.setName("samples");
+        for(int i=0;i<signal.getY().size();i++){
+            series.getData().add(new XYChart.Data(signal.getX().get(i), signal.getY().get(i)));
+        }
+
+        lineChart.setCreateSymbols(false);
+        lineChart.setLegendVisible(false);
+        scatterChart.setLegendVisible(false);
+        //scatterChart.setShape();
+
+        lineChart.getData().addAll(series);
+        scatterChart.getData().addAll(secSeries);
 
         lineChart.prefWidthProperty().bind(quant.widthProperty());
         lineChart.prefHeightProperty().bind(quant.heightProperty());
+        scatterChart.prefWidthProperty().bind(quant.widthProperty());
+        scatterChart.prefHeightProperty().bind(quant.heightProperty());
         quant.getChildren().clear();
         quant.getChildren().add(lineChart);
+        quant.getChildren().add(scatterChart);
+
+        scatterChart.setOpacity(0.5);
     }
 
     public void createReconstructionChart(){
-    Signal reconstructedSignal= SignalOperations.reconstruct(signal, type);
+    Signal reconstructedSignal= SignalOperations.reconstruct(signal, type, Double.valueOf(reconstructionFrequencyText.getText()));
     final NumberAxis xAxis = new NumberAxis();
     final NumberAxis yAxis = new NumberAxis();
     xAxis.setLabel("czas");
@@ -334,6 +318,7 @@ public class ChartController implements Initializable {
 
         samplingFrequencyText.setText(String.valueOf(1));
         quantText.setText(String.valueOf(8));
+        reconstructionFrequencyText.setText(String.valueOf(50));
 
         menu.setItems( FXCollections.observableArrayList( ReconstructionType.values()));
        // menu.setValue(ReconstructionType.sinc);
