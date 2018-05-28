@@ -52,7 +52,7 @@ public class SignalsCalculator {
 
             for (int j=0;j<secondSignal.getPoints().size();j++){
 
-                if(Objects.equals(firstSignal.getPoints().get(i).getX(),secondSignal.getPoints().get(j).getY())){
+                if(Objects.equals(firstSignal.getPoints().get(i).getX(),secondSignal.getPoints().get(j).getX())){
 
                     calculatedSignal.getPoints().add(new Point(firstSignal.getPoints().get(i).getX(),firstSignal.getPoints().get(i).getY()+secondSignal.getPoints().get(j).getY()));
                     count++;

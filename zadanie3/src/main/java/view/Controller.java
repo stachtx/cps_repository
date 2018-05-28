@@ -547,9 +547,8 @@ public class Controller implements Initializable {
         calculator=new SignalsCalculator(firstSignal,secondSignal);
         calculator.addSignals();
         Signal calculatedSignal=calculator.getCalculatedSignal();
-        double lastsample=Math.max(firstSignal.getPoints().get(firstSignal.getPoints().size()-1).getX(),secondSignal.getPoints().get(secondSignal.getPoints().size()-1).getX());
-        double firstsample=Math.min(firstSignal.getPoints().get(0).getX(),secondSignal.getPoints().get(0).getX());
-        double frequency=1/(lastsample-firstsample)/calculatedSignal.getPoints().size();
+
+        double frequency=1/Math.abs(calculatedSignal.getPoints().get(calculatedSignal.getPoints().size()-1).getX()-calculatedSignal.getPoints().get(0).getX())/calculatedSignal.getPoints().size();
         double K=frequency/Double.parseDouble(cutFrequency.getText());
         States.getInstance().setSignal(calculatedSignal);
         States.getInstance().setSecondSignal(Filter.filtrateSignal(filterType,calculatedSignal, Integer.parseInt(numberOfFactor.getText()),K));

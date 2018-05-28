@@ -14,7 +14,6 @@ public class Sensor {
     private double raportPeriod;                        // Okres raportowania
     private double signalSpeed;                         // Prędkość rozchodzenia sygnału
 
-
     //SYGNAŁY
     private Signal soundingSignal;                      // Sygnał sondujący
     private Signal reflectedSignal;                     // Sygnał odbity
@@ -36,10 +35,6 @@ public class Sensor {
 
     public double getRaportPeriod() {
         return raportPeriod;
-    }
-
-    public double getSignalSpeed() {
-        return signalSpeed;
     }
 
     public Signal getSoundingSignal() {
@@ -121,7 +116,7 @@ public class Sensor {
     public void distanceSensor(){
 
         this.generateReflectedSignal();
-        this.choose(soundingSignal.getAllY().subList(0,bufferLength),reflectedSignal.getAllX().subList(0,bufferLength));
+        this.choose(soundingSignal.getAllY().subList(0,bufferLength),reflectedSignal.getAllY().subList(0,bufferLength));
         double maxValue = Collections.max(corelatedSignal.getAllY());
         double centerValue=corelatedSignal.getPoints().get(Math.round(corelatedSignal.getPoints().size()/2)).getX();
         double shift= Math.abs(maxValue-centerValue);
