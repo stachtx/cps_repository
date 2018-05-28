@@ -33,8 +33,8 @@ public class Controller implements Initializable {
     private Signal signal;
     private SignalType type;
     private FilterType filterType;
+    private SensorType sensorType;
     private boolean isSignalWithSignaLFrequencyParameter;
-    private Sensor sensor=new Sensor();
 
     String pathToFile= new String();
     String pathfirstSignal, pathsecondSignal;
@@ -57,14 +57,14 @@ public class Controller implements Initializable {
     List <TextField> textFieldsList=new ArrayList<>();
 
     @FXML
-    ChoiceBox menu,sensorType, filterTypeBox;
+    ChoiceBox menu,sensorTypeBox, filterTypeBox;
     @FXML
     VBox labels;
     @FXML
     VBox textBoxes;
     @FXML
     Button generateButton;
-    @FXML TextField PathToLoadFile, loadedFirstFilePath, loadedFilePathFilter, loadedSecondFilePath, avg, avg2, avgPow, effVal, variance,targetSpeed,
+    @FXML TextField PathToLoadFile, loadedFirstFilePath, loadedFirstFilePathFilter,loadedSecondFilePathFilter, loadedSecondFilePath, avg, avg2, avgPow, effVal, variance,targetSpeed,
             signalSpeed,sondagePeriod,samplingFrequency,raportPeriod,bufferLength,cutFrequency, numberOfFactor;
 
     public String loadFile(TextField tf, boolean ifLoaded) throws IOException {
@@ -125,8 +125,12 @@ public class Controller implements Initializable {
         pathsecondSignal =loadFile(loadedSecondFilePath,false);
     }
 
-    public void loadSignalFilter(ActionEvent actionEvent) throws IOException {
-        pathfirstSignal =loadFile(loadedFilePathFilter,false);
+    public void loadFirstSignalFilter(ActionEvent actionEvent) throws IOException {
+        pathfirstSignal =loadFile(loadedFirstFilePathFilter,false);
+    }
+
+    public void loadSecondSignalFilter() throws IOException {
+        pathsecondSignal =loadFile(loadedSecondFilePathFilter,false);
     }
 
     public void saveFile() throws IOException {
@@ -397,8 +401,6 @@ public class Controller implements Initializable {
         signal.generateSignal();
     }
 
-    //@FXML
-
     @FXML
     public void handleGenerateButton(javafx.event.ActionEvent actionEvent) throws IOException {
 
@@ -495,6 +497,68 @@ public class Controller implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
+    @FXML
+    public void sensorController() throws IOException {
+
+        Stage stage = new Stage();
+        Parent root = null;
+        FXMLLoader loader=new FXMLLoader();
+        Signal first= new Signal();
+        Signal second = new Signal();
+        first.setType(SignalType.sin);
+        second.setType(SignalType.sin);
+        first.setFrequency(Double.parseDouble(samplingFrequency.getText()));
+        second.setFrequency(Double.parseDouble(samplingFrequency.getText()));
+        first.setInitialTime(0);
+        second.setInitialTime(0);
+        first.setLastTime(2);
+        second.setLastTime(2);
+        first.setAmplitude(2);
+        second.setAmplitude(2);
+        first.setBasicPeriod(Double.parseDouble(sondagePeriod.getText()));
+        second.setBasicPeriod(Double.parseDouble(sondagePeriod.getText()));
+        first.generateSignal();
+        second.generateSignal();
+        Sensor sensor= new Sensor(Integer.valueOf(bufferLength.getText()),
+                                 Double.valueOf(samplingFrequency.getText()),
+                                 Double.valueOf(raportPeriod.getText()),
+                                 Double.valueOf(signalSpeed.getText()),
+                                 this.sensorType,
+                                 new Target(Double.valueOf(targetSpeed.getText())),first,second);
+
+
+        States.getInstance().setSensor(sensor);
+
+        root = FXMLLoader.load(getClass().getClassLoader().getResource("sensor.fxml"));
+        Scene scene = new Scene(root);
+        stage.setTitle("Signal charts");
+        stage.setScene(scene);
+        stage.show();
+
+    }
+
+    public void filterController() throws IOException {
+
+        Stage stage = new Stage();
+        Parent root = null;
+        FXMLLoader loader=new FXMLLoader();
+        Signal firstSignal=signalLoader.load(pathfirstSignal);
+        Signal secondSignal=signalLoader.load(pathsecondSignal);
+        calculator=new SignalsCalculator(firstSignal,secondSignal);
+        calculator.addSignals();
+        Signal calculatedSignal=calculator.getCalculatedSignal();
+        double lastsample=Math.max(firstSignal.getPoints().get(firstSignal.getPoints().size()-1).getX(),secondSignal.getPoints().get(secondSignal.getPoints().size()-1).getX());
+        double firstsample=Math.min(firstSignal.getPoints().get(0).getX(),secondSignal.getPoints().get(0).getX());
+        double frequency=1/(lastsample-firstsample)/calculatedSignal.getPoints().size();
+        double K=frequency/Double.parseDouble(cutFrequency.getText());
+        States.getInstance().setSignal(calculatedSignal);
+        States.getInstance().setSecondSignal(Filter.filtrateSignal(filterType,calculatedSignal, Integer.parseInt(numberOfFactor.getText()),K));
+        root = FXMLLoader.load(getClass().getClassLoader().getResource("filter.fxml"));
+        Scene scene = new Scene(root);
+        stage.setTitle("Signal chart");
+        stage.setScene(scene);
+        stage.show();
+    }
 
     UnaryOperator<TextFormatter.Change> filter = new UnaryOperator<TextFormatter.Change>() {
 
@@ -520,45 +584,6 @@ public class Controller implements Initializable {
         }
     };
 
-    public void sensorController() throws IOException {
-
-        Stage stage = new Stage();
-        Parent root = null;
-        FXMLLoader loader=new FXMLLoader();
-       /* Sensor sensor=new Sensor();
-        sensor.setTarget(new Target(Double.valueOf(targetSpeed.getText())));
-        sensor.setType(SensorType.directCorrelation);//
-        sensor.setSoundingSignal(signalLoader.load(pathfirstSignal),signalLoader.load(pathsecondSignal));
-        sensor.setBufferLength(Integer.parseInt(bufferLength.getText()));
-        sensor.setRaportPeriod(Double.parseDouble(raportPeriod.getText()));
-        sensor.setSignalSpeed(Double.parseDouble(signalSpeed.getText()));
-        sensor.setSamplingFrequency(Double.parseDouble(samplingFrequency.getText()));
-       sensor.setSondagePeriod(Double.parseDouble(sondagePeriod.getText()));
-        States.getInstance().setSensor(sensor);*/
-        root = FXMLLoader.load(getClass().getClassLoader().getResource("sensor.fxml"));
-        Scene scene = new Scene(root);
-        stage.setTitle("Signal charts");
-        stage.setScene(scene);
-        stage.show();
-
-    }
-
-    public void filterController() throws IOException {
-
-        Stage stage = new Stage();
-        Parent root = null;
-        FXMLLoader loader=new FXMLLoader();
-        signal=signalLoader.load(pathfirstSignal);
-        double K=signal.getFrequency()/Double.parseDouble(cutFrequency.getText());
-        States.getInstance().setSignal(signal);
-        States.getInstance().setSecondSignal(Filter.filtrateSignal(filterType,signal, Integer.parseInt(numberOfFactor.getText()),K));
-        root = FXMLLoader.load(getClass().getClassLoader().getResource("filter.fxml"));
-        Scene scene = new Scene(root);
-        stage.setTitle("Signal chart");
-        stage.setScene(scene);
-        stage.show();
-    }
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -571,11 +596,11 @@ public class Controller implements Initializable {
             choose();
         });
 
-        sensorType.setItems( FXCollections.observableArrayList( SensorType.values()));
-        sensorType.setValue(SensorType.directCorrelation);
-        this.sensor.setType((SensorType) sensorType.getValue());
+        sensorTypeBox.setItems( FXCollections.observableArrayList( SensorType.values()));
+        sensorTypeBox.setValue(SensorType.directCorrelation);
+        sensorType=(SensorType)sensorTypeBox.getValue();
         menu.getSelectionModel().selectedItemProperty().addListener((obs,oldValue,newValue)->{
-            this.sensor.setType((SensorType) sensorType.getValue());
+            sensorType=(SensorType)sensorTypeBox.getValue();
         });
 
         filterTypeBox.setItems( FXCollections.observableArrayList( FilterType.values()));

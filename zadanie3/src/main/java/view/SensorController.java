@@ -2,25 +2,20 @@ package view;
 
 import application.States;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
+import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 import signals.Point;
 import signals.Sensor;
 import signals.Signal;
-import signals.Target;
+import javafx.scene.control.TextField;
 
-import java.awt.*;
-import java.net.URL;
-import java.util.ResourceBundle;
-import java.util.concurrent.TimeUnit;
+import java.util.List;
 
-public class SensorController implements Initializable {
+public class SensorController {
 
-
-    Sensor sensor;
 
     boolean isWorking=false;
 
@@ -34,13 +29,17 @@ public class SensorController implements Initializable {
     Pane corelatedChart;
 
     @FXML
-    Button sensorButton;
+    TextField current, calculatedPosition;
+
+    @FXML
+    Button button;
+
 
     public void createLineChart(Pane pane , Signal signal){
 
         final NumberAxis xAxis = new NumberAxis();
         final NumberAxis yAxis = new NumberAxis();
-        xAxis.setLabel("czas");
+        xAxis.setLabel("numer próbki");
         //creating the chart
         final LineChart<Number,Number> lineChart =
                 new LineChart<Number,Number>(xAxis,yAxis);
@@ -55,56 +54,64 @@ public class SensorController implements Initializable {
         }
 
         lineChart.getData().add(series);
+        lineChart.prefWidthProperty().bind(pane.widthProperty());
+        lineChart.prefHeightProperty().bind(pane.heightProperty());
         pane.getChildren().clear();
         pane.getChildren().add(lineChart);
 
     }
 
-    public void handleSensor() throws InterruptedException {
+    public void createLineChart(Pane pane , List<Double> listX, List<Double> listY){
 
-        if(isWorking){
-            isWorking=false;
-            sensorButton.setLabel("stop");
-        } else {
-            isWorking=true;
-            sensorButton.setLabel("start");
+        final NumberAxis xAxis = new NumberAxis();
+        final NumberAxis yAxis = new NumberAxis();
+        xAxis.setLabel("numer próbki");
+        //creating the chart
+        final LineChart<Number,Number> lineChart =
+                new LineChart<Number,Number>(xAxis,yAxis);
+
+        lineChart.setCreateSymbols(false);
+        lineChart.setLegendVisible(false);
+        //defining a series
+        XYChart.Series series = new XYChart.Series();
+        //populating the series with data
+        for(int i=0; i<listX.size();i++){
+            series.getData().add(new XYChart.Data(listX.get(i), listY.get(i)));
         }
-        int t=0;
-       Sensor sensor=States.getInstance().getSensor();
-        while (isWorking){
 
-            sensor.getTarget().setParameters(t);
-
-
-
-
-
-
-            TimeUnit.SECONDS.sleep(1);
-            t++;
-
-        }
+        lineChart.getData().add(series);
+        lineChart.prefWidthProperty().bind(pane.widthProperty());
+        lineChart.prefHeightProperty().bind(pane.heightProperty());
+        pane.getChildren().clear();
+        pane.getChildren().add(lineChart);
 
     }
+    public void handleSensor() throws InterruptedException {
+        int time=0;
+        if(isWorking){
+            isWorking=false;
+            button.setText("stop");
+        } else {
+            isWorking=true;
+            button.setText("start");
+        }
 
+       Sensor sensor=States.getInstance().getSensor();
+        this.createLineChart(soundingChart,sensor.getSoundingSignal());
 
+      //  while (isWorking){
 
-
-
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-/*
-        boolean isRunning=true;
-        sensor=States.getInstance().getSensor();
-        sensor.getTarget().run();
-        createLineChart(soundingChart, sensor.getSoundingSignal());
-      //  while(isRunning) {
-            sensor.setReflectedSignal();
+            Thread.sleep((int)sensor.getRaportPeriod()*1000);
+            time++;
+            sensor.getTarget().setParameters(time*sensor.getRaportPeriod());
             sensor.distanceSensor();
+         this.createLineChart(reflectedChart,sensor.getReflectedSignal());
+            //sensor.getSoundingSignal().getAllX(),sensor.getSoundingSignal().getAllY());
+            //sensor.getReflectedSignal().getAllX(),sensor.getReflectedSignal().getAllY());
+            this.createLineChart(corelatedChart,sensor.getCorelatedSignal());
+            calculatedPosition.setText(String.valueOf(sensor.getDistance()));
+            current.setText(String.valueOf(sensor.getTarget().getObjectPosition()));
+     //   }
 
-
-            createLineChart(reflectedChart, sensor.getReflectedSignal());
-            createLineChart(corelatedChart, sensor.getCorelatedSignal());
-       // }*/
     }
 }

@@ -16,23 +16,15 @@ public class Target {
 
     public void setParameters(double time) {
         this.time = time;
-        this.objectPosition+=time*targetSpeed;
+        this.objectPosition=time*targetSpeed;
     }
 
     public double getObjectPosition() {
         return objectPosition;
     }
 
-    public void setObjectPosition(double objectPosition) {
-        this.objectPosition = objectPosition;
-    }
-
     public double getTargetSpeed() {
         return targetSpeed;
-    }
-
-    public void setTargetSpeed(double targetSpeed) {
-        this.targetSpeed = targetSpeed;
     }
 
     public Target(double objectSpeed) {

@@ -318,7 +318,7 @@
                   <Label text="Częstotliwość próbkowania sygnału" GridPane.columnIndex="1" GridPane.rowIndex="7" />
                   <Label text="Długość bufora" GridPane.columnIndex="1" GridPane.rowIndex="8" />
                   <Label text="Okres raportowania" GridPane.columnIndex="1" GridPane.rowIndex="9" />
-                  <TextField GridPane.columnIndex="2" GridPane.rowIndex="6" />
+                  <TextField fx:id="sondagePeriod" GridPane.columnIndex="2" GridPane.rowIndex="6" />
                   <TextField fx:id="samplingFrequency" GridPane.columnIndex="2" GridPane.rowIndex="7" />
                   <TextField fx:id="bufferLength" GridPane.columnIndex="2" GridPane.rowIndex="8" />
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="15">
@@ -328,7 +328,7 @@
                   </HBox>
                   <TextField fx:id="raportPeriod" GridPane.columnIndex="2" GridPane.rowIndex="9" />
                   <Label text="Typ sensora" GridPane.columnIndex="1" GridPane.rowIndex="10" />
-                  <ChoiceBox fx:id="sensorType" prefHeight="25.0" prefWidth="430.0" GridPane.columnIndex="2" GridPane.rowIndex="10" />
+                  <ChoiceBox fx:id="sensorTypeBox" prefHeight="25.0" prefWidth="430.0" GridPane.columnIndex="2" GridPane.rowIndex="10" />
                </children>
             </GridPane>
          </content>
@@ -348,9 +348,11 @@
                   <RowConstraints maxHeight="400.0" minHeight="10.0" prefHeight="48.0" vgrow="SOMETIMES" />
                   <RowConstraints maxHeight="392.0" minHeight="10.0" prefHeight="48.0" vgrow="SOMETIMES" />
                   <RowConstraints maxHeight="251.0" minHeight="10.0" prefHeight="48.0" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="251.0" minHeight="0.0" prefHeight="9.0" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="251.0" minHeight="8.0" prefHeight="25.0" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="251.0" minHeight="0.0" prefHeight="10.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="251.0" minHeight="10.0" prefHeight="48.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="251.0" minHeight="10.0" prefHeight="48.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="251.0" minHeight="0.0" prefHeight="105.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="251.0" minHeight="8.0" prefHeight="65.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="251.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
@@ -366,15 +368,17 @@
                      </font>
                   </Label>
                   <TextField fx:id="numberOfFactor" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="6">
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="8">
                      <children>
                         <Button mnemonicParsing="false" onAction="#filterController" prefHeight="25.0" prefWidth="218.0" text="Filtruj" />
                      </children>
                   </HBox>
                   <Label text="Rodzaj filtru" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                   <ChoiceBox fx:id="filterTypeBox" prefHeight="25.0" prefWidth="430.0" GridPane.columnIndex="2" GridPane.rowIndex="4" />
-                  <Button fx:id="loadFileToFilter" mnemonicParsing="false" onAction="#loadSignalFilter" prefHeight="25.0" prefWidth="146.0" text="Wczytaj sygnał" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                  <TextField fx:id="loadedFilePathFilter" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+                  <Button fx:id="loadSecondFileToFilter" mnemonicParsing="false" onAction="#loadSecondSignalFilter" prefHeight="25.0" prefWidth="146.0" text="Wczytaj drugi sygnał" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                  <TextField fx:id="loadedSecondFilePathFilter" GridPane.columnIndex="2" GridPane.rowIndex="7" />
+                  <Button fx:id="loadFirstFileToFilter" mnemonicParsing="false" onAction="#loadFirstSignalFilter" prefHeight="25.0" prefWidth="146.0" text="Wczytaj pierwszy sygnał" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                  <TextField fx:id="loadedFirstFilePathFilter" GridPane.columnIndex="2" GridPane.rowIndex="6" />
                </children>
             </GridPane>
          </content>

@@ -274,7 +274,6 @@ public class Signal {
         double t=i/frequency+initialTime;
         points.add(new Point(t,amplitude* Math.sin((2*Math.PI/basicPeriod)*(t-initialTime))));
     }
-
    }
 
     //Sygnał sinusoidalny wyprostowany jednopołówkowo
@@ -325,6 +324,7 @@ public class Signal {
        }
    }
 
+    //Sygnał trójkątny
     public void tri() {
         int sampleAmount= (int) ((lastTime)*frequency);
         int k=0;
