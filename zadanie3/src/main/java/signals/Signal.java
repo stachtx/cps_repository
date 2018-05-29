@@ -269,10 +269,10 @@ public class Signal {
 
     //Sygnał sinusoidalny
     public void sin(){
-        int sampleAmount= (int) ((lastTime)*frequency);
+        int sampleAmount= (int) (lastTime*frequency+firstSampleNr);
     for(int i =firstSampleNr;i<=sampleAmount;i++){
         double t=i/frequency+initialTime;
-        points.add(new Point(t,amplitude* Math.sin((2*Math.PI/basicPeriod)*(t-initialTime))));
+        points.add(new Point(t-firstSampleNr/frequency,amplitude* Math.sin((2*Math.PI/basicPeriod)*(t-initialTime))));
     }
    }
 

@@ -14,15 +14,15 @@ public class Filter {
         int M=answer.size();
         int N=input.size();
 
-        for(int n=0;n<M+N-1;++n) {
-            double sum=0.0;
-            for (int k = 0; k < M; ++k) {
-                if(k<M && (n-k) >= 0 && (n-k)<N ){
-                    sum+=answer.get(k)*input.get(n-k);
-                }
-            }
+        for (int i = 0; i < M+N-1; i++) {
+            double sum = 0.0;
 
-            splicedSignal.getPoints().add(new Point((double) n, sum));
+            for (int k = 0; k < M; k++) {
+                try {
+                    sum+=answer.get(k)*input.get(i-k);
+                } catch (IndexOutOfBoundsException e) { }
+            }
+            splicedSignal.getPoints().add(new Point((double) i, sum));
         }
         return splicedSignal;
     }

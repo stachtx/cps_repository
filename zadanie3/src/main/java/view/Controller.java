@@ -35,7 +35,10 @@ public class Controller implements Initializable {
     private FilterType filterType;
     private SensorType sensorType;
     private boolean isSignalWithSignaLFrequencyParameter;
-
+    private double time=0.0;
+    private boolean isWorking=false;
+    private boolean isCreated=false;
+    private Sensor sensor;
     String pathToFile= new String();
     String pathfirstSignal, pathsecondSignal;
 
@@ -65,7 +68,7 @@ public class Controller implements Initializable {
     @FXML
     Button generateButton;
     @FXML TextField PathToLoadFile, loadedFirstFilePath, loadedFirstFilePathFilter,loadedSecondFilePathFilter, loadedSecondFilePath, avg, avg2, avgPow, effVal, variance,targetSpeed,
-            signalSpeed,sondagePeriod,samplingFrequency,raportPeriod,bufferLength,cutFrequency, numberOfFactor;
+            signalSpeed,sondagePeriod,sondagePeriod1,samplingFrequency,raportPeriod,bufferLength,cutFrequency, numberOfFactor,current,calculatedPosition;
 
     public String loadFile(TextField tf, boolean ifLoaded) throws IOException {
 
@@ -499,42 +502,82 @@ public class Controller implements Initializable {
     }
     @FXML
     public void sensorController() throws IOException {
+        if(!isCreated) {
+            Stage stage = new Stage();
+            Parent root = null;
+            FXMLLoader loader = new FXMLLoader();
+            Signal first = new Signal();
+            Signal second = new Signal();
+            first.setType(SignalType.sin);
+            second.setType(SignalType.sin);
+            first.setFrequency(Double.parseDouble(samplingFrequency.getText()));
+            second.setFrequency(Double.parseDouble(samplingFrequency.getText()));
+            first.setInitialTime(0);
+            second.setInitialTime(0);
+            double lastTime = Double.parseDouble(bufferLength.getText()) / Double.parseDouble(samplingFrequency.getText());
+            first.setLastTime(lastTime);
+            second.setLastTime(lastTime);
+            first.setAmplitude(2);
+            second.setAmplitude(2);
+            first.setBasicPeriod(Double.parseDouble(sondagePeriod.getText()));
+            second.setBasicPeriod(Double.parseDouble(sondagePeriod1.getText()));
+            first.generateSignal();
+            second.generateSignal();
+            double frequency = Double.parseDouble(samplingFrequency.getText());//1/Math.abs(first.getPoints().get(first.getPoints().size()-1).getX()-second.getPoints().get(0).getX())/second.getPoints().size();
 
-        Stage stage = new Stage();
-        Parent root = null;
-        FXMLLoader loader=new FXMLLoader();
-        Signal first= new Signal();
-        Signal second = new Signal();
-        first.setType(SignalType.sin);
-        second.setType(SignalType.sin);
-        first.setFrequency(Double.parseDouble(samplingFrequency.getText()));
-        second.setFrequency(Double.parseDouble(samplingFrequency.getText()));
-        first.setInitialTime(0);
-        second.setInitialTime(0);
-        first.setLastTime(2);
-        second.setLastTime(2);
-        first.setAmplitude(2);
-        second.setAmplitude(2);
-        first.setBasicPeriod(Double.parseDouble(sondagePeriod.getText()));
-        second.setBasicPeriod(Double.parseDouble(sondagePeriod.getText()));
-        first.generateSignal();
-        second.generateSignal();
-        Sensor sensor= new Sensor(Integer.valueOf(bufferLength.getText()),
-                                 Double.valueOf(samplingFrequency.getText()),
-                                 Double.valueOf(raportPeriod.getText()),
-                                 Double.valueOf(signalSpeed.getText()),
-                                 this.sensorType,
-                                 new Target(Double.valueOf(targetSpeed.getText())),first,second);
+             sensor = new Sensor(Integer.valueOf(bufferLength.getText()),
+                    frequency,
+                    Double.valueOf(raportPeriod.getText()),
+                    Double.valueOf(signalSpeed.getText()),
+                    this.sensorType,
+                    new Target(Double.valueOf(targetSpeed.getText())), first, second);
 
 
-        States.getInstance().setSensor(sensor);
+            States.getInstance().setSensor(sensor);
+            isCreated=true;
 
-        root = FXMLLoader.load(getClass().getClassLoader().getResource("sensor.fxml"));
+      /*  root = FXMLLoader.load(getClass().getClassLoader().getResource("sensor.fxml"));
         Scene scene = new Scene(root);
         stage.setTitle("Signal charts");
         stage.setScene(scene);
-        stage.show();
+        stage.show();*/
 
+        }
+
+
+        if(isWorking){
+            isWorking=false;
+            //button.setText("stop");
+        } else {
+            isWorking=true;
+           // button.setText("start");
+        }
+
+
+        Thread t = new Thread(new MyRunnable());
+        t.start();
+
+    }
+
+    public class MyRunnable implements Runnable {
+
+
+        public void run() {
+            while (isWorking){
+
+                try {
+                    Thread.sleep((long) (1000*sensor.getRaportPeriod()));
+                    time++;
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                sensor.getTarget().setParameters(time*sensor.getRaportPeriod());
+                sensor.distanceSensor();
+                calculatedPosition.setText(String.valueOf(sensor.getDistance()));
+                current.setText(String.valueOf(sensor.getTarget().getObjectPosition()));
+
+            }
+        }
     }
 
     public void filterController() throws IOException {

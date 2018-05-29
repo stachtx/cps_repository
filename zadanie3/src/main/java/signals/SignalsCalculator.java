@@ -31,15 +31,6 @@ public class SignalsCalculator {
 
     public Signal getCalculatedSignal(){ return this.calculatedSignal;}
 
-
-    /*public void addListToXAndY(List<Double> listOfX, List<Double> listOfY) {
-        clearSignalsList();
-        listX.add(listOfX);
-
-        listY.add(listOfY);
-    }*/
-
-
     public void addSignals(){
 
         calculatedSignal=new Signal();

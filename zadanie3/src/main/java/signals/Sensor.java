@@ -2,6 +2,8 @@
 package signals;
 
 import application.SensorType;
+
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import static signals.Filter.*;
@@ -18,6 +20,8 @@ public class Sensor {
     private Signal soundingSignal;                      // Sygnał sondujący
     private Signal reflectedSignal;                     // Sygnał odbity
     private Signal corelatedSignal;                     // Sygnał po przeprowadzonej korelacji
+    private Signal firstSubSignal;                      // Pierwszy podsygnał
+    private Signal secondSubSignal;                     // Drugi podsygnał
     private SensorType type;                            // Typ sensora
     private Target target;                              // Oddalający sięobiekt
     private double distance;                            // Obliczona odległość
@@ -30,6 +34,8 @@ public class Sensor {
         this.signalSpeed = signalSpeed;
         this.type = type;
         this.target = target;
+        this.firstSubSignal=first;
+        this.secondSubSignal=second;
         this.convertToSoundingSignal(first, second);
     }
 
@@ -70,17 +76,15 @@ public class Sensor {
     public void directCorrelationOfSignals (List<Double> first,List<Double> second){
 
         corelatedSignal=new Signal();
-        int M=first.size();
-        int N=second.size();
-        double sum;
-        for(int n = (int) Math.floor((M+N-1)/(-2)); n<M+N; n++) {
-            sum=0.0;
-            for (int k =0 ; k < M; k++) {
-                if(k<M && (n+k) >= 0 && (n+k)<N ){
-                    sum+= first.get(k)*second.get(n+k);
-                }
+        for (int i = -(second.size()-1), j = 0; i < first.size(); i++, j++) {
+            double sum = 0.0;
+
+            for (int k = 0; k < first.size(); k++) {
+                try {
+                    sum += first.get(k) * second.get(k-i);
+                } catch (IndexOutOfBoundsException e) { }
             }
-            corelatedSignal.getPoints().add(new Point((double) n, sum));
+            corelatedSignal.getPoints().add(new Point((double) j, sum));
         }
 
     }
@@ -105,42 +109,34 @@ public class Sensor {
     }
 
     public void  generateReflectedSignal(){
-        reflectedSignal= this.copy(soundingSignal);
-        double delay =2.0*target.getObjectPosition()/signalSpeed;
-        for(Point i : reflectedSignal.getPoints()){
-
-            i.setX(i.getX()*samplingFrequency-delay);
-        }
+        double delay =target.getObjectPosition()/signalSpeed;
+        firstSubSignal.setFirstSampleNr((int) (delay*samplingFrequency));
+        secondSubSignal.setFirstSampleNr((int) (delay*samplingFrequency));
+        firstSubSignal.getPoints().clear();
+        secondSubSignal.getPoints().clear();
+        firstSubSignal.generateSignal();
+        secondSubSignal.generateSignal();
+        SignalsCalculator sc=new SignalsCalculator(firstSubSignal,secondSubSignal);
+        sc.addSignals();
+        reflectedSignal=sc.getCalculatedSignal();
     }
 
     public void distanceSensor(){
 
         this.generateReflectedSignal();
         this.choose(soundingSignal.getAllY().subList(0,bufferLength),reflectedSignal.getAllY().subList(0,bufferLength));
-        double maxValue = Collections.max(corelatedSignal.getAllY());
-        double centerValue=corelatedSignal.getPoints().get(Math.round(corelatedSignal.getPoints().size()/2)).getX();
-        double shift= Math.abs(maxValue-centerValue);
+        Point maxValueSample = new Point(0.0, -Double.MAX_VALUE);
+        for (int i = corelatedSignal.getPoints().size() / 2; i < corelatedSignal.getPoints().size(); i++) {
+            if (corelatedSignal.getPoints().get(i).getY() > maxValueSample.getY()) {
+                maxValueSample = corelatedSignal.getPoints().get(i);
+            }
+        }
+        int maxValue = corelatedSignal.getPoints().indexOf(maxValueSample);
+        int centerValue=corelatedSignal.getPoints().size()/2;
+        double shift= Math.abs(maxValue-centerValue)/samplingFrequency;
         this.distance= shift *signalSpeed;
     }
 
-    public static Signal copy(Signal signal) {
-        Signal copySignal = new Signal();
-        copySignal.setPoints(signal.getPoints());
-        copySignal.setType(signal.getType());
-        copySignal.setAmplitude(signal.getAmplitude());
-        copySignal.setInitialTime(signal.getInitialTime());
-        copySignal.setLastTime(signal.getLastTime());
-        copySignal.setBasicPeriod(signal.getBasicPeriod());
-        copySignal.setFillFactor(signal.getFillFactor());
-        copySignal.setEntityChange(signal.getEntityChange());
-        copySignal.setFirstSampleNr(signal.getFirstSampleNr());
-        copySignal.setLastSampleNr(signal.getLastSampleNr());
-        copySignal.setChangeForSample(signal.getChangeForSample());
-        copySignal.setFrequency(signal.getFrequency());
-        copySignal.setProbability(signal.getProbability());
-        return copySignal;
-
-    }
 
 }
 

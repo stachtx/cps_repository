@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 
@@ -29,53 +24,14 @@
                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                     </columnConstraints>
                     <rowConstraints>
-                      <RowConstraints maxHeight="166.0" minHeight="10.0" percentHeight="30.0" prefHeight="130.0" vgrow="SOMETIMES" />
-                      <RowConstraints maxHeight="233.0" minHeight="10.0" percentHeight="30.0" prefHeight="141.0" vgrow="SOMETIMES" />
-                      <RowConstraints maxHeight="220.0" minHeight="10.0" percentHeight="30.0" prefHeight="196.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="220.0" minHeight="10.0" percentHeight="10.0" prefHeight="81.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="166.0" minHeight="10.0" percentHeight="33.0" prefHeight="130.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="233.0" minHeight="10.0" percentHeight="33.0" prefHeight="141.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="220.0" minHeight="10.0" percentHeight="33.0" prefHeight="196.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
                         <Pane fx:id="soundingChart" />
                         <Pane fx:id="reflectedChart" prefHeight="184.0" prefWidth="828.0" GridPane.rowIndex="1" />
                         <Pane fx:id="corelatedChart" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2" />
-                        <GridPane GridPane.rowIndex="3">
-                          <columnConstraints>
-                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="548.0" minWidth="10.0" prefWidth="548.0" />
-                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="531.0" minWidth="10.0" prefWidth="280.0" />
-                          </columnConstraints>
-                          <rowConstraints>
-                              <RowConstraints maxHeight="99.0" minHeight="10.0" prefHeight="22.0" vgrow="SOMETIMES" />
-                            <RowConstraints maxHeight="99.0" minHeight="10.0" prefHeight="46.0" vgrow="SOMETIMES" />
-                            <RowConstraints maxHeight="57.0" minHeight="10.0" prefHeight="18.0" vgrow="SOMETIMES" />
-                          </rowConstraints>
-                           <children>
-                              <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                                 <children>
-                                    <Button fx:id="button" mnemonicParsing="false" onAction="#handleSensor" prefHeight="25.0" prefWidth="195.0" text="start">
-                                       <HBox.margin>
-                                          <Insets right="20.0" />
-                                       </HBox.margin>
-                                    </Button>
-                                 </children>
-                              </HBox>
-                              <HBox alignment="CENTER_LEFT" prefHeight="33.0" prefWidth="563.0" GridPane.rowIndex="1">
-                                 <children>
-                                    <Label text="Aktualna odległość obiektu">
-                                       <HBox.margin>
-                                          <Insets left="10.0" right="10.0" />
-                                       </HBox.margin>
-                                    </Label>
-                                    <TextField fx:id="current" prefHeight="25.0" prefWidth="92.0" />
-                                    <Label text="Wyliczona odległóść">
-                                       <HBox.margin>
-                                          <Insets left="30.0" right="10.0" />
-                                       </HBox.margin>
-                                    </Label>
-                                    <TextField fx:id="calculatedPosition" prefHeight="25.0" prefWidth="92.0" />
-                                 </children>
-                              </HBox>
-                           </children>
-                        </GridPane>
                      </children>
                   </GridPane>
                </content></Tab>
