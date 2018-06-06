@@ -2,6 +2,7 @@ package signals;
 
 import application.SignalType;
 
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -227,6 +228,9 @@ public class Signal {
             case noiseImpulse:
                 noiseImpulse();
                 break;
+            case s2:
+                s2Signal();
+                break;
         }
     }
 
@@ -382,6 +386,15 @@ public class Signal {
         }
     }
 
+    public void s2Signal(){
+
+        int sampleAmount= (int) (lastTime*16+firstSampleNr);
+        for(int i =firstSampleNr;i<=sampleAmount;i++){
+            double t=i/16.0+initialTime;
+            points.add(new Point(t-firstSampleNr/16.0, 2*Math.sin(Math.PI*t)+Math.sin(2*Math.PI)+Math.sin(Math.PI*4*t)));
+        }
+    }
+
     //średnia
     public void average(){
 
@@ -443,8 +456,6 @@ public class Signal {
     public void countBasicPeriod(double signalFrequency) {
         this.basicPeriod= 1.0/signalFrequency;
     }
-
-
 
 }
 

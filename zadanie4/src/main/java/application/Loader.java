@@ -1,5 +1,7 @@
 package application;
 
+import complexSignals.ComplexPoint;
+import complexSignals.ComplexSignal;
 import signals.Point;
 import signals.Signal;
 
@@ -52,5 +54,31 @@ public class Loader {
         }
 
         return signal;
+    }
+
+    public ComplexSignal loadComplexSignal(String name) throws FileNotFoundException {
+        ComplexSignal complexSignal=new ComplexSignal ();
+        BufferedReader fileReader = new BufferedReader(new FileReader(name));
+
+        List<String> list = new ArrayList<String>();
+        File file = new File(name);
+        if(file.exists()){
+            try {
+                list = Files.readAllLines(file.toPath(), Charset.defaultCharset());
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+            if(list.isEmpty())
+                return new ComplexSignal();
+        }
+
+        //Loading points
+        for (int i=13;i<list.size();i++){
+
+            String [] res = list.get(i).split(" ");
+            complexSignal.getPoints().add(new ComplexPoint(Double.valueOf(res[0]),Double.valueOf(res[1]),Double.valueOf(res[2])));
+        }
+
+        return complexSignal;
     }
 }

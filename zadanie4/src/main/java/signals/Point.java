@@ -1,8 +1,8 @@
 package signals;
 
-import signals.interfaces.IPoint;
 
-public class Point implements IPoint {
+
+public class Point {
 
    private Double x;
    private Double y;

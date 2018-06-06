@@ -5,6 +5,7 @@
  */
 package application;
 
+import complexSignals.ComplexSignal;
 import signals.Sensor;
 import signals.Signal;
 
@@ -19,7 +20,7 @@ public class States {
     private Signal signal;
     private Signal secondSignal;
     private Sensor sensor;
-
+    private ComplexSignal complexSignal;
 
     public static States getInstance() {
         return instance;
@@ -49,4 +50,11 @@ public class States {
         this.secondSignal = secondSignal;
     }
 
+    public ComplexSignal getComplexSignal() {
+        return complexSignal;
+    }
+
+    public void setComplexSignal(ComplexSignal complexSignal) {
+        this.complexSignal = complexSignal;
+    }
 }

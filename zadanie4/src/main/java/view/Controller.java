@@ -1,6 +1,9 @@
 package view;
 
 import application.*;
+import complexSignals.ComplexOperations;
+import complexSignals.ComplexPoint;
+import complexSignals.ComplexSignal;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.event.EventType;
@@ -31,6 +34,7 @@ public class Controller implements Initializable {
     private Loader signalLoader = new Loader();
     private SignalsCalculator calculator;
     private Signal signal;
+    private ComplexSignal complexSignal;
     private SignalType type;
     private FilterType filterType;
     private SensorType sensorType;
@@ -40,7 +44,7 @@ public class Controller implements Initializable {
     private boolean isCreated=false;
     private Sensor sensor;
     String pathToFile= new String();
-    String pathfirstSignal, pathsecondSignal;
+    String pathfirstSignal, pathsecondSignal,pathComplexSignal;
 
     List<Label> labelList= Arrays.asList(
             new Label("Amplituda (A):"),
@@ -67,7 +71,7 @@ public class Controller implements Initializable {
     VBox textBoxes;
     @FXML
     Button generateButton;
-    @FXML TextField PathToLoadFile, loadedFirstFilePath, loadedFirstFilePathFilter,loadedSecondFilePathFilter, loadedSecondFilePath, avg, avg2, avgPow, effVal, variance,targetSpeed,
+    @FXML TextField loadedComplexFilePath,loadedFilePathToTransform, PathToLoadFile, loadedFirstFilePath, loadedFirstFilePathFilter,loadedSecondFilePathFilter, loadedSecondFilePath, avg, avg2, avgPow, effVal, variance,targetSpeed,
             signalSpeed,sondagePeriod,sondagePeriod1,samplingFrequency,raportPeriod,bufferLength,cutFrequency, numberOfFactor,current,calculatedPosition;
 
     public String loadFile(TextField tf, boolean ifLoaded) throws IOException {
@@ -221,6 +225,13 @@ public class Controller implements Initializable {
                 textFieldsList.get(1).setText(String.valueOf(signal.getLastSampleNr()));
                 textFieldsList.get(2).setText(String.valueOf(signal.getProbability()));
                 break;
+            case s2:
+                textFieldsList.get(0).setText(String.valueOf(signal.getAmplitude()));
+                textFieldsList.get(1).setText(String.valueOf(signal.getInitialTime()));
+                textFieldsList.get(2).setText(String.valueOf(signal.getLastTime()));
+                textFieldsList.get(3).setText(String.valueOf(signal.getBasicPeriod()));
+                textFieldsList.get(4).setText(String.valueOf(signal.getSignalFrequency()));
+                break;
         }
 
     }
@@ -299,6 +310,14 @@ public class Controller implements Initializable {
                         labelList.get(8),
                         labelList.get(10)));
                 break;
+            case s2:
+                labels.getChildren().addAll(Arrays.asList(
+                        labelList.get(0),
+                        labelList.get(1),
+                        labelList.get(2),
+                        labelList.get(3),
+                        labelList.get(11)));
+                isSignalWithSignaLFrequencyParameter=true;
         }
 
         for(int i =0;i<labels.getChildren().size();i++){
@@ -362,6 +381,7 @@ public class Controller implements Initializable {
             case sin:
             case sinOneHalf:
             case sinTwoHalf:
+
                 signal.setAmplitude(Double.parseDouble(textFieldsList.get(0).getText()));
                 signal.setInitialTime(Double.parseDouble(textFieldsList.get(1).getText()));
                 signal.setLastTime(Double.parseDouble(textFieldsList.get(2).getText()));
@@ -398,6 +418,13 @@ public class Controller implements Initializable {
                 signal.setFirstSampleNr(Integer.parseInt(textFieldsList.get(0).getText()));
                 signal.setLastSampleNr(Integer.parseInt(textFieldsList.get(1).getText()));
                 signal.setProbability(Double.parseDouble(textFieldsList.get(2).getText()));
+                break;
+            case s2:
+                signal.setAmplitude(Double.parseDouble(textFieldsList.get(0).getText()));
+                signal.setInitialTime(Double.parseDouble(textFieldsList.get(1).getText()));
+                signal.setLastTime(Double.parseDouble(textFieldsList.get(2).getText()));
+                signal.setBasicPeriod(Double.parseDouble(textFieldsList.get(3).getText()));
+                signal.setSignalFrequency(Double.parseDouble(textFieldsList.get(4).getText()));
                 break;
         }
 
@@ -500,6 +527,7 @@ public class Controller implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
+
     @FXML
     public void sensorController() throws IOException {
         if(!isCreated) {
@@ -535,13 +563,6 @@ public class Controller implements Initializable {
 
             States.getInstance().setSensor(sensor);
             isCreated=true;
-
-      /*  root = FXMLLoader.load(getClass().getClassLoader().getResource("sensor.fxml"));
-        Scene scene = new Scene(root);
-        stage.setTitle("Signal charts");
-        stage.setScene(scene);
-        stage.show();*/
-
         }
 
 
@@ -626,6 +647,86 @@ public class Controller implements Initializable {
         }
     };
 
+
+    ////////////////////////COMPLEX//////////////////////////////////////////
+    public void saveComplexSignalToFile() throws IOException {
+        Date date = new Date();
+        String saveNameFile = date.toString()+"[complex]";
+        saveNameFile = saveNameFile.replaceAll("[\\s|:]+","");
+        PrintWriter saver = new PrintWriter(saveNameFile);
+
+
+        for (ComplexPoint i : complexSignal.getPoints()) {
+            saver.println(i.getX()+ " "+i.getX() + " "+ i.getY()+ " "+i.getYI());
+        }
+        saver.close();
+    }
+
+    public String loadComplexSignalFile(TextField tf, boolean ifLoaded) throws IOException {
+        FileChooser fc = new FileChooser();
+        fc.getExtensionFilters().addAll();
+        File selectedFile = fc.showOpenDialog(null);
+        String path = selectedFile.getAbsolutePath();
+        DecimalFormat f = new DecimalFormat("0.###E0");
+        DecimalFormat df=new java.text.DecimalFormat(); //tworzymy obiekt DecimalFormat
+        df.setMaximumFractionDigits(3); //dla df ustawiamy największą ilość miejsc po przecinku
+        df.setMinimumFractionDigits(3);
+        if (selectedFile != null) {
+            tf.setText(path);
+            if (ifLoaded) {
+
+                complexSignal= signalLoader.loadComplexSignal(path);
+                Stage stage = new Stage();
+                Parent root = null;
+                FXMLLoader loader = new FXMLLoader();
+                States.getInstance().setComplexSignal(complexSignal);
+                root = FXMLLoader.load(getClass().getClassLoader().getResource("chart.fxml"));
+                Scene scene = new Scene(root);
+                stage.setTitle("Loaded signal charts");
+                stage.setScene(scene);
+                stage.show();
+            }
+        } else {
+            System.out.println("file is not valid");
+        }
+
+        return path;
+    }
+
+    public void loadSignalToTransform() throws IOException {
+        pathfirstSignal = loadFile(loadedFilePathToTransform,false);
+    }
+
+    public void loadComplexSignal() throws IOException {
+        pathComplexSignal =loadComplexSignalFile(loadedComplexFilePath,false);
+    }
+
+    public void transform() throws IOException {
+        complexSignal= ComplexOperations.computeDft(ComplexOperations.transformToComplexSignal(signal));
+        Stage stage = new Stage();
+        Parent root = null;
+        FXMLLoader loader=new FXMLLoader();
+        States.getInstance().setComplexSignal(complexSignal);
+        root = FXMLLoader.load(getClass().getClassLoader().getResource("fourier.fxml"));
+        Scene scene = new Scene(root);
+        stage.setTitle("Transformation charts");
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void showTransformed() throws IOException {
+
+        Stage stage = new Stage();
+        Parent root = null;
+        FXMLLoader loader=new FXMLLoader();
+        States.getInstance().setComplexSignal(complexSignal);
+        root = FXMLLoader.load(getClass().getClassLoader().getResource("fourier.fxml"));
+        Scene scene = new Scene(root);
+        stage.setTitle("Transformation charts");
+        stage.setScene(scene);
+        stage.show();
+    }
+    ////////////////////////////////////////////////////////////////////////
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 

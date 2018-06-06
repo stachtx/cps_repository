@@ -1,17 +1,16 @@
-package signals;
+package complexSignals;
 
-import signals.interfaces.IPoint;
 
-public class ComplexPoint implements IPoint {
+
+public class ComplexPoint  {
 
     private double x;
-    private double xI;
     private double y;
     private double yI;
 
-    public ComplexPoint(double x, double xI, double y, double yI) {
+    public ComplexPoint(double x, double y, double yI) {
         this.x = x;
-        this.xI = xI;
+
         this.y = y;
         this.yI = yI;
     }
@@ -24,14 +23,6 @@ public class ComplexPoint implements IPoint {
         this.x = x;
     }
 
-    public double getxI() {
-        return xI;
-    }
-
-    public void setxI(double xI) {
-        this.xI = xI;
-    }
-
     public double getY() {
         return y;
     }
@@ -40,11 +31,11 @@ public class ComplexPoint implements IPoint {
         this.y = y;
     }
 
-    public double getyI() {
+    public double getYI() {
         return yI;
     }
 
-    public void setyI(double yI) {
+    public void setYI(double yI) {
         this.yI = yI;
     }
 }

@@ -12,8 +12,8 @@ public enum  SignalType {
     tri("sygnał trójkątny"),
     entityChange("skok jednostkowy"),
     entityImpulse(" impuls jednostkowy"),
-    noiseImpulse(" szum impulsowy");
-
+    noiseImpulse(" szum impulsowy"),
+    s2 (" wariant s2");
 
     private String label;
 
