@@ -73,7 +73,7 @@ public class Loader {
         }
 
         //Loading points
-        for (int i=13;i<list.size();i++){
+        for (int i=0;i<list.size();i++){
 
             String [] res = list.get(i).split(" ");
             complexSignal.getPoints().add(new ComplexPoint(Double.valueOf(res[0]),Double.valueOf(res[1]),Double.valueOf(res[2])));

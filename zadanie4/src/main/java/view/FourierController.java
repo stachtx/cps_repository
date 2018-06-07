@@ -1,7 +1,6 @@
 package view;
 
 import application.States;
-import complexSignals.ComplexPoint;
 import complexSignals.ComplexSignal;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -9,9 +8,6 @@ import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.layout.Pane;
-import signals.Point;
-import signals.Signal;
-import signals.SignalOperations;
 
 import java.net.URL;
 import java.util.List;
@@ -58,6 +54,7 @@ public class FourierController implements Initializable {
         ComplexSignal complexSignal=States.getInstance().getComplexSignal();
         createDiscreteChart(complexSignal.getAllX(),complexSignal.getAllY(),w1UP);
         createDiscreteChart(complexSignal.getAllX(),complexSignal.getAllYI(),w1DOWN);
-        createDiscreteChart(complexSignal.getAllX(),complexSignal.getAllDiscreteNumbersAbs(),w2UP);
+        createDiscreteChart(complexSignal.getAllX(),complexSignal.getAllComplexNumbersAbs(),w2UP);
+        createDiscreteChart(complexSignal.getAllX(),complexSignal.getAllComplexNumbersArg(),w2DOWN);
     }
 }

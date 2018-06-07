@@ -420,7 +420,7 @@
                <children>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="1">
                      <children>
-                        <Button mnemonicParsing="false" onAction="#loadSignalToTransform" prefHeight="28.0" prefWidth="277.0" text="Wczytaj sygnał do transformacji" />
+                        <Button fx:id="loadFirstFileTotransform" mnemonicParsing="false" onAction="#loadSignalToTransform" prefHeight="28.0" prefWidth="277.0" text="Wczytaj sygnał do transformacji" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="2">
@@ -430,7 +430,7 @@
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="3">
                      <children>
-                        <Button fx:id="saveComplexSignalToFile" mnemonicParsing="false" prefHeight="28.0" prefWidth="277.0" text="Zapisz stransformowany sygnał" />
+                        <Button mnemonicParsing="false" onAction="#saveComplexSignalToFile" prefHeight="28.0" prefWidth="277.0" text="Zapisz stransformowany sygnał" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">

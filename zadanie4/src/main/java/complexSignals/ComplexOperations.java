@@ -16,9 +16,10 @@ public class ComplexOperations {
         return complexSignal;
     }
 
-    public static ComplexSignal computeDft(ComplexSignal input) {
+    public static ComplexSignal computeDft(ComplexSignal input,double frequency) {
         ComplexSignal complexSignal=new ComplexSignal();
         int n = input.getPoints().size();
+        double tmp=frequency/n;
         for (int k = 0; k < n; k++) {  // For each output element
             double sumreal = 0;
             double sumimag = 0;
@@ -27,7 +28,7 @@ public class ComplexOperations {
                 sumreal +=  input.getPoints().get(t).getY() * Math.cos(angle) + input.getPoints().get(t).getYI() * Math.sin(angle);
                 sumimag += -input.getPoints().get(t).getY() * Math.sin(angle) + input.getPoints().get(t).getYI() * Math.cos(angle);
             }
-            complexSignal.getPoints().add(new ComplexPoint(k,sumreal,sumimag));
+            complexSignal.getPoints().add(new ComplexPoint(k*tmp,sumreal,sumimag));
         }
         return complexSignal;
     }

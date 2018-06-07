@@ -13,53 +13,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Controller.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/view/Controller.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="48" column="41" lean-forward="true" selection-start-line="48" selection-start-column="41" selection-end-line="48" selection-end-column="41" />
-              <folding>
-                <element signature="e#5303#6316#0" />
-                <element signature="e#6322#10059#0" />
-                <element signature="e#10065#14875#0" />
-                <element signature="e#14881#18841#0" />
-                <element signature="e#18847#20161#0" />
-                <element signature="e#20167#20893#0" />
-                <element signature="e#20899#21542#0" />
-                <element signature="e#21548#22191#0" />
-                <element signature="e#22197#22836#0" />
-                <element signature="e#22842#24882#0" />
-                <element signature="e#24888#25553#0" />
-                <element signature="e#25559#26709#0" />
-                <element signature="class#26764:27444" />
-                <element signature="e#27452#27983#0" />
-                <element signature="e#27989#29307#0" />
-                <element signature="e#29313#29450#0" />
-                <element signature="e#29456#30758#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FXMLLoader.java" pinned="false" current-in-tab="false">
-        <entry file="jar://C:/Program Files/Java/jdk1.8.0_161/javafx-src.zip!/javafx/fxml/FXMLLoader.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-577">
-              <caret line="1770" selection-start-line="1770" selection-end-line="1770" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ComplexSignal.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ComplexSignal.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/complexSignals/ComplexSignal.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="377">
-              <caret line="127" column="41" lean-forward="true" selection-start-line="127" selection-start-column="41" selection-end-line="127" selection-end-column="41" />
+            <state relative-caret-position="119">
+              <caret line="7" selection-start-line="7" selection-end-line="7" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#getAllX#0;class#ComplexSignal#0" />
                 <element signature="method#getAllY#0;class#ComplexSignal#0" />
                 <element signature="method#getAllYI#0;class#ComplexSignal#0" />
+                <element signature="method#getAllComplexNumbersAbs#0;class#ComplexSignal#0" />
+                <element signature="method#getComplexNumberAbs#0;class#ComplexSignal#0" />
+                <element signature="method#getAllComplexNumbersArg#0;class#ComplexSignal#0" />
+                <element signature="method#getComplexNumberArg#0;class#ComplexSignal#0" />
               </folding>
             </state>
           </provider>
@@ -68,75 +35,10 @@
       <file leaf-file-name="FourierController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/view/FourierController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="404">
-              <caret line="58" selection-start-line="58" selection-end-line="58" />
+            <state relative-caret-position="433">
+              <caret line="58" column="5" lean-forward="true" selection-start-line="58" selection-start-column="5" selection-end-line="58" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ComplexOperations.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/complexSignals/ComplexOperations.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" selection-start-line="12" selection-end-line="12" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ComplexPoint.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/complexSignals/ComplexPoint.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="13" column="19" selection-start-line="13" selection-start-column="19" selection-end-line="13" selection-end-column="19" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Loader.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/application/Loader.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-              <folding>
-                <element signature="method#load#0;class#Loader#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Signal.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/signals/Signal.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="700">
-              <caret line="458" selection-start-line="458" selection-end-line="458" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#4798#4976#0" />
-                <element signature="e#4982#5160#0" />
-                <element signature="e#5166#6239#0" />
-                <element signature="e#6245#6590#0" />
-                <element signature="e#6596#7565#0" />
-                <element signature="e#7571#7906#0" />
-                <element signature="e#7912#8324#0" />
-                <element signature="e#8329#8682#0" />
-                <element signature="e#8687#9310#0" />
-                <element signature="e#9316#9961#0" />
-                <element signature="e#9967#10751#0" />
-                <element signature="e#10757#11247#0" />
-                <element signature="e#11253#11552#0" />
-                <element signature="e#11558#11905#0" />
-                <element signature="e#11912#12238#0" />
-                <element signature="e#12244#12425#0" />
-                <element signature="e#12431#12644#0" />
-                <element signature="e#12650#12857#0" />
-                <element signature="e#12863#13077#0" />
-                <element signature="e#13083#13291#0" />
               </folding>
             </state>
           </provider>
@@ -200,13 +102,13 @@
         <option value="$PROJECT_DIR$/src/main/java/application/States.java" />
         <option value="$PROJECT_DIR$/src/main/java/complexSignals/Dft.java" />
         <option value="$PROJECT_DIR$/src/main/java/complexSignals/ComplexPoint.java" />
-        <option value="$PROJECT_DIR$/src/main/java/complexSignals/ComplexOperations.java" />
         <option value="$PROJECT_DIR$/src/main/resources/fourier.fxml" />
-        <option value="$PROJECT_DIR$/src/main/java/view/FourierController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/application/Loader.java" />
-        <option value="$PROJECT_DIR$/src/main/java/complexSignals/ComplexSignal.java" />
-        <option value="$PROJECT_DIR$/src/main/java/view/Controller.java" />
         <option value="$PROJECT_DIR$/src/main/java/signals/Signal.java" />
+        <option value="$PROJECT_DIR$/src/main/java/application/Loader.java" />
+        <option value="$PROJECT_DIR$/src/main/java/view/Controller.java" />
+        <option value="$PROJECT_DIR$/src/main/java/complexSignals/ComplexOperations.java" />
+        <option value="$PROJECT_DIR$/src/main/java/view/FourierController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/complexSignals/ComplexSignal.java" />
       </list>
     </option>
   </component>
@@ -245,9 +147,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="AndroidView" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -272,6 +171,14 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="zadanie4" type="b2602c69:ProjectViewProjectNode" />
+              <item name="zadanie4" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="zadanie4" type="b2602c69:ProjectViewProjectNode" />
@@ -316,6 +223,9 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -531,11 +441,12 @@
       <workItem from="1528095000121" duration="480000" />
       <workItem from="1528216390752" duration="12162000" />
       <workItem from="1528300468363" duration="9195000" />
+      <workItem from="1528394252014" duration="6043000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="244256000" />
+    <option name="totallyTimeSpent" value="250299000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -543,7 +454,7 @@
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5234541" side_tool="true" weight="0.3191721" />
-      <window_info anchor="right" id="Maven Projects" order="4" visible="true" weight="0.1433902" />
+      <window_info anchor="right" id="Maven Projects" order="4" weight="0.1433902" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="4" />
@@ -559,10 +470,10 @@
       <window_info id="Image Layers" order="8" />
       <window_info anchor="right" id="Capture Analysis" order="6" />
       <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.47867805" weight="0.30392158" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.47867805" visible="true" weight="0.30392158" />
       <window_info anchor="bottom" id="Sequence" order="8" />
       <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.4978678" weight="0.32821077" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.3001066" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.3033049" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49573562" weight="0.3278867" />
       <window_info anchor="right" id="Theme Preview" order="7" />
       <window_info id="Favorites" order="7" side_tool="true" />
@@ -588,15 +499,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/view/Controller.java</url>
-          <line>696</line>
-          <properties />
-          <option name="timeStamp" value="49" />
-        </line-breakpoint>
-      </breakpoints>
-      <option name="time" value="53" />
+      <option name="time" value="55" />
     </breakpoint-manager>
   </component>
   <component name="antWorkspaceConfiguration">
@@ -785,23 +688,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/complexSignals/ComplexPoint.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="19" selection-start-line="13" selection-start-column="19" selection-end-line="13" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/view/SensorController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="40" column="4" selection-start-line="40" selection-start-column="4" selection-end-line="64" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/view/SensorController.java" />
     <entry file="file://$PROJECT_DIR$/src/main/resources/fourier.fxml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -820,10 +707,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/complexSignals/Dft.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/complexSignals/Dft.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/view/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        <state relative-caret-position="475">
+          <caret line="707" column="5" lean-forward="true" selection-start-line="707" selection-start-column="5" selection-end-line="707" selection-end-column="5" />
+          <folding>
+            <element signature="e#5370#6383#0" />
+            <element signature="e#6389#10126#0" />
+            <element signature="e#10132#14942#0" />
+            <element signature="e#14948#18908#0" />
+            <element signature="e#18914#20228#0" />
+            <element signature="e#20234#20960#0" />
+            <element signature="e#20966#21609#0" />
+            <element signature="e#21615#22258#0" />
+            <element signature="e#22264#22903#0" />
+            <element signature="e#22909#24949#0" />
+            <element signature="e#24955#25620#0" />
+            <element signature="e#25626#26776#0" />
+            <element signature="class#26831:27511" />
+            <element signature="e#30681#31983#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_161/javafx-src.zip!/javafx/fxml/FXMLLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1770" selection-start-line="1770" selection-end-line="1770" />
         </state>
       </provider>
     </entry>
@@ -837,79 +748,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/complexSignals/ComplexSignal.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/complexSignals/ComplexOperations.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="377">
-          <caret line="127" column="41" lean-forward="true" selection-start-line="127" selection-start-column="41" selection-end-line="127" selection-end-column="41" />
+        <state relative-caret-position="493">
+          <caret line="29" column="13" lean-forward="true" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#getAllX#0;class#ComplexSignal#0" />
-            <element signature="method#getAllY#0;class#ComplexSignal#0" />
-            <element signature="method#getAllYI#0;class#ComplexSignal#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/complexSignals/ComplexPoint.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="19" selection-start-line="13" selection-start-column="19" selection-end-line="13" selection-end-column="19" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/application/Loader.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+        <state relative-caret-position="408">
+          <caret line="72" column="9" lean-forward="true" selection-start-line="72" selection-start-column="9" selection-end-line="72" selection-end-column="9" />
           <folding>
             <element signature="method#load#0;class#Loader#0" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/view/FourierController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="404">
-          <caret line="58" selection-start-line="58" selection-end-line="58" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/complexSignals/ComplexOperations.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" selection-start-line="12" selection-end-line="12" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/view/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="48" column="41" lean-forward="true" selection-start-line="48" selection-start-column="41" selection-end-line="48" selection-end-column="41" />
-          <folding>
-            <element signature="e#5303#6316#0" />
-            <element signature="e#6322#10059#0" />
-            <element signature="e#10065#14875#0" />
-            <element signature="e#14881#18841#0" />
-            <element signature="e#18847#20161#0" />
-            <element signature="e#20167#20893#0" />
-            <element signature="e#20899#21542#0" />
-            <element signature="e#21548#22191#0" />
-            <element signature="e#22197#22836#0" />
-            <element signature="e#22842#24882#0" />
-            <element signature="e#24888#25553#0" />
-            <element signature="e#25559#26709#0" />
-            <element signature="class#26764:27444" />
-            <element signature="e#27452#27983#0" />
-            <element signature="e#27989#29307#0" />
-            <element signature="e#29313#29450#0" />
-            <element signature="e#29456#30758#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_161/javafx-src.zip!/javafx/fxml/FXMLLoader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-577">
-          <caret line="1770" selection-start-line="1770" selection-end-line="1770" />
         </state>
       </provider>
     </entry>
@@ -933,12 +795,33 @@
             <element signature="e#10757#11247#0" />
             <element signature="e#11253#11552#0" />
             <element signature="e#11558#11905#0" />
-            <element signature="e#11912#12238#0" />
-            <element signature="e#12244#12425#0" />
-            <element signature="e#12431#12644#0" />
-            <element signature="e#12650#12857#0" />
-            <element signature="e#12863#13077#0" />
-            <element signature="e#13083#13291#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/view/FourierController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="433">
+          <caret line="58" column="5" lean-forward="true" selection-start-line="58" selection-start-column="5" selection-end-line="58" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/complexSignals/ComplexSignal.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#getAllX#0;class#ComplexSignal#0" />
+            <element signature="method#getAllY#0;class#ComplexSignal#0" />
+            <element signature="method#getAllYI#0;class#ComplexSignal#0" />
+            <element signature="method#getAllComplexNumbersAbs#0;class#ComplexSignal#0" />
+            <element signature="method#getComplexNumberAbs#0;class#ComplexSignal#0" />
+            <element signature="method#getAllComplexNumbersArg#0;class#ComplexSignal#0" />
+            <element signature="method#getComplexNumberArg#0;class#ComplexSignal#0" />
           </folding>
         </state>
       </provider>

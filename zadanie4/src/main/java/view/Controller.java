@@ -88,7 +88,7 @@ public class Controller implements Initializable {
             tf.setText(path);
             if (ifLoaded) {
 
-                signal= signalLoader.load(path);
+                signal=signalLoader.load(path);
                 menu.setValue(signal.getType());
                 fillTextFields();
                 signal.average();
@@ -657,7 +657,7 @@ public class Controller implements Initializable {
 
 
         for (ComplexPoint i : complexSignal.getPoints()) {
-            saver.println(i.getX()+ " "+i.getX() + " "+ i.getY()+ " "+i.getYI());
+            saver.println(i.getX()+ " "+ i.getY()+ " "+i.getYI());
         }
         saver.close();
     }
@@ -676,15 +676,7 @@ public class Controller implements Initializable {
             if (ifLoaded) {
 
                 complexSignal= signalLoader.loadComplexSignal(path);
-                Stage stage = new Stage();
-                Parent root = null;
-                FXMLLoader loader = new FXMLLoader();
-                States.getInstance().setComplexSignal(complexSignal);
-                root = FXMLLoader.load(getClass().getClassLoader().getResource("chart.fxml"));
-                Scene scene = new Scene(root);
-                stage.setTitle("Loaded signal charts");
-                stage.setScene(scene);
-                stage.show();
+
             }
         } else {
             System.out.println("file is not valid");
@@ -694,15 +686,16 @@ public class Controller implements Initializable {
     }
 
     public void loadSignalToTransform() throws IOException {
-        pathfirstSignal = loadFile(loadedFilePathToTransform,false);
+        pathfirstSignal = loadFile(loadedFilePathToTransform,true);
     }
 
     public void loadComplexSignal() throws IOException {
-        pathComplexSignal =loadComplexSignalFile(loadedComplexFilePath,false);
+        pathComplexSignal =loadComplexSignalFile(loadedComplexFilePath,true);
     }
 
     public void transform() throws IOException {
-        complexSignal= ComplexOperations.computeDft(ComplexOperations.transformToComplexSignal(signal));
+
+        complexSignal= ComplexOperations.computeDft(ComplexOperations.transformToComplexSignal(signal),signal.getSignalFrequency());
         Stage stage = new Stage();
         Parent root = null;
         FXMLLoader loader=new FXMLLoader();
