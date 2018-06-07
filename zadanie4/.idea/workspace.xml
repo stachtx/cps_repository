@@ -13,11 +13,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ComplexSignal.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ComplexSignal.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/complexSignals/ComplexSignal.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" selection-start-line="7" selection-end-line="7" />
+            <state relative-caret-position="476">
+              <caret line="80" selection-start-line="80" selection-end-line="80" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#getAllX#0;class#ComplexSignal#0" />
@@ -32,13 +32,28 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FourierController.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="FourierController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/view/FourierController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="433">
-              <caret line="58" column="5" lean-forward="true" selection-start-line="58" selection-start-column="5" selection-end-line="58" selection-end-column="5" />
+            <state relative-caret-position="411">
+              <caret line="41" column="39" selection-start-line="41" selection-start-column="39" selection-end-line="41" selection-end-column="39" />
               <folding>
                 <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ChartController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/view/ChartController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="480">
+              <caret line="117" column="8" lean-forward="true" selection-start-line="117" selection-start-column="8" selection-end-line="117" selection-end-column="39" />
+              <folding>
+                <element signature="method#createHistogram#0;class#ChartController#0" />
+                <element signature="method#createSamplingChart#0;class#ChartController#0" />
+                <element signature="method#createQuantisationChart#0;class#ChartController#0" />
+                <element signature="method#createReconstructionChart#0;class#ChartController#0" />
               </folding>
             </state>
           </provider>
@@ -107,8 +122,8 @@
         <option value="$PROJECT_DIR$/src/main/java/application/Loader.java" />
         <option value="$PROJECT_DIR$/src/main/java/view/Controller.java" />
         <option value="$PROJECT_DIR$/src/main/java/complexSignals/ComplexOperations.java" />
-        <option value="$PROJECT_DIR$/src/main/java/view/FourierController.java" />
         <option value="$PROJECT_DIR$/src/main/java/complexSignals/ComplexSignal.java" />
+        <option value="$PROJECT_DIR$/src/main/java/view/FourierController.java" />
       </list>
     </option>
   </component>
@@ -147,6 +162,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -223,7 +239,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="AndroidView" />
     </panes>
@@ -441,42 +456,42 @@
       <workItem from="1528095000121" duration="480000" />
       <workItem from="1528216390752" duration="12162000" />
       <workItem from="1528300468363" duration="9195000" />
-      <workItem from="1528394252014" duration="6043000" />
+      <workItem from="1528394252014" duration="6205000" />
+      <workItem from="1528404132561" duration="480000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="250299000" />
+    <option name="totallyTimeSpent" value="250775000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5234541" side_tool="true" weight="0.3191721" />
-      <window_info anchor="right" id="Maven Projects" order="4" weight="0.1433902" />
-      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info id="Capture Tool" order="2" />
-      <window_info id="Designer" order="4" />
-      <window_info anchor="right" id="Database" order="5" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info id="UI Designer" order="5" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4936034" weight="0.39760348" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info id="simpleUML" order="3" />
       <window_info anchor="bottom" id="Messages" order="11" sideWeight="0.49573562" weight="0.3278867" />
       <window_info anchor="right" id="Palette&#9;" order="9" />
       <window_info id="Image Layers" order="8" />
       <window_info anchor="right" id="Capture Analysis" order="6" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5234541" side_tool="true" weight="0.3191721" />
+      <window_info anchor="right" id="Maven Projects" order="4" visible="true" weight="0.1433902" />
+      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.47867805" visible="true" weight="0.30392158" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.47867805" visible="true" weight="0.30392158" />
       <window_info anchor="bottom" id="Sequence" order="8" />
       <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.4978678" weight="0.32821077" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.3033049" />
-      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49573562" weight="0.3278867" />
+      <window_info id="Capture Tool" order="2" />
+      <window_info id="Designer" order="4" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.3065032" />
+      <window_info anchor="right" id="Database" order="5" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info id="UI Designer" order="5" />
       <window_info anchor="right" id="Theme Preview" order="7" />
       <window_info id="Favorites" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4936034" weight="0.39760348" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info id="Nl-Palette" order="6" />
@@ -484,6 +499,7 @@
       <window_info anchor="right" id="Properties" order="8" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49573562" weight="0.3278867" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -697,16 +713,6 @@
       </provider>
       <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/view/ChartController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="13">
-          <caret line="180" column="6" selection-start-line="180" selection-start-column="4" selection-end-line="209" selection-end-column="5" />
-          <folding>
-            <element signature="method#createHistogram#0;class#ChartController#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/complexSignals/Dft.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/view/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -779,40 +785,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="700">
           <caret line="458" selection-start-line="458" selection-end-line="458" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#4798#4976#0" />
-            <element signature="e#4982#5160#0" />
-            <element signature="e#5166#6239#0" />
-            <element signature="e#6245#6590#0" />
-            <element signature="e#6596#7565#0" />
-            <element signature="e#7571#7906#0" />
-            <element signature="e#7912#8324#0" />
-            <element signature="e#8329#8682#0" />
-            <element signature="e#8687#9310#0" />
-            <element signature="e#9316#9961#0" />
-            <element signature="e#9967#10751#0" />
-            <element signature="e#10757#11247#0" />
-            <element signature="e#11253#11552#0" />
-            <element signature="e#11558#11905#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/view/FourierController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="433">
-          <caret line="58" column="5" lean-forward="true" selection-start-line="58" selection-start-column="5" selection-end-line="58" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/complexSignals/ComplexSignal.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
+        <state relative-caret-position="476">
+          <caret line="80" selection-start-line="80" selection-end-line="80" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#getAllX#0;class#ComplexSignal#0" />
@@ -822,6 +801,29 @@
             <element signature="method#getComplexNumberAbs#0;class#ComplexSignal#0" />
             <element signature="method#getAllComplexNumbersArg#0;class#ComplexSignal#0" />
             <element signature="method#getComplexNumberArg#0;class#ComplexSignal#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/view/ChartController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="117" column="8" lean-forward="true" selection-start-line="117" selection-start-column="8" selection-end-line="117" selection-end-column="39" />
+          <folding>
+            <element signature="method#createHistogram#0;class#ChartController#0" />
+            <element signature="method#createSamplingChart#0;class#ChartController#0" />
+            <element signature="method#createQuantisationChart#0;class#ChartController#0" />
+            <element signature="method#createReconstructionChart#0;class#ChartController#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/view/FourierController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="411">
+          <caret line="41" column="39" selection-start-line="41" selection-start-column="39" selection-end-line="41" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

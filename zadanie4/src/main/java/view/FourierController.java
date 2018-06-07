@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.ScatterChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.layout.Pane;
 
@@ -47,7 +48,28 @@ public class FourierController implements Initializable {
         pane.getChildren().add(lineChart);
     }
 
+    /*public void createDiscreteChart(List<Double> arguments,List<Double> values, Pane pane){
 
+        final NumberAxis xAxis = new NumberAxis();
+        final NumberAxis yAxis = new NumberAxis();
+        final ScatterChart<Number,Number> dotChart = new
+                ScatterChart<Number,Number>(xAxis,yAxis);
+
+        dotChart.setLegendVisible(false);
+
+        XYChart.Series series = new XYChart.Series();
+
+        for(int i =0;i<arguments.size();i++){
+            series.getData().add(new XYChart.Data(arguments.get(i), values.get(i)));
+        }
+
+        dotChart.prefWidthProperty().bind(pane.widthProperty());
+        dotChart.prefHeightProperty().bind(pane.heightProperty());
+        dotChart.getData().add(series);
+        pane.getChildren().clear();
+        pane.getChildren().add(dotChart);
+    }
+*/
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
